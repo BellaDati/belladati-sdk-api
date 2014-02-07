@@ -1,6 +1,6 @@
-# BellaDati SDK
+# BellaDati SDK Interface Definitions
 
-This repository contains the main part of the BellaDati SDK; its interface definitions and Maven parent project.
+This repository contains the interface definitions of the BellaDati SDK.
 
 Related repositories are [belladati-sdk-java](https://github.com/BellaDati/belladati-sdk-java/) and [belladati-sdk-android](https://github.com/BellaDati/belladati-sdk-android/), containing the API implementations for standard Java and Android.
 
@@ -14,10 +14,8 @@ For setup instructions, dependencies, and example usage, please refer to the [Be
 
 A Java 6 JDK and [Apache Maven](http://maven.apache.org/) are required to build the BellaDati SDK. Maven is included in most Eclipse for Java distributions.
 
-To prepare building the SDK, clone [this repository](https://github.com/BellaDati/belladati-sdk-main), [belladati-sdk-java](https://github.com/BellaDati/belladati-sdk-java/) and [belladati-sdk-android](https://github.com/BellaDati/belladati-sdk-android/) into the same parent folder.
+To prepare building the SDK, clone [this repository](https://github.com/BellaDati/belladati-sdk-api), [belladati-sdk-java](https://github.com/BellaDati/belladati-sdk-java/) and [belladati-sdk-android](https://github.com/BellaDati/belladati-sdk-android/). If you don't want to build everything, it's enough to just clone the repository you want to build.
 
-The API declaration and its implementations are separate Maven modules that are part of the same Maven project. The project is declared in the folder `root` in this repository. The modules are defined in `api` and at the top level of the implementation repositories.
+You will need [GnuPG and a signing key](https://docs.sonatype.org/display/Repository/How+To+Generate+PGP+Signatures+With+Maven) in order to build signed jars. If you're fine with unsigned jars, you can go to each project's `pom.xml` and remove the plugin setup for `maven-gpg-plugin`.
 
-In the `root` folder of this repository, call `mvn install`. This will tell Maven to build the entire project including the API and both implementations.
-
-As a result, Maven creates a `target` directory in each module, containing the module's jar file and other build artifacts.
+When you're ready, call `mvn install` to build each project. Maven will create a `target` directory for each repository, containing the project's jar file and other build artifacts.
