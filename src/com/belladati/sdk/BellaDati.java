@@ -13,6 +13,24 @@ import com.belladati.sdk.exception.InvalidImplementationException;
  * allow reuse of connection resources. Most client applications will connect
  * only to a single BellaDati server - BellaDati cloud or an on-premise
  * installation - meaning only one connection should be used.
+ * <p />
+ * The SDK uses default timeouts of 10 seconds which should work fine for most
+ * servers and internet connections. For environments that require longer wait
+ * times, the timeouts can be configured using system properties:
+ * <ul>
+ * <li><strong>bdTimeout</strong>: Sets all timeouts without an individual
+ * setting to the given value.</li>
+ * <li><strong>bdConnectionRequestTimeout</strong>: Timeout for getting a
+ * connection from the local connection manager.</li>
+ * <li><strong>bdConnectTimeout</strong>: Timeout for establishing a connection
+ * to the server.</li>
+ * <li><strong>bdSocketTimeout</strong>: Timeout while waiting for data from the
+ * server.</li>
+ * </ul>
+ * All timeouts are set in milliseconds. These properties only affect new
+ * connections being created and don't change existing connections. If needed,
+ * set the timeouts before calling any of the {@link #connect()} methods.
+ * 
  * 
  * @author Chris Hennigfeld
  */
