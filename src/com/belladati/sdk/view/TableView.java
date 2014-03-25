@@ -88,40 +88,39 @@ public interface TableView extends View {
 		boolean hasTopHeader();
 
 		/**
-		 * Loads the left header between the given row indexes, inclusively.
+		 * Loads the left header between the given row indexes.
 		 * 
-		 * @param firstRow the first left header row to load
-		 * @param lastRow the last left header row to load
+		 * @param startRow the first left header row to load, starting at 0
+		 * @param endRow the row until which to load, exclusive
 		 * @return the left header between the given row indexes
 		 * @throws IllegalArgumentException if the first or last row are out of
 		 *             bounds, or firstRow is greater than lastRow
 		 */
-		JsonNode loadLeftHeader(int firstRow, int lastRow) throws IllegalArgumentException;
+		JsonNode loadLeftHeader(int startRow, int endRow) throws IllegalArgumentException;
 
 		/**
-		 * Loads the top header between the given column indexes, inclusively.
+		 * Loads the top header between the given column indexes.
 		 * 
-		 * @param firstColumn the first top header column to load
-		 * @param lastColumn the last top header column to load
+		 * @param startColumn the first top header column to load, starting at 0
+		 * @param endColumn the column until which to load, exclusive
 		 * @return the top header between the given column indexes
 		 * @throws IllegalArgumentException if the first or last column are out
 		 *             of bounds, or firstColumn is greater than lastColumn
 		 */
-		JsonNode loadTopHeader(int firstColumn, int lastColumn) throws IllegalArgumentException;
+		JsonNode loadTopHeader(int startColumn, int endColumn) throws IllegalArgumentException;
 
 		/**
-		 * Loads the table's data between the given row and column indexes,
-		 * inclusively.
+		 * Loads the table's data between the given row and column indexes.
 		 * 
-		 * @param firstRow the first data row to load
-		 * @param lastRow the last data row to load
-		 * @param firstColumn the first data column to load
-		 * @param lastColumn the last data column to load
+		 * @param startRow the first data row to load, starting at 0
+		 * @param endRow the row until which to load, exclusive
+		 * @param startColumn the first data column to load, starting at 0
+		 * @param endColumn the column until which to load, exclusive
 		 * @return the table's data between the given row and column indexes
 		 * @throws IllegalArgumentException if any of the indexes is out of
 		 *             bounds, or a first index is greater than the
 		 *             corresponding last index
 		 */
-		JsonNode loadData(int firstRow, int lastRow, int firstColumn, int lastColumn) throws IllegalArgumentException;
+		JsonNode loadData(int startRow, int endRow, int startColumn, int endColumn) throws IllegalArgumentException;
 	}
 }
