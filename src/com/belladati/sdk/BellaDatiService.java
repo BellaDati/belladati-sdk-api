@@ -17,6 +17,7 @@ import com.belladati.sdk.util.CachedCollection;
 import com.belladati.sdk.util.CachedList;
 import com.belladati.sdk.util.PaginatedIdList;
 import com.belladati.sdk.util.PaginatedList;
+import com.belladati.sdk.view.ViewLoader;
 import com.belladati.sdk.view.ViewType;
 
 /**
@@ -147,6 +148,16 @@ public interface BellaDatiService extends Serializable {
 	 * @throws NotFoundException if the ID wasn't found
 	 */
 	Object loadViewContent(String viewId, ViewType viewType, Collection<Filter<?>> filters) throws NotFoundException;
+
+	/**
+	 * Creates a loader to load the JSON representation of the view with the
+	 * given ID and type.
+	 * 
+	 * @param viewId ID of the view to load
+	 * @param viewType type of the view to load
+	 * @return a loader to load the JSON representation of the view
+	 */
+	ViewLoader createViewLoader(String viewId, ViewType viewType);
 
 	/**
 	 * Returns the possible values for the attribute with the given code in the
