@@ -6,6 +6,11 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+/**
+ * Units that can be used in BellaDati date intervals.
+ * 
+ * @author Chris Hennigfeld
+ */
 public enum DateUnit implements IntervalUnit {
 	DAY {
 		@Override
@@ -69,8 +74,7 @@ public enum DateUnit implements IntervalUnit {
 	};
 
 	@Override
-	public JsonNode buildAbsoluteNode(long timestamp) {
-		// TODO Auto-generated method stub
-		return null;
+	public String getUnitNodeName() {
+		return "dateInterval";
 	}
 }
