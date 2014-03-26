@@ -1,6 +1,7 @@
 package com.belladati.sdk.intervals;
 
 import com.belladati.sdk.exception.interval.NullIntervalException;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -63,4 +64,18 @@ public abstract class Interval<U extends IntervalUnit> {
 	 * @return the interval node containing the from/to definition
 	 */
 	abstract ObjectNode buildIntervalNode();
+
+	/**
+	 * Reads a whole number from the given field of the node. Accepts numbers,
+	 * numerical strings and fractions.
+	 * 
+	 * @param node node from which to read
+	 * @param field name of the field to read
+	 * @return the field's int value
+	 * @throws NumberFormatException if the content cannot be parsed to a number
+	 */
+	static int readInt(JsonNode node, String field) throws NumberFormatException {
+		String stringValue = node.get(field).asText();
+		return (int) Float.parseFloat(stringValue);
+	}
 }

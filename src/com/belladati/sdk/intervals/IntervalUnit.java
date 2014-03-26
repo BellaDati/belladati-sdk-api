@@ -1,5 +1,7 @@
 package com.belladati.sdk.intervals;
 
+import java.util.Calendar;
+
 import com.fasterxml.jackson.databind.JsonNode;
 
 /**
@@ -29,6 +31,15 @@ public interface IntervalUnit {
 	 *         given timestamp
 	 */
 	JsonNode buildAbsoluteNode(long timestamp);
+
+	/**
+	 * Parses an absolute date/time into a calendar. Fields not set in the unit
+	 * (e.g. the date part in a time unit) are set to 0.
+	 * 
+	 * @param node interval node to parse
+	 * @return the resulting interval unit
+	 */
+	Calendar parseAbsolute(JsonNode node);
 
 	/**
 	 * Returns the node name, i.e. <tt>dateInterval</tt> or

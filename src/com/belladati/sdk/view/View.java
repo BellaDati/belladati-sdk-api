@@ -3,6 +3,9 @@ package com.belladati.sdk.view;
 import java.util.Collection;
 
 import com.belladati.sdk.filter.Filter;
+import com.belladati.sdk.intervals.DateUnit;
+import com.belladati.sdk.intervals.Interval;
+import com.belladati.sdk.intervals.TimeUnit;
 import com.belladati.sdk.util.Resource;
 
 /**
@@ -51,6 +54,40 @@ public interface View extends Resource {
 	 * @return <tt>true</tt> if this view supports setting time intervals
 	 */
 	boolean isTimeIntervalSupported();
+
+	/**
+	 * Returns <tt>true</tt> if this view has a date interval defined in its
+	 * report.
+	 * 
+	 * @return <tt>true</tt> if this view has a date interval defined in its
+	 *         report
+	 */
+	boolean hasPredefinedDateInterval();
+
+	/**
+	 * Returns <tt>true</tt> if this view has a time interval defined in its
+	 * report.
+	 * 
+	 * @return <tt>true</tt> if this view has a time interval defined in its
+	 *         report
+	 */
+	boolean hasPredefinedTimeInterval();
+
+	/**
+	 * Returns the view's date interval defined in its report, or <tt>null</tt>
+	 * if there is no predefined interval.
+	 * 
+	 * @return the view's date interval defined in its report
+	 */
+	Interval<DateUnit> getPredefinedDateInterval();
+
+	/**
+	 * Returns the view's time interval defined in its report, or <tt>null</tt>
+	 * if there is no predefined interval.
+	 * 
+	 * @return the view's time interval defined in its report
+	 */
+	Interval<TimeUnit> getPredefinedTimeInterval();
 
 	/**
 	 * Creates a loader instance used to load this view with parameters.
