@@ -58,6 +58,20 @@ public abstract class Interval<U extends IntervalUnit> {
 		return toJson().toString();
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof Interval && getClass().equals(obj.getClass())) {
+			// both are intervals of the same type
+			return toString().equals(obj.toString());
+		}
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return toString().hashCode();
+	}
+
 	/**
 	 * Builds the interval node containing the from/to definition.
 	 * 
