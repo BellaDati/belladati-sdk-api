@@ -3,6 +3,7 @@ package com.belladati.sdk.report;
 import java.util.Date;
 import java.util.List;
 
+import com.belladati.sdk.dataset.DataSetInfo;
 import com.belladati.sdk.util.PaginatedList;
 import com.belladati.sdk.util.Resource;
 import com.belladati.sdk.view.View;
@@ -70,4 +71,11 @@ public interface Report extends Resource {
 	 * @param text text of the comment to post
 	 */
 	void postComment(String text);
+
+	/**
+	 * Returns the data set this report is built on.
+	 * 
+	 * @return the data set this report is built on
+	 */
+	DataSetInfo getDataSet();
 }
