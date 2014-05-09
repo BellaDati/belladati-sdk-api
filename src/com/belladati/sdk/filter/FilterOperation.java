@@ -1,9 +1,10 @@
 package com.belladati.sdk.filter;
 
 import com.belladati.sdk.BellaDatiService;
+import com.belladati.sdk.dataset.Attribute;
+import com.belladati.sdk.dataset.AttributeType;
 import com.belladati.sdk.filter.Filter.MultiValueFilter;
 import com.belladati.sdk.filter.Filter.NoValueFilter;
-import com.belladati.sdk.report.Attribute;
 import com.belladati.sdk.report.AttributeValue;
 import com.belladati.sdk.util.CachedList;
 
@@ -116,6 +117,11 @@ public abstract class FilterOperation<F extends Filter<?>> {
 		}
 
 		@Override
+		public String getId() {
+			return null;
+		}
+
+		@Override
 		public String getName() {
 			return code;
 		}
@@ -126,9 +132,13 @@ public abstract class FilterOperation<F extends Filter<?>> {
 		}
 
 		@Override
+		public AttributeType getType() {
+			return AttributeType.TEXT;
+		}
+
+		@Override
 		public CachedList<AttributeValue> getValues() {
 			return service.getAttributeValues(reportId, code);
 		}
-
 	}
 }

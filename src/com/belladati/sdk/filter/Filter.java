@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.belladati.sdk.report.Attribute;
+import com.belladati.sdk.dataset.Attribute;
 import com.belladati.sdk.report.AttributeValue;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;

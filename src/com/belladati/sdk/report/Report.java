@@ -3,6 +3,7 @@ package com.belladati.sdk.report;
 import java.util.Date;
 import java.util.List;
 
+import com.belladati.sdk.dataset.Attribute;
 import com.belladati.sdk.dataset.DataSetInfo;
 import com.belladati.sdk.util.PaginatedList;
 import com.belladati.sdk.util.Resource;
