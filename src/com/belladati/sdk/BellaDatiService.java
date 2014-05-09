@@ -6,6 +6,8 @@ import java.util.Collection;
 
 import com.belladati.sdk.dashboard.Dashboard;
 import com.belladati.sdk.dashboard.DashboardInfo;
+import com.belladati.sdk.dataset.DataSet;
+import com.belladati.sdk.dataset.DataSetInfo;
 import com.belladati.sdk.exception.server.NotFoundException;
 import com.belladati.sdk.filter.Filter;
 import com.belladati.sdk.report.AttributeValue;
@@ -190,4 +192,26 @@ public interface BellaDatiService extends Serializable {
 	 * @throws NotFoundException if the ID wasn't found
 	 */
 	Object loadUserImage(String userId) throws IOException, NotFoundException;
+
+	/**
+	 * Returns a paginated list to access data sets visible to the current user.
+	 * <p />
+	 * Initially, the returned list is empty. Call {@link PaginatedList#load()}
+	 * to load data set data.
+	 * 
+	 * @return a paginated list to access data sets visible to the current user
+	 */
+	PaginatedIdList<DataSetInfo> getDataSetInfo();
+
+	/**
+	 * Loads the data set with the specified ID.
+	 * <p />
+	 * This method makes an API call to BellaDati and may take some time to
+	 * complete.
+	 * 
+	 * @param id ID of the data set to load
+	 * @return the data set with the specified ID
+	 * @throws NotFoundException if the ID wasn't found
+	 */
+	DataSet loadDataSet(String id) throws NotFoundException;
 }
