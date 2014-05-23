@@ -9,6 +9,7 @@ import com.belladati.sdk.dashboard.DashboardInfo;
 import com.belladati.sdk.dataset.DataSet;
 import com.belladati.sdk.dataset.DataSetInfo;
 import com.belladati.sdk.dataset.data.DataTable;
+import com.belladati.sdk.exception.dataset.data.UnknownServerColumnException;
 import com.belladati.sdk.exception.server.NotFoundException;
 import com.belladati.sdk.filter.Filter;
 import com.belladati.sdk.report.AttributeValue;
@@ -223,6 +224,8 @@ public interface BellaDatiService extends Serializable {
 	 * 
 	 * @param id ID of the data set to upload to
 	 * @param data the data to upload
+	 * @throws UnknownServerColumnException if the data table contains a column
+	 *             that doesn't exist in the data set
 	 */
-	void uploadData(String id, DataTable data);
+	void uploadData(String id, DataTable data) throws UnknownServerColumnException;
 }

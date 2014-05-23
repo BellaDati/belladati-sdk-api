@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.belladati.sdk.dataset.data.DataTable;
 import com.belladati.sdk.exception.dataset.data.NoColumnsException;
+import com.belladati.sdk.exception.dataset.data.UnknownServerColumnException;
 import com.belladati.sdk.report.ReportInfo;
 import com.belladati.sdk.util.Resource;
 
@@ -72,6 +73,8 @@ public interface DataSet extends Resource {
 	 * 
 	 * @param data the data to upload
 	 * @return this data set
+	 * @throws UnknownServerColumnException if the data table contains a column
+	 *             that doesn't exist in the data set
 	 */
-	DataSet uploadData(DataTable data);
+	DataSet uploadData(DataTable data) throws UnknownServerColumnException;
 }
