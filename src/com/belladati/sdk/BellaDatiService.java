@@ -8,6 +8,7 @@ import com.belladati.sdk.dashboard.Dashboard;
 import com.belladati.sdk.dashboard.DashboardInfo;
 import com.belladati.sdk.dataset.DataSet;
 import com.belladati.sdk.dataset.DataSetInfo;
+import com.belladati.sdk.dataset.data.DataTable;
 import com.belladati.sdk.exception.server.NotFoundException;
 import com.belladati.sdk.filter.Filter;
 import com.belladati.sdk.report.AttributeValue;
@@ -214,4 +215,14 @@ public interface BellaDatiService extends Serializable {
 	 * @throws NotFoundException if the ID wasn't found
 	 */
 	DataSet loadDataSet(String id) throws NotFoundException;
+
+	/**
+	 * Uploads the given data into this data set. This method doesn't perform
+	 * any validation of the data; the caller should ensure it matches the data
+	 * set's structure.
+	 * 
+	 * @param id ID of the data set to upload to
+	 * @param data the data to upload
+	 */
+	void uploadData(String id, DataTable data);
 }
