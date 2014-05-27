@@ -7,6 +7,10 @@ import java.util.List;
 
 import com.belladati.sdk.exception.dataset.data.NoColumnsException;
 import com.belladati.sdk.exception.dataset.data.TooManyColumnsException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 /**
  * A table holding data ready for import. Ensures that each row sticks to the
@@ -91,5 +95,27 @@ public class DataTable {
 	 */
 	public List<String> getColumns() {
 		return columnCodes;
+	}
+
+	/**
+	 * Returns this table in JSON representation.
+	 * 
+	 * @return this table in JSON representation
+	 */
+	public JsonNode toJson() {
+		ObjectMapper mapper = new ObjectMapper();
+		ObjectNode node = mapper.createObjectNode();
+		ArrayNode columns = mapper.createArrayNode();
+		for (String columnCode : columnCodes) {
+			columns.add(mapper.createObjectNode().put("code", columnCode));
+		}
+		ArrayNode data = mapper.createArrayNode();
+		for (DataRow row : rows) {
+			data.add(row.toJson());
+		}
+
+		node.put("columns", columns);
+		node.put("data", data);
+		return node;
 	}
 }

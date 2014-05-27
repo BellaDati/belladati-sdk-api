@@ -24,7 +24,7 @@ public interface PaginatedIdList<T extends IdElement> extends PaginatedList<T> {
 	 * <tt>-1</tt> if this list doesn't contain such an element or the element
 	 * hasn't been loaded yet.
 	 * 
-	 * @param element ID of the element to search for
+	 * @param id ID of the element to search for
 	 * @return the index of the element with the given ID in this list, or
 	 *         <tt>-1</tt> if it doesn't exist
 	 */

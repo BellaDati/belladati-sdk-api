@@ -7,6 +7,9 @@ import java.util.Map;
 
 import com.belladati.sdk.exception.dataset.data.TooManyColumnsException;
 import com.belladati.sdk.exception.dataset.data.UnknownColumnException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
 /**
  * A single row in a data table. Enforces adherence to the parent table's data
@@ -104,5 +107,18 @@ public class DataRow {
 	 */
 	public List<String> getColumns() {
 		return columnCodes;
+	}
+
+	/**
+	 * Returns this row in JSON representation.
+	 * 
+	 * @return this row in JSON representation
+	 */
+	public JsonNode toJson() {
+		ArrayNode node = new ObjectMapper().createArrayNode();
+		for (String value : getAll()) {
+			node.add(value);
+		}
+		return node;
 	}
 }

@@ -178,7 +178,7 @@ public interface BellaDatiService extends Serializable {
 	/**
 	 * Loads the user with the given ID.
 	 * 
-	 * @param id ID of the user to load
+	 * @param userId ID of the user to load
 	 * @return the user with the specified ID
 	 * @throws NotFoundException if the ID wasn't found
 	 */
@@ -188,7 +188,7 @@ public interface BellaDatiService extends Serializable {
 	 * Loads the profile image of the user with the given ID. The Java type of
 	 * the image being returned depends on the implementation.
 	 * 
-	 * @param id ID of the user whose image to load
+	 * @param userId ID of the user whose image to load
 	 * @return the profile image of the user with the given ID
 	 * @throws IOException if no image exists or it cannot be loaded
 	 * @throws NotFoundException if the ID wasn't found
