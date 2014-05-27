@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.belladati.sdk.exception.dataset.data.NoColumnsException;
 import com.belladati.sdk.exception.dataset.data.TooManyColumnsException;
+import com.belladati.sdk.exception.dataset.data.UnknownColumnException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -22,6 +23,7 @@ public class DataTable {
 
 	private final List<DataColumn> columns;
 	private final List<DataRow> rows = new ArrayList<DataRow>();
+	private OverwritePolicy overwritePolicy = OverwritePolicy.deleteNone();
 
 	/**
 	 * Creates a new instance with the given column setup. At least one column
@@ -137,6 +139,47 @@ public class DataTable {
 	}
 
 	/**
+	 * Sets the overwrite policy to use with this table. If none is set,
+	 * {@link OverwritePolicy#deleteNone()} is used.
+	 * 
+	 * @param overwritePolicy the overwrite policy to use
+	 * @return this table, to allow chaining
+	 * @throws UnknownColumnException if any of the columns used in the policy
+	 *             doesn't exist in the table
+	 */
+	public DataTable setOverwritePolicy(OverwritePolicy overwritePolicy) throws UnknownColumnException {
+		for (String attribute : overwritePolicy.getAttributeCodes()) {
+			assertAttributeExists(attribute);
+		}
+		this.overwritePolicy = overwritePolicy;
+		return this;
+	}
+
+	/**
+	 * Asserts that the given attribute exists as a column in this table.
+	 * 
+	 * @param attribute the attribute to find
+	 * @throws UnknownColumnException if the attribute doesn't exist
+	 */
+	private void assertAttributeExists(String attribute) throws UnknownColumnException {
+		for (DataColumn column : columns) {
+			if (column.getCode().equals(attribute)) {
+				return;
+			}
+		}
+		throw new UnknownColumnException(attribute);
+	}
+
+	/**
+	 * Returns the current overwrite policy of this table.
+	 * 
+	 * @return the current overwrite policy of this table
+	 */
+	public OverwritePolicy getOverwritePolicy() {
+		return overwritePolicy;
+	}
+
+	/**
 	 * Returns this table in JSON representation.
 	 * 
 	 * @return this table in JSON representation
@@ -156,6 +199,7 @@ public class DataTable {
 
 		node.put("columns", columnsNode);
 		node.put("data", dataNode);
+		node.put("overwrite", overwritePolicy.toJson());
 		return node;
 	}
 }
