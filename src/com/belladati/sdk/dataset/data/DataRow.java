@@ -19,11 +19,11 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
  */
 public class DataRow {
 
-	private final List<String> columnCodes;
-	private final Map<String, String> content = new HashMap<String, String>();
+	private final List<DataColumn> columns;
+	private final Map<DataColumn, String> content = new HashMap<DataColumn, String>();
 
-	DataRow(List<String> columnCodes) {
-		this.columnCodes = columnCodes;
+	DataRow(List<DataColumn> columns) {
+		this.columns = columns;
 	}
 
 	/**
@@ -34,10 +34,12 @@ public class DataRow {
 	 * @throws UnknownColumnException if the column doesn't exist
 	 */
 	public String get(String columnCode) throws UnknownColumnException {
-		if (!columnCodes.contains(columnCode)) {
-			throw new UnknownColumnException(columnCode);
+		for (DataColumn column : columns) {
+			if (columnCode.equals(column.getCode())) {
+				return content.get(column);
+			}
 		}
-		return content.get(columnCode);
+		throw new UnknownColumnException(columnCode);
 	}
 
 	/**
@@ -48,7 +50,7 @@ public class DataRow {
 	 */
 	public List<String> getAll() {
 		List<String> values = new ArrayList<String>();
-		for (String column : columnCodes) {
+		for (DataColumn column : columns) {
 			values.add(content.get(column));
 		}
 		return values;
@@ -63,11 +65,13 @@ public class DataRow {
 	 * @throws UnknownColumnException if the column doesn't exist
 	 */
 	public DataRow set(String columnCode, String value) throws UnknownColumnException {
-		if (!columnCodes.contains(columnCode)) {
-			throw new UnknownColumnException(columnCode);
+		for (DataColumn column : columns) {
+			if (columnCode.equals(column.getCode())) {
+				content.put(column, value);
+				return this;
+			}
 		}
-		content.put(columnCode, value);
-		return this;
+		throw new UnknownColumnException(columnCode);
 	}
 
 	/**
@@ -91,11 +95,11 @@ public class DataRow {
 	 *             available after the offset
 	 */
 	public DataRow setAll(int offset, String... values) throws TooManyColumnsException {
-		if (offset + values.length > columnCodes.size()) {
-			throw new TooManyColumnsException(columnCodes.size(), offset + values.length);
+		if (offset + values.length > columns.size()) {
+			throw new TooManyColumnsException(columns.size(), offset + values.length);
 		}
-		for (int i = 0; i + offset < columnCodes.size() && i < values.length; i++) {
-			content.put(columnCodes.get(i), values[i - offset]);
+		for (int i = 0; i + offset < columns.size() && i < values.length; i++) {
+			content.put(columns.get(i), values[i - offset]);
 		}
 		return this;
 	}
@@ -105,8 +109,8 @@ public class DataRow {
 	 * 
 	 * @return all columns in this table
 	 */
-	public List<String> getColumns() {
-		return columnCodes;
+	public List<DataColumn> getColumns() {
+		return columns;
 	}
 
 	/**

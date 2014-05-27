@@ -20,7 +20,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  */
 public class DataTable {
 
-	private final List<String> columnCodes;
+	private final List<DataColumn> columns;
 	private final List<DataRow> rows = new ArrayList<DataRow>();
 
 	/**
@@ -32,11 +32,11 @@ public class DataTable {
 	 * @param firstColumn first column
 	 * @param otherColumns additional, optional columns
 	 */
-	public DataTable(String firstColumn, String... otherColumns) {
+	public static DataTable createBasicInstance(String firstColumn, String... otherColumns) {
 		List<String> list = new ArrayList<String>();
 		list.add(firstColumn);
 		list.addAll(Arrays.asList(otherColumns));
-		columnCodes = Collections.unmodifiableList(list);
+		return createBasicInstance(list);
 	}
 
 	/**
@@ -48,11 +48,50 @@ public class DataTable {
 	 * @param columns columns for the table
 	 * @throws NoColumnsException if the list is empty
 	 */
-	public DataTable(List<String> columns) throws NoColumnsException {
+	public static DataTable createBasicInstance(List<String> columns) throws NoColumnsException {
+		List<DataColumn> list = new ArrayList<DataColumn>();
+		for (String column : columns) {
+			list.add(new DataColumn(column));
+		}
+		return new DataTable(list);
+	}
+
+	/**
+	 * Creates a new instance with the given column setup. At least one column
+	 * must be specified in the table. Rows are allowed to be empty.
+	 * <p />
+	 * Columns should be unique, but the table doesn't enforce this.
+	 * 
+	 * @param firstColumn first column
+	 * @param otherColumns additional, optional columns
+	 */
+	public static DataTable createDetailedInstance(DataColumn firstColumn, DataColumn... otherColumns) {
+		List<DataColumn> list = new ArrayList<DataColumn>();
+		list.add(firstColumn);
+		for (DataColumn column : otherColumns) {
+			list.add(column);
+		}
+		return createDetailedInstance(list);
+	}
+
+	/**
+	 * Creates a new instance with the given column setup. At least one column
+	 * must be specified in the table. Rows are allowed to be empty.
+	 * <p />
+	 * Columns should be unique, but the table doesn't enforce this.
+	 * 
+	 * @param columns columns for the table
+	 * @throws NoColumnsException if the list is empty
+	 */
+	public static DataTable createDetailedInstance(List<DataColumn> columns) throws NoColumnsException {
+		return new DataTable(columns);
+	}
+
+	private DataTable(List<DataColumn> columns) throws NoColumnsException {
 		if (columns.isEmpty()) {
 			throw new NoColumnsException();
 		}
-		columnCodes = Collections.unmodifiableList(columns);
+		this.columns = Collections.unmodifiableList(new ArrayList<DataColumn>(columns));
 	}
 
 	/**
@@ -64,7 +103,7 @@ public class DataTable {
 	 *             available
 	 */
 	public DataTable createRow(String... values) throws TooManyColumnsException {
-		rows.add(new DataRow(columnCodes).setAll(values));
+		rows.add(new DataRow(columns).setAll(values));
 		return this;
 	}
 
@@ -74,7 +113,7 @@ public class DataTable {
 	 * @return the newly created row
 	 */
 	public DataRow createRow() {
-		DataRow row = new DataRow(columnCodes);
+		DataRow row = new DataRow(columns);
 		rows.add(row);
 		return row;
 	}
@@ -93,8 +132,8 @@ public class DataTable {
 	 * 
 	 * @return all columns in this table
 	 */
-	public List<String> getColumns() {
-		return columnCodes;
+	public List<DataColumn> getColumns() {
+		return columns;
 	}
 
 	/**
@@ -105,17 +144,18 @@ public class DataTable {
 	public JsonNode toJson() {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode node = mapper.createObjectNode();
-		ArrayNode columns = mapper.createArrayNode();
-		for (String columnCode : columnCodes) {
-			columns.add(mapper.createObjectNode().put("code", columnCode));
+
+		ArrayNode columnsNode = mapper.createArrayNode();
+		for (DataColumn column : columns) {
+			columnsNode.add(column.toJson());
 		}
-		ArrayNode data = mapper.createArrayNode();
+		ArrayNode dataNode = mapper.createArrayNode();
 		for (DataRow row : rows) {
-			data.add(row.toJson());
+			dataNode.add(row.toJson());
 		}
 
-		node.put("columns", columns);
-		node.put("data", data);
+		node.put("columns", columnsNode);
+		node.put("data", dataNode);
 		return node;
 	}
 }
