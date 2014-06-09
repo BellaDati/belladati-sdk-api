@@ -37,6 +37,28 @@ public interface BellaDatiConnection extends Serializable {
 	OAuthRequest oAuth(String consumerKey, String consumerSecret) throws ConnectionException, AuthorizationException;
 
 	/**
+	 * Initiates OAuth authentication by requesting a request token from the
+	 * BellaDati server.
+	 * <p>
+	 * After authorization, BellaDati redirects the user to the given URL. This
+	 * needs to be a valid URL.
+	 * 
+	 * @param consumerKey the consumer key configured in your BellaDati domain
+	 * @param consumerSecret the consumer secret configured in your BellaDati
+	 *            domain
+	 * @param redirectUrl BellaDati will redirect the user to this URL after
+	 *            successful authorization
+	 * @return the ongoing OAuth authentication
+	 * @throws IllegalArgumentException if the redirect URL is not a valid URL
+	 * @throws ConnectionException if connection to the server fails
+	 * @throws AuthorizationException if something went wrong during
+	 *             authentication, check
+	 *             {@link AuthorizationException#getReason()} for details
+	 */
+	OAuthRequest oAuth(String consumerKey, String consumerSecret, String redirectUrl) throws IllegalArgumentException,
+		ConnectionException, AuthorizationException;
+
+	/**
 	 * Authenticates to the BellaDati server using xAuth. To use xAuth, it must
 	 * be enabled in your domain.
 	 * <p />
