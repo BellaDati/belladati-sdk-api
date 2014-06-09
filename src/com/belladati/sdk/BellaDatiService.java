@@ -3,12 +3,16 @@ package com.belladati.sdk;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
 
 import com.belladati.sdk.dashboard.Dashboard;
 import com.belladati.sdk.dashboard.DashboardInfo;
 import com.belladati.sdk.dataset.DataSet;
 import com.belladati.sdk.dataset.DataSetInfo;
 import com.belladati.sdk.dataset.data.DataTable;
+import com.belladati.sdk.dataset.source.DataSource;
+import com.belladati.sdk.dataset.source.DataSourceImport;
+import com.belladati.sdk.dataset.source.DataSourcePendingImport;
 import com.belladati.sdk.exception.dataset.data.UnknownServerColumnException;
 import com.belladati.sdk.exception.server.NotFoundException;
 import com.belladati.sdk.filter.Filter;
@@ -166,7 +170,7 @@ public interface BellaDatiService extends Serializable {
 	/**
 	 * Returns the possible values for the attribute with the given code in the
 	 * report with the specified ID. This is a cached list, call
-	 * {@link CachedCollection#load()} to populate it initially.
+	 * {@link CachedCollection#loadFirstTime()} to populate it initially.
 	 * 
 	 * @param reportId ID of the report in which the attribute is used
 	 * @param attributeCode code of the attribute whose values to load
@@ -228,4 +232,37 @@ public interface BellaDatiService extends Serializable {
 	 *             that doesn't exist in the data set
 	 */
 	void uploadData(String id, DataTable data) throws UnknownServerColumnException;
+
+	/**
+	 * Returns the list of data sources for the data set with the given ID. This
+	 * is a cached list, call {@link CachedCollection#loadFirstTime()} to
+	 * populate it initially.
+	 * 
+	 * @param id ID of the data set whose sources to load
+	 * @return the list of data sources for the data set with the given ID
+	 * @throws NotFoundException if the ID wasn't found
+	 */
+	CachedList<DataSource> getDataSources(String id) throws NotFoundException;
+
+	/**
+	 * Returns the list of import configurations for the data source with the
+	 * given ID. This is a cached list, call
+	 * {@link CachedCollection#loadFirstTime()} to populate it initially.
+	 * 
+	 * @param id ID of the data source whose import configurations to load
+	 * @return the list of import configurations for the data source with the
+	 *         given ID
+	 * @throws NotFoundException if the ID wasn't found
+	 */
+	CachedList<DataSourceImport> getDataSourceImports(String id) throws NotFoundException;
+
+	/**
+	 * Sets up a {@link DataSourcePendingImport} instance for the data source
+	 * with the given ID. Call {@link DataSourcePendingImport#post()} to submit
+	 * it to the server.
+	 * 
+	 * @param date the date/time on which the import takes place
+	 * @return the import object for further configuration and submission
+	 */
+	DataSourcePendingImport setupDataSourceImport(String id, Date date);
 }

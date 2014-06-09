@@ -4,11 +4,19 @@ import java.util.Date;
 import java.util.List;
 
 import com.belladati.sdk.dataset.data.DataTable;
+import com.belladati.sdk.dataset.source.DataSource;
 import com.belladati.sdk.exception.dataset.data.NoColumnsException;
 import com.belladati.sdk.exception.dataset.data.UnknownServerColumnException;
 import com.belladati.sdk.report.ReportInfo;
+import com.belladati.sdk.util.CachedCollection;
+import com.belladati.sdk.util.CachedList;
 import com.belladati.sdk.util.Resource;
 
+/**
+ * A BellaDati data set definition.
+ * 
+ * @author Chris Hennigfeld
+ */
 public interface DataSet extends Resource {
 
 	/**
@@ -77,4 +85,13 @@ public interface DataSet extends Resource {
 	 *             that doesn't exist in the data set
 	 */
 	DataSet uploadData(DataTable data) throws UnknownServerColumnException;
+
+	/**
+	 * Returns the list of data sources for this data set. This is a cached
+	 * list, call {@link CachedCollection#loadFirstTime()} to populate it
+	 * initially.
+	 * 
+	 * @return the list of data sources for this data set
+	 */
+	CachedList<DataSource> getDataSources();
 }

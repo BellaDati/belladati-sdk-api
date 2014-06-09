@@ -37,7 +37,7 @@ public interface Attribute extends Resource {
 
 	/**
 	 * Returns the possible values for this attribute. This is a cached list,
-	 * call {@link CachedCollection#load()} to populate it initially.
+	 * call {@link CachedCollection#loadFirstTime()} to populate it initially.
 	 * 
 	 * @return all possible values for this attribute
 	 */

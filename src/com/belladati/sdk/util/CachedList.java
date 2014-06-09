@@ -20,6 +20,17 @@ public interface CachedList<T> extends CachedCollection<T, List<T>> {
 	CachedList<T> load();
 
 	/**
+	 * Loads the content of this list from the server if it hasn't been loaded
+	 * before. Calling this method is equivalent to:
+	 * <p />
+	 * <tt>if(!list.isLoaded() { list.load(); } </tt>
+	 * 
+	 * @return this list (for chaining)
+	 */
+	@Override
+	CachedList<T> loadFirstTime();
+
+	/**
 	 * Synonymous to {@link #get()}, returns this CachedList's contents as an
 	 * immutable List.
 	 * 
