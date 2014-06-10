@@ -11,11 +11,11 @@ import java.util.Date;
 public interface DataSourceImport extends DataSourceImportBase {
 
 	/**
-	 * Returns the date and time on which this import was last executed.
+	 * Returns the date and time on which this import will be executed next.
 	 * 
-	 * @return the date and time on which this import was last executed
+	 * @return the date and time on which this import will be executed next
 	 */
-	Date getLastExecutionDate();
+	Date getNextExecutionDate();
 
 	/**
 	 * Returns the name of the user who triggered this import.
