@@ -31,20 +31,22 @@ public interface DataSourcePendingImport extends DataSourceImportBase {
 	OverwritePolicy getOverwritePolicy();
 
 	/**
-	 * Sets the interval, in minutes, at which this import is repeated. By
-	 * default, the import isn't repeated.
+	 * Sets the interval at which this import is repeated. By default, the
+	 * import isn't repeated.
 	 * <p />
-	 * Set this number to <tt>0</tt> or a negative number to clear the interval.
+	 * Pass a unit of <tt>null</tt> or set the factor to <tt>0</tt> or a
+	 * negative number to clear the interval.
 	 * <p />
 	 * This method has no corresponding getter. Call
 	 * {@link #getRepeatInterval()} instead to retrieve the resulting interval.
 	 * 
-	 * @param minutes number of minutes between each subsequent import
+	 * @param unit time unit for the interval
+	 * @param factor interval length will be <tt>factor * unit</tt>
 	 * @return this import, to allow chaining
 	 * @throws IllegalStateException if the import has already been posted to
 	 *             the server
 	 */
-	DataSourcePendingImport setRepeatInterval(int minutes) throws IllegalStateException;
+	DataSourcePendingImport setRepeatInterval(ImportIntervalUnit unit, int factor) throws IllegalStateException;
 
 	/**
 	 * Submits this import configuration to the server, triggering an import.
