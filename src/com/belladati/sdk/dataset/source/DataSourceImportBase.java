@@ -12,12 +12,12 @@ import com.belladati.sdk.util.IdElement;
 public interface DataSourceImportBase extends IdElement {
 
 	/**
-	 * Returns the interval at which this import is executed.
+	 * Returns the interval at which this import is executed repeatedly.
 	 * 
 	 * @return the interval at which this import is executed, or <tt>null</tt>
 	 *         if this import isn't executed periodically
 	 */
-	ImportInterval getImportInterval();
+	ImportInterval getRepeatInterval();
 
 	/**
 	 * Returns <tt>true</tt> if this import has an overwrite policy and may

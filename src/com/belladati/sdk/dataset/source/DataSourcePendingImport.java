@@ -2,6 +2,7 @@ package com.belladati.sdk.dataset.source;
 
 import com.belladati.sdk.dataset.data.OverwritePolicy;
 import com.belladati.sdk.exception.server.NotFoundException;
+import com.fasterxml.jackson.databind.JsonNode;
 
 /**
  * An import configuration from a data source to a data set being created by the
@@ -36,7 +37,7 @@ public interface DataSourcePendingImport extends DataSourceImportBase {
 	 * Set this number to <tt>0</tt> or a negative number to clear the interval.
 	 * <p />
 	 * This method has no corresponding getter. Call
-	 * {@link #getImportInterval()} instead to retrieve the resulting interval.
+	 * {@link #getRepeatInterval()} instead to retrieve the resulting interval.
 	 * 
 	 * @param minutes number of minutes between each subsequent import
 	 * @return this import, to allow chaining
@@ -56,4 +57,12 @@ public interface DataSourcePendingImport extends DataSourceImportBase {
 	 *             the server
 	 */
 	void post() throws NotFoundException, IllegalStateException;
+
+	/**
+	 * Returns a JSON representation of this pending import to send to the
+	 * server. Used by the SDK internally.
+	 * 
+	 * @return a JSON representation of this pending import
+	 */
+	JsonNode toJson();
 }

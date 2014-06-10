@@ -68,7 +68,7 @@ public abstract class OverwritePolicy {
 	 * @return a policy deleting non-unique data by all attributes
 	 */
 	public static OverwritePolicy byAllAttributes() {
-		return new AllAttributeOverwritePolicy();
+		return AllAttributeOverwritePolicy.INSTANCE;
 	}
 
 	/**
@@ -256,6 +256,7 @@ public abstract class OverwritePolicy {
 	}
 
 	private static class AllAttributeOverwritePolicy extends OverwritePolicy {
+		private static final AllAttributeOverwritePolicy INSTANCE = new AllAttributeOverwritePolicy();
 
 		@Override
 		public JsonNode toJson() {
