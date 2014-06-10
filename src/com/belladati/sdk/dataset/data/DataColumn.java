@@ -43,8 +43,8 @@ public final class DataColumn {
 	/**
 	 * Sets this column's date or time format.
 	 * 
-	 * @return the date or time format for this column, or <tt>null</tt> to not
-	 *         use any
+	 * @param format the date or time format for this column, or <tt>null</tt>
+	 *            to not use any
 	 */
 	public void setFormat(String format) {
 		this.format = format;

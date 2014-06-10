@@ -16,7 +16,7 @@ public interface DataSourcePendingImport extends DataSourceImportBase {
 	 * Sets the overwrite policy to use during this import. If none is set,
 	 * {@link OverwritePolicy#deleteNone()} is used.
 	 * 
-	 * @param overwritePolicy the overwrite policy to use
+	 * @param policy the overwrite policy to use
 	 * @return this import, to allow chaining
 	 * @throws IllegalStateException if the import has already been posted to
 	 *             the server
