@@ -15,8 +15,9 @@ import com.belladati.sdk.exception.InvalidImplementationException;
  * installation - meaning only one connection should be used.
  * <p />
  * The SDK uses default timeouts of 10 seconds which should work fine for most
- * servers and internet connections. For environments that require longer wait
- * times, the timeouts can be configured using system properties:
+ * servers and internet connections. For environments that require different
+ * settings, timeouts and connection management can be configured using system
+ * properties:
  * <ul>
  * <li><strong>bdTimeout</strong>: Sets all timeouts without an individual
  * setting to the given value.</li>
@@ -26,6 +27,10 @@ import com.belladati.sdk.exception.InvalidImplementationException;
  * to the server.</li>
  * <li><strong>bdSocketTimeout</strong>: Timeout while waiting for data from the
  * server.</li>
+ * <li><strong>bdMaxConnections</strong>: Maximum number of simultaneous API
+ * connections. Defaults to 40, which should be plenty for most applications. If
+ * your application sends large amounts of concurrent requests, local caching
+ * may result in better performance than increasing this setting.</li>
  * </ul>
  * All timeouts are set in milliseconds. These properties only affect new
  * connections being created and don't change existing connections. If needed,
