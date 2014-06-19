@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.belladati.sdk.dataset.Attribute;
 import com.belladati.sdk.dataset.DataSetInfo;
+import com.belladati.sdk.util.Localizable;
 import com.belladati.sdk.util.PaginatedList;
 import com.belladati.sdk.util.Resource;
 import com.belladati.sdk.view.View;
@@ -15,7 +16,7 @@ import com.belladati.sdk.view.View;
  * 
  * @author Chris Hennigfeld
  */
-public interface Report extends Resource {
+public interface Report extends Resource, Localizable {
 
 	/**
 	 * Returns the description of this report.

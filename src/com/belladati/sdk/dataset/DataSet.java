@@ -10,6 +10,7 @@ import com.belladati.sdk.exception.dataset.data.UnknownServerColumnException;
 import com.belladati.sdk.report.ReportInfo;
 import com.belladati.sdk.util.CachedCollection;
 import com.belladati.sdk.util.CachedList;
+import com.belladati.sdk.util.Localizable;
 import com.belladati.sdk.util.Resource;
 
 /**
@@ -17,7 +18,7 @@ import com.belladati.sdk.util.Resource;
  * 
  * @author Chris Hennigfeld
  */
-public interface DataSet extends Resource {
+public interface DataSet extends Resource, Localizable {
 
 	/**
 	 * Returns the description of this data set.

@@ -2,6 +2,7 @@ package com.belladati.sdk.dataset;
 
 import java.util.Date;
 
+import com.belladati.sdk.util.Localizable;
 import com.belladati.sdk.util.ResourceInfo;
 
 /**
@@ -11,7 +12,7 @@ import com.belladati.sdk.util.ResourceInfo;
  * 
  * @author Chris Hennigfeld
  */
-public interface DataSetInfo extends ResourceInfo<DataSet> {
+public interface DataSetInfo extends ResourceInfo<DataSet>, Localizable {
 
 	/**
 	 * Returns the associated data set's description.

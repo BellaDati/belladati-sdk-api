@@ -6,6 +6,7 @@ import com.belladati.sdk.filter.Filter;
 import com.belladati.sdk.intervals.DateUnit;
 import com.belladati.sdk.intervals.Interval;
 import com.belladati.sdk.intervals.TimeUnit;
+import com.belladati.sdk.util.Localizable;
 import com.belladati.sdk.util.Resource;
 
 /**
@@ -14,7 +15,7 @@ import com.belladati.sdk.util.Resource;
  * 
  * @author Chris Hennigfeld
  */
-public interface View extends Resource {
+public interface View extends Resource, Localizable {
 
 	/**
 	 * Returns the type of this view.

@@ -3,8 +3,9 @@ package com.belladati.sdk.report;
 import java.io.IOException;
 import java.util.Date;
 
-import com.belladati.sdk.util.ResourceInfo;
+import com.belladati.sdk.util.Localizable;
 import com.belladati.sdk.util.PaginatedList;
+import com.belladati.sdk.util.ResourceInfo;
 
 /**
  * Information object about a BellaDati report. Use this to get meta-information
@@ -13,7 +14,7 @@ import com.belladati.sdk.util.PaginatedList;
  * 
  * @author Chris Hennigfeld
  */
-public interface ReportInfo extends ResourceInfo<Report> {
+public interface ReportInfo extends ResourceInfo<Report>, Localizable {
 
 	/**
 	 * Returns the associated report's description.
