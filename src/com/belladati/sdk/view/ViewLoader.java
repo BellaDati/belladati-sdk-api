@@ -1,6 +1,7 @@
 package com.belladati.sdk.view;
 
 import java.util.Collection;
+import java.util.Locale;
 
 import com.belladati.sdk.filter.Filter;
 import com.belladati.sdk.intervals.DateUnit;
@@ -74,4 +75,13 @@ public interface ViewLoader extends IdElement {
 	 * @return this loader
 	 */
 	ViewLoader addFilters(Collection<Filter<?>> filters);
+
+	/**
+	 * Sets the language in which to load the view. Elements that don't have a
+	 * translation in this language are sent in their default language.
+	 * 
+	 * @param locale locale for which to return the view
+	 * @return this loader
+	 */
+	ViewLoader setLocale(Locale locale);
 }

@@ -1,6 +1,7 @@
 package com.belladati.sdk.view;
 
 import java.util.Collection;
+import java.util.Locale;
 
 import com.belladati.sdk.filter.Filter;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -122,5 +123,27 @@ public interface TableView extends View {
 		 *             corresponding last index
 		 */
 		JsonNode loadData(int startRow, int endRow, int startColumn, int endColumn) throws IllegalArgumentException;
+
+		/**
+		 * Returns the locale in which to load table contents. Use
+		 * {@link ViewLoader#setLocale(Locale)} before calling
+		 * {@link ViewLoader#loadContent()} or {@link #setLocale(Locale)} on the
+		 * table to set it.
+		 * 
+		 * @return the locale in which to load table contents, or <tt>null</tt>
+		 *         if no specific locale was set
+		 */
+		Locale getLocale();
+
+		/**
+		 * Sets the locale in which to load table contents. Elements that don't
+		 * have a translation in this language are sent in their default
+		 * language. Set to <tt>null</tt> to return all elements in default
+		 * language.
+		 * 
+		 * @param locale the locale in which to load table contents
+		 * @return this table
+		 */
+		Table setLocale(Locale locale);
 	}
 }
