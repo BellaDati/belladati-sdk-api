@@ -46,7 +46,7 @@ public enum DateUnit implements IntervalUnit {
 
 		@Override
 		public Calendar parseAbsolute(JsonNode node) {
-			Calendar cal = new GregorianCalendar(Interval.readInt(node, "year"), 0, 0);
+			Calendar cal = new GregorianCalendar(Interval.readInt(node, "year"), 0, 1);
 			cal.set(Calendar.WEEK_OF_YEAR, Interval.readInt(node, "week"));
 			return cal;
 		}
@@ -65,7 +65,7 @@ public enum DateUnit implements IntervalUnit {
 
 		@Override
 		public Calendar parseAbsolute(JsonNode node) {
-			return new GregorianCalendar(Interval.readInt(node, "year"), Interval.readInt(node, "month") - 1, 0);
+			return new GregorianCalendar(Interval.readInt(node, "year"), Interval.readInt(node, "month") - 1, 1);
 		}
 	},
 	QUARTER {
@@ -82,7 +82,7 @@ public enum DateUnit implements IntervalUnit {
 
 		@Override
 		public Calendar parseAbsolute(JsonNode node) {
-			return new GregorianCalendar(Interval.readInt(node, "year"), Interval.readInt(node, "quarter") * 3, 0);
+			return new GregorianCalendar(Interval.readInt(node, "year"), (Interval.readInt(node, "quarter") - 1) * 3, 1);
 		}
 	},
 	YEAR {
@@ -98,7 +98,7 @@ public enum DateUnit implements IntervalUnit {
 
 		@Override
 		public Calendar parseAbsolute(JsonNode node) {
-			return new GregorianCalendar(Interval.readInt(node, "year"), 0, 0);
+			return new GregorianCalendar(Interval.readInt(node, "year"), 0, 1);
 		}
 	};
 
