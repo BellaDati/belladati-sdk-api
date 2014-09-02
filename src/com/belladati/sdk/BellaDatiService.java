@@ -169,15 +169,15 @@ public interface BellaDatiService extends Serializable {
 
 	/**
 	 * Returns the possible values for the attribute with the given code in the
-	 * report with the specified ID. This is a cached list, call
+	 * data set with the specified ID. This is a cached list, call
 	 * {@link CachedCollection#loadFirstTime()} to populate it initially.
 	 * 
-	 * @param reportId ID of the report in which the attribute is used
+	 * @param dataSetId ID of the data set in which the attribute is defined
 	 * @param attributeCode code of the attribute whose values to load
 	 * @return all possible values for the attribute
-	 * @throws NotFoundException if the ID wasn't found
+	 * @throws NotFoundException if the ID or code wasn't found
 	 */
-	CachedList<AttributeValue> getAttributeValues(String reportId, String attributeCode) throws NotFoundException;
+	CachedList<AttributeValue> getAttributeValues(String dataSetId, String attributeCode) throws NotFoundException;
 
 	/**
 	 * Loads the user with the given ID.
