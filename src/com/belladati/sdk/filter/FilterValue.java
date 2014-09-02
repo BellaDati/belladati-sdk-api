@@ -1,6 +1,6 @@
 package com.belladati.sdk.filter;
 
-import com.belladati.sdk.report.AttributeValue;
+import com.belladati.sdk.dataset.AttributeValue;
 
 /**
  * An attribute value that can be created on the fly for filtering. This value

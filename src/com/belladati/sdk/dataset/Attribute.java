@@ -2,7 +2,6 @@ package com.belladati.sdk.dataset;
 
 import com.belladati.sdk.filter.Filter;
 import com.belladati.sdk.filter.FilterOperation;
-import com.belladati.sdk.report.AttributeValue;
 import com.belladati.sdk.util.CachedCollection;
 import com.belladati.sdk.util.CachedList;
 import com.belladati.sdk.util.Resource;
