@@ -76,7 +76,7 @@ public enum DateUnit implements IntervalUnit {
 			Calendar start = Calendar.getInstance();
 			start.setTimeInMillis(timestamp);
 			node.put("year", start.get(Calendar.YEAR));
-			node.put("quarter", start.get(Calendar.MONTH) / 3);
+			node.put("quarter", start.get(Calendar.MONTH) / 3 + 1);
 			return node;
 		}
 
