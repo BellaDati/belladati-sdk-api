@@ -6,7 +6,7 @@ package com.belladati.sdk.util;
  * 
  * @author Chris Hennigfeld
  */
-public interface ResourceInfo<T extends Resource> extends IdElement {
+public interface ResourceInfo<T extends Resource> extends Resource {
 
 	/**
 	 * Returns the ID of the resource represented by this info object.

@@ -1,5 +1,6 @@
 package com.belladati.sdk.dashboard;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -20,6 +21,15 @@ public interface Dashboard extends Resource {
 	 *         was never changed
 	 */
 	Date getLastChange();
+
+	/**
+	 * Loads a thumbnail image for the associated dashboard. The Java type of
+	 * the image being returned depends on the implementation.
+	 * 
+	 * @return a thumbnail image for the associated dashboard
+	 * @throws IOException if no image exists or it cannot be loaded
+	 */
+	Object loadThumbnail() throws IOException;
 
 	/**
 	 * Returns a list of dashlets in this dashboard.
