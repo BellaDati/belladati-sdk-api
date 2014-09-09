@@ -2,8 +2,10 @@ package com.belladati.sdk;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.net.URISyntaxException;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Map;
 
 import com.belladati.sdk.dashboard.Dashboard;
 import com.belladati.sdk.dashboard.DashboardInfo;
@@ -265,4 +267,84 @@ public interface BellaDatiService extends Serializable {
 	 * @return the import object for further configuration and submission
 	 */
 	DataSourcePendingImport setupDataSourceImport(String id, Date date);
+
+	/**
+	 * Makes a post request to the given URI, relative to the server's URL.
+	 * 
+	 * @param uri URI to post to
+	 * @return the server's response
+	 * @throws URISyntaxException if the URI is malformed
+	 */
+	byte[] post(String uri) throws URISyntaxException;
+
+	/**
+	 * Makes a post request to the given URI, relative to the server's URL.
+	 * 
+	 * @param uri URI to post to
+	 * @param uriParameters parameters to append to the URI
+	 * @return the server's response
+	 * @throws URISyntaxException if the URI is malformed
+	 */
+	byte[] post(String uri, Map<String, String> uriParameters) throws URISyntaxException;
+
+	/**
+	 * Makes a post request to the given URI, relative to the server's URL.
+	 * 
+	 * @param uri URI to post to
+	 * @param content body of the request
+	 * @return the server's response
+	 * @throws URISyntaxException if the URI is malformed
+	 */
+	byte[] post(String uri, byte[] content) throws URISyntaxException;
+
+	/**
+	 * Makes a post request to the given URI, relative to the server's URL.
+	 * 
+	 * @param uri URI to post to
+	 * @param uriParameters parameters to append to the URI
+	 * @param content body of the request
+	 * @return the server's response
+	 * @throws URISyntaxException if the URI is malformed
+	 */
+	byte[] post(String uri, Map<String, String> uriParameters, byte[] content) throws URISyntaxException;
+
+	/**
+	 * Makes a post request to the given URI, relative to the server's URL.
+	 * 
+	 * @param uri URI to post to
+	 * @param formParameters parameters to send as a form in the request body
+	 * @return the server's response
+	 * @throws URISyntaxException if the URI is malformed
+	 */
+	byte[] postForm(String uri, Map<String, String> formParameters) throws URISyntaxException;
+
+	/**
+	 * Makes a post request to the given URI, relative to the server's URL.
+	 * 
+	 * @param uri URI to post to
+	 * @param uriParameters parameters to append to the URI
+	 * @param formParameters parameters to send as a form in the request body
+	 * @return the server's response
+	 * @throws URISyntaxException if the URI is malformed
+	 */
+	byte[] postForm(String uri, Map<String, String> uriParameters, Map<String, String> formParameters) throws URISyntaxException;
+
+	/**
+	 * Makes a get request to the given URI, relative to the server's URL.
+	 * 
+	 * @param uri URI to get
+	 * @return the server's response
+	 * @throws URISyntaxException if the URI is malformed
+	 */
+	byte[] get(String uri) throws URISyntaxException;
+
+	/**
+	 * Makes a get request to the given URI, relative to the server's URL.
+	 * 
+	 * @param uri URI to get
+	 * @param uriParameters parameters to append to the URI
+	 * @return the server's response
+	 * @throws URISyntaxException if the URI is malformed
+	 */
+	byte[] get(String uri, Map<String, String> uriParameters) throws URISyntaxException;
 }
