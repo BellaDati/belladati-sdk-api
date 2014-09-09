@@ -30,6 +30,13 @@ public interface Dashlet {
 	}
 
 	/**
+	 * Returns the name of this dashlet.
+	 * 
+	 * @return the name of this dashlet
+	 */
+	String getName();
+
+	/**
 	 * Returns the type of this dashlet.
 	 * 
 	 * @return the type of this dashlet
