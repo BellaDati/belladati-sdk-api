@@ -54,12 +54,12 @@ public abstract class FilterOperation<F extends Filter<?>> {
 	 * 
 	 * @param service service instance to connect to the server (to allow
 	 *            retrieving the attribute's values)
-	 * @param reportId ID of the report the attribute is used in
+	 * @param dataSetId ID of the data set the attribute is defined in
 	 * @param attributeCode code of the attribute
 	 * @return a filter for the given attribute with this operation
 	 */
-	public F createFilter(BellaDatiService service, String reportId, String attributeCode) {
-		return createFilter(new FilterAttribute(service, reportId, attributeCode));
+	public F createFilter(BellaDatiService service, String dataSetId, String attributeCode) {
+		return createFilter(new FilterAttribute(service, dataSetId, attributeCode));
 	}
 
 	String getOp() {
@@ -107,12 +107,12 @@ public abstract class FilterOperation<F extends Filter<?>> {
 	private class FilterAttribute implements Attribute {
 		private final BellaDatiService service;
 
-		private final String reportId;
+		private final String dataSetId;
 		private final String code;
 
-		private FilterAttribute(BellaDatiService service, String reportId, String code) {
+		private FilterAttribute(BellaDatiService service, String dataSetId, String code) {
 			this.service = service;
-			this.reportId = reportId;
+			this.dataSetId = dataSetId;
 			this.code = code;
 		}
 
@@ -138,7 +138,7 @@ public abstract class FilterOperation<F extends Filter<?>> {
 
 		@Override
 		public CachedList<AttributeValue> getValues() {
-			return service.getAttributeValues(reportId, code);
+			return service.getAttributeValues(dataSetId, code);
 		}
 	}
 }

@@ -1,6 +1,7 @@
 package com.belladati.sdk.view;
 
 import java.util.Collection;
+import java.util.Set;
 
 import com.belladati.sdk.filter.Filter;
 import com.belladati.sdk.intervals.DateUnit;
@@ -41,6 +42,21 @@ public interface View extends Resource, Localizable {
 	 * @return the content of this view
 	 */
 	Object loadContent(Collection<Filter<?>> filters);
+
+	/**
+	 * Returns <tt>true</tt> if this view has filters defined in its report.
+	 * 
+	 * @return <tt>true</tt> if this view has filters defined in its report
+	 */
+	boolean hasPredefinedFilters();
+
+	/**
+	 * Returns the view's filters defined in its report, or <tt>null</tt> if
+	 * there are no predefined filters.
+	 * 
+	 * @return the view's filters defined in its report
+	 */
+	Set<Filter<?>> getPredefinedFilters();
 
 	/**
 	 * Returns <tt>true</tt> if this view supports setting date intervals.

@@ -76,27 +76,15 @@ public abstract class Filter<F extends Filter<?>> {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (obj instanceof Filter && getClass().equals(obj.getClass())) {
-			// both are filters of the same type
-			if (!operation.equals(((Filter<?>) obj).operation)) {
-				// operations don't match
-				return false;
-			}
-			// operations match, check attribute
-			if (attribute == null) {
-				return ((Filter<?>) obj).attribute == null;
-			}
-			return attribute.equals(((Filter<?>) obj).attribute);
+		if (obj instanceof Filter) {
+			return toJson().equals(((Filter<?>) obj).toJson());
 		}
 		return false;
 	}
 
 	@Override
 	public int hashCode() {
-		if (attribute == null) {
-			return operation.hashCode();
-		}
-		return operation.hashCode() ^ attribute.hashCode();
+		return toJson().hashCode();
 	}
 
 	/**
@@ -177,15 +165,6 @@ public abstract class Filter<F extends Filter<?>> {
 			}
 			((ObjectNode) node.get(getAttribute().getCode())).put("values", filterValues);
 			return node;
-		}
-
-		@Override
-		public boolean equals(Object obj) {
-			if (!super.equals(obj)) {
-				return false;
-			}
-			// they're both multi-value filters for the same attribute and code
-			return values.equals(((MultiValueFilter) obj).values);
 		}
 	}
 }
