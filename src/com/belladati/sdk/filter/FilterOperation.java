@@ -33,6 +33,16 @@ public abstract class FilterOperation<F extends Filter<?>> {
 	 */
 	public static final MultiValueOperation NOT_IN = new MultiValueOperation("NOT_IN");
 
+	/**
+	 * Returns all available filter operations. This is similar to the
+	 * <tt>values()</tt> method in an enum.
+	 * 
+	 * @return all available filter operations
+	 */
+	public static final FilterOperation<?>[] values() {
+		return new FilterOperation<?>[] { NULL, NOT_NULL, IN, NOT_IN };
+	}
+
 	private final String op;
 
 	private FilterOperation(String op) {
@@ -64,6 +74,20 @@ public abstract class FilterOperation<F extends Filter<?>> {
 
 	String getOp() {
 		return op;
+	}
+
+	@Override
+	public String toString() {
+		return op;
+	}
+
+	/**
+	 * Returns <tt>true</tt> if this filter operation uses attribute values.
+	 * 
+	 * @return <tt>true</tt> if this filter operation uses attribute values
+	 */
+	public boolean supportsValues() {
+		return this instanceof MultiValueOperation;
 	}
 
 	/**

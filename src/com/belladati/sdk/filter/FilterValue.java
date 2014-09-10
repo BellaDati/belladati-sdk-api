@@ -46,4 +46,22 @@ public class FilterValue implements AttributeValue {
 	public String getValue() {
 		return value;
 	}
+
+	@Override
+	public String toString() {
+		return label;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof AttributeValue) {
+			return value.equals(((AttributeValue) obj).getValue());
+		}
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return value.hashCode();
+	}
 }
