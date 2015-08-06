@@ -9,7 +9,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 /**
  * A view displaying a table. BellaDati tables consist of a left-sided header, a
  * top header, and a data content:
- * <table>
+ * <table summary="header position description">
  * <tr>
  * <td style="text-align:center; padding: 0.5em;"></td>
  * <td style="text-align:center; padding: 0.5em;">Top Header</td>
@@ -49,7 +49,7 @@ public interface TableView extends View {
 	/**
 	 * Holds basic information about a table view. Use this object to load table
 	 * headers and contents for display.
-	 * <p />
+	 * <p>
 	 * If the table is large, containing hundreds or thousands of rows or
 	 * columns, it is recommended not to load the entire table at once. You can
 	 * use the row and column parameters in the load methods to only load the

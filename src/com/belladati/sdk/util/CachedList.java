@@ -22,7 +22,7 @@ public interface CachedList<T> extends CachedCollection<T, List<T>> {
 	/**
 	 * Loads the content of this list from the server if it hasn't been loaded
 	 * before. Calling this method is equivalent to:
-	 * <p />
+	 * <p>
 	 * <tt>if(!list.isLoaded() { list.load(); } </tt>
 	 * 
 	 * @return this list (for chaining)

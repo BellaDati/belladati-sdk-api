@@ -7,7 +7,7 @@ import java.util.List;
  * each request, the server returns up to a maximum amount of elements. Use
  * {@link #load()} to load the first page of the list and {@link #loadNext()}
  * for subsequent pages.
- * <p />
+ * <p>
  * To directly load a page other than the first or to specify the page size, use
  * the overloaded forms {@link #load(int)} and {@link #load(int, int)}.
  * 
@@ -25,27 +25,27 @@ public interface PaginatedList<T> extends Iterable<T> {
 
 	/**
 	 * Loads the first page of data from BellaDati, using the given page size.
-	 * <p />
+	 * <p>
 	 * If the specified page size is larger than the server's maximum page size,
 	 * the maximum page size is used instead.
 	 * 
 	 * @param size size to use in pagination
 	 * @return this list, to allow chaining
-	 * @throws IllegalArgumentException if <tt>size <= 0</tt>
+	 * @throws IllegalArgumentException if <tt>size &lt;= 0</tt>
 	 */
 	PaginatedList<T> load(int size) throws IllegalArgumentException;
 
 	/**
 	 * Loads the given page of data from BellaDati, using the given page size.
 	 * The index of the first page is 0.
-	 * <p />
+	 * <p>
 	 * If the specified page size is larger than the server's maximum page size,
 	 * the maximum page size is used instead.
 	 * 
 	 * @param page index of the requested page
 	 * @param size size to use in pagination
 	 * @return this list, to allow chaining
-	 * @throws IllegalArgumentException if <tt>page < 0 || size <= 0</tt>
+	 * @throws IllegalArgumentException if <tt>page &lt; 0 || size &lt;= 0</tt>
 	 */
 	PaginatedList<T> load(int page, int size) throws IllegalArgumentException;
 
@@ -53,7 +53,7 @@ public interface PaginatedList<T> extends Iterable<T> {
 	 * Loads the next page of data from BellaDati, using the page size from the
 	 * most recent call to {@link #load()}, {@link #load(int)} or
 	 * {@link #load(int, int)}.
-	 * <p />
+	 * <p>
 	 * If no load method has been called on this list yet, calling this method
 	 * is equivalent to calling {@link #load()} without parameters.
 	 * 
@@ -72,7 +72,7 @@ public interface PaginatedList<T> extends Iterable<T> {
 	/**
 	 * Returns <tt>true</tt> if there may be more pages of data available after
 	 * the last loaded page.
-	 * <p />
+	 * <p>
 	 * Specifically, this method returns <tt>true</tt> under either of two
 	 * circumstances:
 	 * <ul>
@@ -125,7 +125,7 @@ public interface PaginatedList<T> extends Iterable<T> {
 	 * Returns the page size used by this list. This is the index of the page
 	 * specified during the most recent call to any load method, or the server
 	 * default if none was specified.
-	 * <p />
+	 * <p>
 	 * If this list hasn't been loaded yet, this method returns <tt>-1</tt>.
 	 * 
 	 * @return the page size used by this list
@@ -145,7 +145,7 @@ public interface PaginatedList<T> extends Iterable<T> {
 	/**
 	 * Returns the element at the given index. The first element's index is
 	 * <tt>0</tt>.
-	 * <p />
+	 * <p>
 	 * The index refers to the absolute index in the collection. For example,
 	 * after calling <tt>load(2, 20)</tt>, the first available index is
 	 * <tt>40</tt>.
@@ -179,9 +179,10 @@ public interface PaginatedList<T> extends Iterable<T> {
 
 	/**
 	 * Returns the size of the list as currently loaded.
-	 * <p />
+	 * <p>
 	 * Specifically, for a non-empty list this is
-	 * <tt>{@link #getLastLoadedIndex()} - {@link #getFirstLoadedIndex()} + 1</tt>.
+	 * <tt>{@link #getLastLoadedIndex()} - {@link #getFirstLoadedIndex()} + 1</tt>
+	 * .
 	 * 
 	 * @return the size of the list as currently loaded
 	 */

@@ -17,7 +17,7 @@ public interface DataSource extends Resource {
 	/**
 	 * Returns the textual type of the data source. This is the name of the Java
 	 * class used on the server side and is generally human-readable.
-	 * <p />
+	 * <p>
 	 * Two data sources using the same data source connector generally have the
 	 * same type.
 	 * 

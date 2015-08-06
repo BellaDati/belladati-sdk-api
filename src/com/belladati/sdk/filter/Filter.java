@@ -15,7 +15,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  * A filter that can be used when loading a view's content. Filters allow you to
  * select the records to include from your data in the same way as you can
  * filter in the BellaDati web frontend.
- * <p />
+ * <p>
  * This class cannot be instantiated directly; use
  * {@link FilterOperation#createFilter(Attribute)} on one of the static
  * operations in {@link FilterOperation} instead.

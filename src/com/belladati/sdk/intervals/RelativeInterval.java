@@ -9,7 +9,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 /**
  * A relative date or time interval. Relative intervals start and end at a
  * date/time relative to the current date/time.
- * <p />
+ * <p>
  * Start and end of a relative interval are numeric and indicate the number of
  * interval units from the current date/time. For example, creating an instance
  * using {@link DateUnit#MONTH} from <tt>-3</tt> to <tt>-1</tt> results in an

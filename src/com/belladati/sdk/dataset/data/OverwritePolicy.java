@@ -60,7 +60,7 @@ public abstract class OverwritePolicy {
 	 * identical in all attributes with a record being imported. As a result, no
 	 * two records can exist in the data set that have the entirely same
 	 * attribute values.
-	 * <p />
+	 * <p>
 	 * Empty attribute values in existing data are treated as matching anything.
 	 * Existing records that match an imported record on all non-empty
 	 * attributes are deleted.
@@ -75,9 +75,9 @@ public abstract class OverwritePolicy {
 	 * Returns an {@link OverwritePolicy} that deletes records that are
 	 * identical in the specified attributes with a record being imported. As a
 	 * result, no two records can exist in the data set that have the same
-	 * values for all of those attributes at once. <br />
+	 * values for all of those attributes at once. <br>
 	 * At least one attribute needs to be specified.
-	 * <p />
+	 * <p>
 	 * Empty attribute values in existing data are treated as matching anything.
 	 * Existing records that match an imported record on all non-empty
 	 * attributes are deleted.
@@ -97,9 +97,9 @@ public abstract class OverwritePolicy {
 	 * Returns an {@link OverwritePolicy} that deletes records that are
 	 * identical in the specified attributes with a record being imported. As a
 	 * result, no two records can exist in the data set that have the same
-	 * values for all of those attributes at once. <br />
+	 * values for all of those attributes at once. <br>
 	 * At least one attribute needs to be specified.
-	 * <p />
+	 * <p>
 	 * Empty attribute values in existing data are treated as matching anything.
 	 * Existing records that match an imported record on all non-empty
 	 * attributes are deleted.
@@ -115,11 +115,12 @@ public abstract class OverwritePolicy {
 	/**
 	 * Returns an {@link OverwritePolicy} that deletes records with a date on or
 	 * after the given date in the specified column.
-	 * <p />
+	 * <p>
 	 * Records with an empty date value in existing data are also deleted.
 	 * 
 	 * @param attribute date attribute to compare
 	 * @param start first day (inclusive) from which to delete data
+	 * @return {@link OverwritePolicy} object
 	 */
 	public static OverwritePolicy byDateFrom(String attribute, Calendar start) {
 		return new DateRangeOverwritePolicy(attribute, start, null);
@@ -128,11 +129,12 @@ public abstract class OverwritePolicy {
 	/**
 	 * Returns an {@link OverwritePolicy} that deletes records with a date
 	 * before or on the given date in the specified column.
-	 * <p />
+	 * <p>
 	 * Records with an empty date value in existing data are also deleted.
 	 * 
 	 * @param attribute date attribute to compare
 	 * @param end last day (inclusive) up to which to delete data
+	 * @return {@link OverwritePolicy} object
 	 */
 	public static OverwritePolicy byDateTo(String attribute, Calendar end) {
 		return new DateRangeOverwritePolicy(attribute, null, end);
@@ -141,12 +143,13 @@ public abstract class OverwritePolicy {
 	/**
 	 * Returns an {@link OverwritePolicy} that deletes records with a date
 	 * between or on the given dates in the specified column.
-	 * <p />
+	 * <p>
 	 * Records with an empty date value in existing data are also deleted.
 	 * 
 	 * @param attribute date attribute to compare
 	 * @param start first day (inclusive) from which to delete data
 	 * @param end last day (inclusive) up to which to delete data
+	 * @return {@link OverwritePolicy} object
 	 */
 	public static OverwritePolicy byDateFromTo(String attribute, Calendar start, Calendar end) {
 		return new DateRangeOverwritePolicy(attribute, start, end);

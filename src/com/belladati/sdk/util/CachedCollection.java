@@ -28,7 +28,7 @@ public interface CachedCollection<T, C extends Collection<T>> {
 	/**
 	 * Loads the content of this collection from the server if it hasn't been
 	 * loaded before. Calling this method is equivalent to:
-	 * <p />
+	 * <p>
 	 * <tt>if(!collection.isLoaded() { collection.load(); } </tt>
 	 * 
 	 * @return this collection (for chaining)

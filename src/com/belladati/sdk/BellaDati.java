@@ -8,12 +8,12 @@ import com.belladati.sdk.exception.InvalidImplementationException;
 /**
  * Serves as the entry point to the BellaDati SDK. Use either of the connect
  * methods to connect to a server, then authenticate to access a user's data.
- * <p />
+ * <p>
  * It is recommended to use only one {@link BellaDatiConnection} per server to
  * allow reuse of connection resources. Most client applications will connect
  * only to a single BellaDati server - BellaDati cloud or an on-premise
  * installation - meaning only one connection should be used.
- * <p />
+ * <p>
  * The SDK uses default timeouts of 10 seconds which should work fine for most
  * servers and internet connections. For environments that require different
  * settings, timeouts and connection management can be configured using system
@@ -63,7 +63,7 @@ public class BellaDati {
 	/**
 	 * Connects to a BellaDati server hosted at the specified URL. This
 	 * connection accepts servers using self-signed SSL certificates.
-	 * <p />
+	 * <p>
 	 * <b>Warning:</b> Avoid using this type of connection whenever possible.
 	 * When using a server without a certificate signed by a known certificate
 	 * authority, an attacker could impersonate your server and intercept

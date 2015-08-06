@@ -10,10 +10,10 @@ import com.belladati.sdk.exception.auth.AuthorizationException;
  * A connection to one specific BellaDati server. Use this connection to
  * authenticate via OAuth or xAuth and obtain a {@link BellaDatiService}
  * instance.
- * <p />
+ * <p>
  * The same connection may be used to log in as multiple users, even in
  * parallel.
- * <p />
+ * <p>
  * Connection instances may be serialized, saved, and restored for later use
  * with the same server. This will instantiate a new HTTP client.
  * 
@@ -61,7 +61,7 @@ public interface BellaDatiConnection extends Serializable {
 	/**
 	 * Authenticates to the BellaDati server using xAuth. To use xAuth, it must
 	 * be enabled in your domain.
-	 * <p />
+	 * <p>
 	 * <b>Warning:</b> For security reasons, we recommend using OAuth for
 	 * authentication. Use xAuth only if it is not possible to use a web browser
 	 * for authentication in your workflow.

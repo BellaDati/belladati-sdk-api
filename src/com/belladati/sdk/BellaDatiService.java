@@ -32,11 +32,11 @@ import com.belladati.sdk.view.ViewType;
 
 /**
  * A service accessing one specific BellaDati server as an authenticated user.
- * <p />
+ * <p>
  * This instance manages the user's access token obtained during authentication.
  * It uses the {@link BellaDatiConnection} used during authentication to access
  * the server.
- * <p />
+ * <p>
  * Service instances may be serialized, saved, and restored for later use. This
  * will instantiate a new HTTP client, but reuse the existing authentication
  * credentials. Use this to save a user's session when closing your application
@@ -49,7 +49,7 @@ public interface BellaDatiService extends Serializable {
 	/**
 	 * Returns a paginated list to access dashboards visible to the current
 	 * user.
-	 * <p />
+	 * <p>
 	 * Initially, the returned list is empty. Call {@link PaginatedList#load()}
 	 * to load report data.
 	 * 
@@ -59,7 +59,7 @@ public interface BellaDatiService extends Serializable {
 
 	/**
 	 * Loads the dashboard with the specified ID.
-	 * <p />
+	 * <p>
 	 * This method makes an API call to BellaDati and may take some time to
 	 * complete.
 	 * 
@@ -82,7 +82,7 @@ public interface BellaDatiService extends Serializable {
 
 	/**
 	 * Returns a paginated list to access reports visible to the current user.
-	 * <p />
+	 * <p>
 	 * Initially, the returned list is empty. Call {@link PaginatedList#load()}
 	 * to load report data.
 	 * 
@@ -92,7 +92,7 @@ public interface BellaDatiService extends Serializable {
 
 	/**
 	 * Loads the report with the specified ID.
-	 * <p />
+	 * <p>
 	 * This method makes an API call to BellaDati and may take some time to
 	 * complete.
 	 * 
@@ -116,7 +116,7 @@ public interface BellaDatiService extends Serializable {
 	/**
 	 * Returns a paginated list to access the comments of the report with the
 	 * given ID.
-	 * <p />
+	 * <p>
 	 * Initially, the returned list is empty. Call {@link PaginatedList#load()}
 	 * to load report data. Subsequent calls to this method for the same report
 	 * always return the same list.
@@ -203,7 +203,7 @@ public interface BellaDatiService extends Serializable {
 
 	/**
 	 * Returns a paginated list to access data sets visible to the current user.
-	 * <p />
+	 * <p>
 	 * Initially, the returned list is empty. Call {@link PaginatedList#load()}
 	 * to load data set data.
 	 * 
@@ -213,7 +213,7 @@ public interface BellaDatiService extends Serializable {
 
 	/**
 	 * Loads the data set with the specified ID.
-	 * <p />
+	 * <p>
 	 * This method makes an API call to BellaDati and may take some time to
 	 * complete.
 	 * 
@@ -263,6 +263,7 @@ public interface BellaDatiService extends Serializable {
 	 * with the given ID. Call {@link DataSourcePendingImport#post()} to submit
 	 * it to the server.
 	 * 
+	 * @param id is identifier of data-source
 	 * @param date the date/time on which the import takes place
 	 * @return the import object for further configuration and submission
 	 */

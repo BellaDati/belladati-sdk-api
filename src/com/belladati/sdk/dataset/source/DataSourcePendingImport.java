@@ -33,10 +33,10 @@ public interface DataSourcePendingImport extends DataSourceImportBase {
 	/**
 	 * Sets the interval at which this import is repeated. By default, the
 	 * import isn't repeated.
-	 * <p />
+	 * <p>
 	 * Pass a unit of <tt>null</tt> or set the factor to <tt>0</tt> or a
 	 * negative number to clear the interval.
-	 * <p />
+	 * <p>
 	 * This method has no corresponding getter. Call
 	 * {@link #getRepeatInterval()} instead to retrieve the resulting interval.
 	 * 

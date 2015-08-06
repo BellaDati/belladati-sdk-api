@@ -5,7 +5,7 @@ import com.belladati.sdk.dataset.AttributeValue;
 /**
  * An attribute value that can be created on the fly for filtering. This value
  * is not linked to any attribute.
- * <p />
+ * <p>
  * Can be used to create filters for known attribute values without having to
  * make an API request loading the values first.
  * 

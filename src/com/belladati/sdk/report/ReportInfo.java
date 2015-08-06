@@ -50,7 +50,7 @@ public interface ReportInfo extends ResourceInfo<Report>, Localizable {
 
 	/**
 	 * Returns a paginated list to access the comments of the associated report.
-	 * <p />
+	 * <p>
 	 * Initially, the returned list is empty. Call {@link PaginatedList#load()}
 	 * to load report data. Subsequent calls to this method or the associated
 	 * report's method always return the same list.

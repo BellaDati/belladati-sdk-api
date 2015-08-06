@@ -28,11 +28,12 @@ public class DataTable {
 	/**
 	 * Creates a new instance with the given column setup. At least one column
 	 * must be specified in the table. Rows are allowed to be empty.
-	 * <p />
+	 * <p>
 	 * Columns should be unique, but the table doesn't enforce this.
 	 * 
 	 * @param firstColumn first column
 	 * @param otherColumns additional, optional columns
+	 * @return basic instance
 	 */
 	public static DataTable createBasicInstance(String firstColumn, String... otherColumns) {
 		List<String> list = new ArrayList<String>();
@@ -44,10 +45,11 @@ public class DataTable {
 	/**
 	 * Creates a new instance with the given column setup. At least one column
 	 * must be specified in the table. Rows are allowed to be empty.
-	 * <p />
+	 * <p>
 	 * Columns should be unique, but the table doesn't enforce this.
 	 * 
 	 * @param columns columns for the table
+	 * @return new DataTable
 	 * @throws NoColumnsException if the list is empty
 	 */
 	public static DataTable createBasicInstance(List<String> columns) throws NoColumnsException {
@@ -61,11 +63,12 @@ public class DataTable {
 	/**
 	 * Creates a new instance with the given column setup. At least one column
 	 * must be specified in the table. Rows are allowed to be empty.
-	 * <p />
+	 * <p>
 	 * Columns should be unique, but the table doesn't enforce this.
 	 * 
 	 * @param firstColumn first column
 	 * @param otherColumns additional, optional columns
+	 * @return new detailed instance
 	 */
 	public static DataTable createDetailedInstance(DataColumn firstColumn, DataColumn... otherColumns) {
 		List<DataColumn> list = new ArrayList<DataColumn>();
@@ -79,10 +82,11 @@ public class DataTable {
 	/**
 	 * Creates a new instance with the given column setup. At least one column
 	 * must be specified in the table. Rows are allowed to be empty.
-	 * <p />
+	 * <p>
 	 * Columns should be unique, but the table doesn't enforce this.
 	 * 
 	 * @param columns columns for the table
+	 * @return mew data table
 	 * @throws NoColumnsException if the list is empty
 	 */
 	public static DataTable createDetailedInstance(List<DataColumn> columns) throws NoColumnsException {

@@ -17,7 +17,7 @@ public class AuthorizationException extends ServerResponseException {
 	 * Possible causes of an {@link AuthorizationException}. When dealing with
 	 * an {@link AuthorizationException}, use its reason to display an
 	 * appropriate message to the user.
-	 * <p />
+	 * <p>
 	 * <b>Note:</b> As of BellaDati 2.7.6, not all reasons are currently
 	 * supported by the server.
 	 * 

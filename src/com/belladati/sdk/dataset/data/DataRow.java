@@ -89,6 +89,7 @@ public class DataRow {
 	/**
 	 * Sets multiple columns of this row, starting from the given offset.
 	 * 
+	 * @param offset represents offset
 	 * @param values the column values to set
 	 * @return this row, to allow chaining
 	 * @throws TooManyColumnsException if more values are given than columns are

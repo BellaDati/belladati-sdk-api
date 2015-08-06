@@ -76,7 +76,7 @@ public interface DataSet extends Resource, Localizable {
 	 * Uploads the given data into this data set. This method doesn't perform
 	 * any validation of the data; the caller should ensure it matches the data
 	 * set's structure.
-	 * <p />
+	 * <p>
 	 * To ensure the structure is correct, generate the table calling
 	 * {@link #createDataTable()} on the same data set.
 	 * 

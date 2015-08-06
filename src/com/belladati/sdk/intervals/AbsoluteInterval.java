@@ -10,9 +10,9 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 /**
  * An absolute date or time interval. Absolute intervals start and end at a
  * specific, fixed date or time.
- * <p />
+ * <p>
  * Note that even though start and end of the interval are specified as whole
- * dates, the relevant portion is determined by the interval unit.<br />
+ * dates, the relevant portion is determined by the interval unit.<br>
  * For example, creating an instance using {@link DateUnit#MONTH} from
  * <tt>2014-01-04</tt> to <tt>2014-03-08</tt> will result in an interval
  * including the whole months of January through March, i.e. from
@@ -38,8 +38,8 @@ public class AbsoluteInterval<U extends IntervalUnit> extends Interval<U> {
 	 * @throws InvalidAbsoluteIntervalException if the given start is after the
 	 *             given end
 	 */
-	public AbsoluteInterval(U intervalUnit, Calendar start, Calendar end) throws NullIntervalException,
-		InvalidAbsoluteIntervalException {
+	public AbsoluteInterval(U intervalUnit, Calendar start, Calendar end)
+		throws NullIntervalException, InvalidAbsoluteIntervalException {
 		super(intervalUnit);
 		if (start == null || end == null) {
 			throw new NullIntervalException(intervalUnit, "Interval start and end may not be null");

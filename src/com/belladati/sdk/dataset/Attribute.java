@@ -10,7 +10,7 @@ import com.belladati.sdk.view.View;
 /**
  * An attribute from a BellaDati data set. Attributes can contain data in
  * various formats.
- * <p />
+ * <p>
  * Attributes can be used to filter the data used in reports by certain
  * attribute values. Refer to the {@link Filter} and {@link FilterOperation}
  * classes to create filters, and to {@link View#loadContent(Filter...)} to use

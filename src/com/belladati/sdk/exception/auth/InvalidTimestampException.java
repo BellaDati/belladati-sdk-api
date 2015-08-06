@@ -4,10 +4,10 @@ package com.belladati.sdk.exception.auth;
  * Indicates that a request's OAuth timestamp was rejected by the server. This
  * is caused by having a different time set on the server and SDK client
  * computer.
- * <p />
+ * <p>
  * If this exception occurs, verify that both server and client computer are set
  * to the correct time for their respective time zone.
- * <p />
+ * <p>
  * You can find out the time on the server when the request was received by
  * calculating the average of {@link #getEarliestTimestamp()} and
  * {@link #getLatestTimestamp()}.
