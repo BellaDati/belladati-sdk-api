@@ -14,7 +14,10 @@ public enum ViewType {
 	/** A table view. The view is an instance of {@link TableView}. */
 	TABLE("table/bounds"),
 	/** A text view. The view is an instance of {@link JsonView}. */
-	TEXT("text");
+	TEXT("text"),
+	/** An image view. The view is an instance of {@link JsonView}. */
+	IMAGE("image");
+	
 
 	private final String uri;
 
