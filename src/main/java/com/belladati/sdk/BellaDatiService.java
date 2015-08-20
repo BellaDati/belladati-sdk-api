@@ -29,6 +29,7 @@ import com.belladati.sdk.util.PaginatedIdList;
 import com.belladati.sdk.util.PaginatedList;
 import com.belladati.sdk.view.ViewLoader;
 import com.belladati.sdk.view.ViewType;
+import com.belladati.sdk.view.export.ViewExporter;
 
 /**
  * A service accessing one specific BellaDati server as an authenticated user.
@@ -202,6 +203,15 @@ public interface BellaDatiService extends Serializable {
 	Object loadUserImage(String userId) throws IOException, NotFoundException;
 
 	/**
+	 * This method loads a file from given relative URL
+	 * 
+	 * @param relativeUrl - URL where the file is
+	 * @return the file. Typically as ByteArrayInputStream, depends on
+	 *         implementation
+	 */
+	Object loadFile(String relativeUrl) throws IOException;
+
+	/**
 	 * Returns a paginated list to access data sets visible to the current user.
 	 * <p>
 	 * Initially, the returned list is empty. Call {@link PaginatedList#load()}
@@ -348,4 +358,11 @@ public interface BellaDatiService extends Serializable {
 	 * @throws URISyntaxException if the URI is malformed
 	 */
 	byte[] get(String uri, Map<String, String> uriParameters) throws URISyntaxException;
+
+	/**
+	 * This method creates {@link ViewExporter}
+	 * 
+	 * @return {@link ViewExporter}
+	 */
+	ViewExporter createViewExporter();
 }
