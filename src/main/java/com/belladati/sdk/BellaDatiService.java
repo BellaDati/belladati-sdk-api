@@ -16,6 +16,9 @@ import com.belladati.sdk.dataset.data.DataTable;
 import com.belladati.sdk.dataset.source.DataSource;
 import com.belladati.sdk.dataset.source.DataSourceImport;
 import com.belladati.sdk.dataset.source.DataSourcePendingImport;
+import com.belladati.sdk.domain.Domain;
+import com.belladati.sdk.domain.DomainCreateBuilder;
+import com.belladati.sdk.domain.DomainInfo;
 import com.belladati.sdk.exception.dataset.data.UnknownServerColumnException;
 import com.belladati.sdk.exception.server.NotFoundException;
 import com.belladati.sdk.filter.Filter;
@@ -23,8 +26,12 @@ import com.belladati.sdk.report.Comment;
 import com.belladati.sdk.report.Report;
 import com.belladati.sdk.report.ReportInfo;
 import com.belladati.sdk.user.User;
+import com.belladati.sdk.user.UserCreateBuilder;
+import com.belladati.sdk.user.UserGroup;
+import com.belladati.sdk.user.UserGroupCreateBuilder;
 import com.belladati.sdk.util.CachedCollection;
 import com.belladati.sdk.util.CachedList;
+import com.belladati.sdk.util.CreateBuilder;
 import com.belladati.sdk.util.PaginatedIdList;
 import com.belladati.sdk.util.PaginatedList;
 import com.belladati.sdk.view.ViewLoader;
@@ -46,6 +53,76 @@ import com.belladati.sdk.view.export.ViewExporter;
  * @author Chris Hennigfeld
  */
 public interface BellaDatiService extends Serializable {
+
+	/**
+	 * Returns a list of domains visible to the current user. This is a cached list, call
+	 * {@link CachedCollection#loadFirstTime()} to populate it initially.
+	 * 
+	 * @return a list of all domains visible to the current user
+	 * @see <a href="http://support.belladati.com/techdoc/GET+Domains">GET Domains</a>
+	 */
+	CachedList<DomainInfo> getDomainInfo();
+
+	/**
+	 * Loads the domain with the specified ID.
+	 * <p>
+	 * 
+	 * @param id ID of the domain to load
+	 * @return the domain with the specified ID
+	 * @throws NotFoundException if the ID wasn't found
+	 * @see <a href="http://support.belladati.com/techdoc/GET+Domain+Detail">GET Domain Detail</a>
+	 */
+	Domain loadDomain(String id) throws NotFoundException;
+
+	/**
+	 * Returns a list of users for the given domain and user group. This is a cached list, call
+	 * {@link CachedCollection#loadFirstTime()} to populate it initially.
+	 * 
+	 * @param domainId ID of the domain
+	 * @param userGroupId optional ID of the user group
+	 * @return a list of all users for the given domain and user group
+	 * @see <a href="http://support.belladati.com/techdoc/GET+Users">GET Users</a>
+	 */
+	CachedList<User> getDomainUsers(String domainId, String userGroupId);
+
+	/**
+	 * Returns a list of user groups for the given domain. This is a cached list, call
+	 * {@link CachedCollection#loadFirstTime()} to populate it initially.
+	 * 
+	 * @param domainId ID of the domain
+	 * @return a list of all user groups for the given domain
+	 * @see <a href="http://support.belladati.com/techdoc/GET+User+Groups">GET User Groups</a>
+	 */
+	CachedList<UserGroup> getDomainUserGroups(String domainId);
+
+	/**
+	 * Sets up a {@link DomainCreateBuilder} instance used to create a new domain.
+	 * Call {@link CreateBuilder#post()} to submit request to the server.
+	 * 
+	 * @return the builder
+	 * @see <a href="http://support.belladati.com/techdoc/POST+Create+Domain">POST Create Domain</a>
+	 */
+	DomainCreateBuilder setupDomainCreateBuilder();
+
+	/**
+	 * Sets up a {@link UserGroupCreateBuilder} instance used to create a new user group.
+	 * Call {@link CreateBuilder#post()} to submit request to the server.
+	 * 
+	 * @param domainId the target domain ID
+	 * @return the builder
+	 * @see <a href="http://support.belladati.com/techdoc/POST+Create+User+Group">POST Create User Group</a>
+	 */
+	UserGroupCreateBuilder setupUserGroupCreateBuilder(String domainId);
+
+	/**
+	 * Sets up a {@link UserGroupCreateBuilder} instance used to create a new user.
+	 * Call {@link CreateBuilder#post()} to submit request to the server.
+	 * 
+	 * @param domainId the target domain ID
+	 * @return the builder
+	 * @see <a href="http://support.belladati.com/techdoc/POST+Create+User">POST Create User</a>
+	 */
+	UserCreateBuilder setupUserCreateBuilder(String domainId);
 
 	/**
 	 * Returns a paginated list to access dashboards visible to the current
@@ -365,4 +442,5 @@ public interface BellaDatiService extends Serializable {
 	 * @return {@link ViewExporter}
 	 */
 	ViewExporter createViewExporter();
+
 }

@@ -1,6 +1,7 @@
 package com.belladati.sdk.user;
 
 import java.util.Date;
+import java.util.Set;
 
 import com.belladati.sdk.util.Resource;
 
@@ -64,9 +65,45 @@ public interface User extends Resource {
 	Date getLastLogin();
 
 	/**
+	 * Returns the user's time zone.
+	 * 
+	 * @return the user's time zone
+	 */
+	String getTimeZone();
+
+	/**
 	 * Returns the locale string set for the user.
 	 * 
 	 * @return the locale string set for the user
 	 */
 	String getLocale();
+
+	/**
+	 * Returns the active state of the user.
+	 * 
+	 * @return the active state of the user
+	 */
+	Boolean getActive();
+
+	/**
+	 * Returns the ID of the domain where the user belongs.
+	 * 
+	 * @return the ID of the domain where the user belongs
+	 */
+	String getDomainId();
+
+	/**
+	 * Returns the user roles for the user.
+	 * 
+	 * @return the user roles for the user
+	 */
+	Set<UserRole> getUserRoles();
+
+	/**
+	 * Returns the user groups for the user.
+	 * 
+	 * @return the user groups for the user
+	 */
+	Set<UserGroup> getUserGroups();
+
 }
