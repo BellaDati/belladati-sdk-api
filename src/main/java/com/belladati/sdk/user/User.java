@@ -83,7 +83,7 @@ public interface User extends Resource {
 	 * 
 	 * @return the active state of the user
 	 */
-	Boolean getActive();
+	boolean getActive();
 
 	/**
 	 * Returns the ID of the domain where the user belongs.
