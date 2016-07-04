@@ -15,9 +15,10 @@ public enum ViewType {
 	TABLE("table/bounds"),
 	/** A text view. The view is an instance of {@link JsonView}. */
 	TEXT("text"),
+	/** A map view. The view is an instance of {@link JsonView}. */
+	MAP("map"),
 	/** An image view. The view is an instance of {@link JsonView}. */
 	IMAGE("image");
-	
 
 	private final String uri;
 
