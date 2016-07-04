@@ -9,6 +9,7 @@ import com.belladati.sdk.intervals.Interval;
 import com.belladati.sdk.intervals.TimeUnit;
 import com.belladati.sdk.util.Localizable;
 import com.belladati.sdk.util.Resource;
+import com.belladati.sdk.view.export.ViewExporter;
 
 /**
  * A BellaDati view in a report or dashboard. Call
@@ -112,4 +113,12 @@ public interface View extends Resource, Localizable {
 	 * @return a loader instance used to load this view with parameters
 	 */
 	ViewLoader createLoader();
+
+	/**
+	 * Creates a exporter instance used to export this view with parameters.
+	 * 
+	 * @return a exporter instance used to export this view with parameters
+	 */
+	ViewExporter createExporter();
+
 }

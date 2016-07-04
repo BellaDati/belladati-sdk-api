@@ -439,8 +439,9 @@ public interface BellaDatiService extends Serializable {
 	/**
 	 * This method creates {@link ViewExporter}
 	 * 
+	 * @param viewId ID of the view to export
 	 * @return {@link ViewExporter}
 	 */
-	ViewExporter createViewExporter();
+	ViewExporter createViewExporter(String viewId);
 
 }

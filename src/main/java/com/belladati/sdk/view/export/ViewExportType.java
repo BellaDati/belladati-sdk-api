@@ -1,13 +1,16 @@
 package com.belladati.sdk.view.export;
 
 /**
- * This enum determines view export types. Not every view supports all types of
+ * This enumeration determines view export types. Not every view supports all types of
  * exports.
  * 
- * @author pavol.kovac
+ * @author Pavol Kovac
  */
 public enum ViewExportType {
-	PDF("application/pdf");
+
+	PDF("application/pdf"),
+
+	PNG("image/png");
 
 	private String mediaType;
 
