@@ -1,13 +1,13 @@
 package com.belladati.sdk.domain;
 
-import com.belladati.sdk.util.CreateBuilder;
+import com.belladati.sdk.util.PostBuilder;
 
 /**
  * Builder used to initiate domain object that should be created.
  * 
  * @author Lubomir Elko
  */
-public interface DomainCreateBuilder extends CreateBuilder {
+public interface DomainCreateBuilder extends PostBuilder {
 
 	/**
 	 * Sets the domain's display name.

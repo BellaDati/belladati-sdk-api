@@ -22,6 +22,8 @@ import com.belladati.sdk.domain.DomainInfo;
 import com.belladati.sdk.exception.dataset.data.UnknownServerColumnException;
 import com.belladati.sdk.exception.server.NotFoundException;
 import com.belladati.sdk.filter.Filter;
+import com.belladati.sdk.form.Form;
+import com.belladati.sdk.form.FormDataPostBuilder;
 import com.belladati.sdk.report.Comment;
 import com.belladati.sdk.report.Report;
 import com.belladati.sdk.report.ReportInfo;
@@ -31,7 +33,7 @@ import com.belladati.sdk.user.UserGroup;
 import com.belladati.sdk.user.UserGroupCreateBuilder;
 import com.belladati.sdk.util.CachedCollection;
 import com.belladati.sdk.util.CachedList;
-import com.belladati.sdk.util.CreateBuilder;
+import com.belladati.sdk.util.PostBuilder;
 import com.belladati.sdk.util.PaginatedIdList;
 import com.belladati.sdk.util.PaginatedList;
 import com.belladati.sdk.view.ViewLoader;
@@ -97,7 +99,7 @@ public interface BellaDatiService extends Serializable {
 
 	/**
 	 * Sets up a {@link DomainCreateBuilder} instance used to create a new domain.
-	 * Call {@link CreateBuilder#post()} to submit request to the server.
+	 * Call {@link PostBuilder#post()} to submit request to the server.
 	 * 
 	 * @return the builder
 	 * @see <a href="http://support.belladati.com/techdoc/POST+Create+Domain">POST Create Domain</a>
@@ -106,7 +108,7 @@ public interface BellaDatiService extends Serializable {
 
 	/**
 	 * Sets up a {@link UserGroupCreateBuilder} instance used to create a new user group.
-	 * Call {@link CreateBuilder#post()} to submit request to the server.
+	 * Call {@link PostBuilder#post()} to submit request to the server.
 	 * 
 	 * @param domainId the target domain ID
 	 * @return the builder
@@ -116,7 +118,7 @@ public interface BellaDatiService extends Serializable {
 
 	/**
 	 * Sets up a {@link UserGroupCreateBuilder} instance used to create a new user.
-	 * Call {@link CreateBuilder#post()} to submit request to the server.
+	 * Call {@link PostBuilder#post()} to submit request to the server.
 	 * 
 	 * @param domainId the target domain ID
 	 * @return the builder
@@ -238,14 +240,13 @@ public interface BellaDatiService extends Serializable {
 	Object loadViewContent(String viewId, ViewType viewType, Collection<Filter<?>> filters) throws NotFoundException;
 
 	/**
-	 * Creates a loader to load the JSON representation of the view with the
-	 * given ID and type.
+	 * Sets up a {@link ViewLoader} instance used to load a view.
 	 * 
 	 * @param viewId ID of the view to load
 	 * @param viewType type of the view to load
 	 * @return a loader to load the JSON representation of the view
 	 */
-	ViewLoader createViewLoader(String viewId, ViewType viewType);
+	ViewLoader setupViewLoader(String viewId, ViewType viewType);
 
 	/**
 	 * Returns the possible values for the attribute with the given code in the
@@ -319,6 +320,7 @@ public interface BellaDatiService extends Serializable {
 	 * @param data the data to upload
 	 * @throws UnknownServerColumnException if the data table contains a column
 	 *             that doesn't exist in the data set
+	 * @see <a href="http://support.belladati.com/techdoc/POST+JSON+data">POST JSON data</a>
 	 */
 	void uploadData(String id, DataTable data) throws UnknownServerColumnException;
 
@@ -437,11 +439,39 @@ public interface BellaDatiService extends Serializable {
 	byte[] get(String uri, Map<String, String> uriParameters) throws URISyntaxException;
 
 	/**
-	 * This method creates {@link ViewExporter}
+	 * Sets up a {@link ViewExporter} instance used to export a view.
 	 * 
 	 * @param viewId ID of the view to export
 	 * @return {@link ViewExporter}
 	 */
-	ViewExporter createViewExporter(String viewId);
+	ViewExporter setupViewExporter(String viewId);
+
+	/**
+	 * Returns the list of import forms. This is a cached list, call {@link CachedCollection#loadFirstTime()} to
+	 * populate it initially.
+	 * 
+	 * @return the list of all import forms
+	 * @see <a href="http://support.belladati.com/techdoc/GET+Forms">GET Forms</a>
+	 */
+	CachedList<Form> getImportForms();
+
+	/**
+	 * Loads the import form with the specified ID.
+	 * 
+	 * @param id ID of the import form to load
+	 * @return the import form with the specified ID
+	 * @throws NotFoundException if the ID wasn't found
+	 * @see <a href="http://support.belladati.com/techdoc/GET+Form">GET Form</a>
+	 */
+	Form loadImportForm(String id) throws NotFoundException;
+
+	/**
+	 * Sets up a {@link FormDataPostBuilder} instance used to submit data.
+	 * 
+	 * @param formId ID of the import form
+	 * @return {@link FormDataPostBuilder}
+	 * @see <a href="http://support.belladati.com/techdoc/POST+Form+Data">POST Form Data</a>
+	 */
+	FormDataPostBuilder setupFormDataPostBuilder(String formId);
 
 }

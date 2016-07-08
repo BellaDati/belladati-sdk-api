@@ -1,13 +1,13 @@
 package com.belladati.sdk.user;
 
-import com.belladati.sdk.util.CreateBuilder;
+import com.belladati.sdk.util.PostBuilder;
 
 /**
  * Builder used to initiate user group object that should be created.
  * 
  * @author Lubomir Elko
  */
-public interface UserGroupCreateBuilder extends CreateBuilder {
+public interface UserGroupCreateBuilder extends PostBuilder {
 
 	/**
 	 * Sets the user group's display name.

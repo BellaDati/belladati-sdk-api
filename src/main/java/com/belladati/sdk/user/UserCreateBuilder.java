@@ -1,13 +1,13 @@
 package com.belladati.sdk.user;
 
-import com.belladati.sdk.util.CreateBuilder;
+import com.belladati.sdk.util.PostBuilder;
 
 /**
  * Builder used to initiate user object that should be created.
  * 
  * @author Lubomir Elko
  */
-public interface UserCreateBuilder extends CreateBuilder {
+public interface UserCreateBuilder extends PostBuilder {
 
 	/**
 	 * Sets the user's username.
