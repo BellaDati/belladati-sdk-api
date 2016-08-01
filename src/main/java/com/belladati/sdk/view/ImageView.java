@@ -13,20 +13,20 @@ import com.belladati.sdk.filter.Filter;
 public interface ImageView extends View {
 
 	/**
-	 * Loads the JSON representation of this view.
+	 * Loads the Image representation of this view.
 	 * 
 	 * @param filters optional filters to use when loading the view
-	 * @return the JSON representation of this view
+	 * @return the Image representation of this view
 	 */
-	BufferedImage loadContent(Filter<?>... filters);
+	Image loadContent(Filter<?>... filters);
 
 	/**
-	 * Loads the JSON representation of this view.
+	 * Loads the Image representation of this view.
 	 * 
 	 * @param filters filters to use when loading the view
-	 * @return the JSON representation of this view
+	 * @return the Image representation of this view
 	 */
-	BufferedImage loadContent(Collection<Filter<?>> filters);
+	Image loadContent(Collection<Filter<?>> filters);
 
 	/**
 	 * This class is a transport crate for image
