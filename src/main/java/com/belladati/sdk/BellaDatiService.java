@@ -277,8 +277,19 @@ public interface BellaDatiService extends Serializable {
 	 * @param userId ID of the user to load
 	 * @return the user with the specified ID
 	 * @throws NotFoundException if the ID wasn't found
+	 * @see <a href="http://support.belladati.com/techdoc/GET+User+Detail">GET User Detail</a>
 	 */
 	User loadUser(String userId) throws NotFoundException;
+
+	/**
+	 * Loads the user with the given username (login).
+	 * 
+	 * @param username login of the user to load
+	 * @return the user with the specified username
+	 * @throws NotFoundException if the username wasn't found
+	 * @see <a href="http://support.belladati.com/techdoc/GET+User+Detail+by+Username">GET User Detail by Username</a>
+	 */
+	User loadUserByUsername(String username) throws NotFoundException;
 
 	/**
 	 * Loads the profile image of the user with the given ID. The Java type of
@@ -288,8 +299,29 @@ public interface BellaDatiService extends Serializable {
 	 * @return the profile image of the user with the given ID
 	 * @throws IOException if no image exists or it cannot be loaded
 	 * @throws NotFoundException if the ID wasn't found
+	 * @see <a href="http://support.belladati.com/techdoc/GET+User+Photo">GET User Photo</a>
 	 */
 	Object loadUserImage(String userId) throws IOException, NotFoundException;
+
+	/**
+	 * Loads the active status of the user with the given ID.
+	 * 
+	 * @param userId ID of the user whose status to load
+	 * @return the active status of the user with the given ID
+	 * @throws NotFoundException if the ID wasn't found
+	 * @see <a href="http://support.belladati.com/techdoc/GET+User+Status">GET User Status</a>
+	 */
+	String loadUserStatus(String userId) throws NotFoundException;
+
+	/**
+	 * Posts the active status to the user with the given ID.
+	 * 
+	 * @param userId ID of the user to update
+	 * @param status new user status to post
+	 * @throws NotFoundException if the ID wasn't found
+	 * @see <a href="http://support.belladati.com/techdoc/POST+Set+User+Status">POST Set User Status</a>
+	 */
+	void postUserStatus(String userId, String status) throws NotFoundException;
 
 	/**
 	 * This method loads a file from given relative URL

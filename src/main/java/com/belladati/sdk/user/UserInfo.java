@@ -27,4 +27,19 @@ public interface UserInfo extends ResourceInfo<User> {
 	 * @throws IOException if no image exists or it cannot be loaded
 	 */
 	Object loadImage() throws IOException;
+
+	/**
+	 * Loads the current active status of the user from BellaDati.
+	 * 
+	 * @return the current active status of the user
+	 */
+	String loadStatus();
+
+	/**
+	 * Posts the new active status of the user to BellaDati.
+	 * 
+	 * @param status the new active status of the user
+	 */
+	void postStatus(String status);
+
 }

@@ -82,8 +82,23 @@ public interface User extends Resource {
 	 * Returns the active state of the user.
 	 * 
 	 * @return the active state of the user
+	 * @see #loadStatus()
 	 */
 	boolean getActive();
+
+	/**
+	 * Loads the current active status of the user from BellaDati.
+	 * 
+	 * @return the current active status of the user
+	 */
+	String loadStatus();
+
+	/**
+	 * Posts the new active status of the user to BellaDati.
+	 * 
+	 * @param status the new active status of the user
+	 */
+	void postStatus(String status);
 
 	/**
 	 * Returns the ID of the domain where the user belongs.
