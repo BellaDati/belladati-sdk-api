@@ -66,4 +66,12 @@ public interface ReportInfo extends ResourceInfo<Report>, Localizable {
 	 * @param text text of the comment to post
 	 */
 	void postComment(String text);
+
+	/**
+	 * Deletes a comment with the specified ID.
+	 * 
+	 * @param id ID of the comment to delete
+	 */
+	void deleteComment(String id);
+
 }
