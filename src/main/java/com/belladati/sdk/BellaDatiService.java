@@ -205,6 +205,7 @@ public interface BellaDatiService extends Serializable {
 	 * @return a paginated list to access the comments of the report with the
 	 *         given ID
 	 * @throws NotFoundException if the ID wasn't found
+	 * @see <a href="http://support.belladati.com/techdoc/GET+Report+Comments">GET Report Comments</a>
 	 */
 	PaginatedList<Comment> getReportComments(String reportId) throws NotFoundException;
 
@@ -214,8 +215,18 @@ public interface BellaDatiService extends Serializable {
 	 * @param reportId ID of the report to which to post a comment
 	 * @param text text of the comment to post
 	 * @throws NotFoundException if the ID wasn't found
+	 * @see <a href="http://support.belladati.com/techdoc/POST+Comments">POST Comments</a>
 	 */
 	void postComment(String reportId, String text) throws NotFoundException;
+
+	/**
+	 * Deletes a comment from the report with the given ID.
+	 * 
+	 * @param commentId ID of the comment to delete
+	 * @throws NotFoundException if the ID wasn't found
+	 * @see <a href="http://support.belladati.com/techdoc/DELETE+Comments">DELETE Comments</a>
+	 */
+	void deleteComment(String commentId) throws NotFoundException;
 
 	/**
 	 * Loads the content of the view with the given ID and type.

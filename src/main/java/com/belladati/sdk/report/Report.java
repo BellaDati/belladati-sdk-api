@@ -75,6 +75,13 @@ public interface Report extends Resource, Localizable {
 	void postComment(String text);
 
 	/**
+	 * Deletes a comment with the specified ID.
+	 * 
+	 * @param id ID of the comment to delete
+	 */
+	void deleteComment(String id);
+
+	/**
 	 * Returns the data set this report is built on.
 	 * 
 	 * @return the data set this report is built on

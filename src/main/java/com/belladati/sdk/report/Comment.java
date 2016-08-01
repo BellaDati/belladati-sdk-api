@@ -3,13 +3,14 @@ package com.belladati.sdk.report;
 import java.util.Date;
 
 import com.belladati.sdk.user.UserInfo;
+import com.belladati.sdk.util.IdElement;
 
 /**
  * A comment entry in a BellaDati report.
  * 
  * @author Chris Hennigfeld
  */
-public interface Comment {
+public interface Comment extends IdElement {
 
 	/**
 	 * Returns an info object associated with the comment's author.
