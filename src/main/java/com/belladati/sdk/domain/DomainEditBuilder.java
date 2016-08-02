@@ -3,18 +3,11 @@ package com.belladati.sdk.domain;
 import com.belladati.sdk.util.PostBuilder;
 
 /**
- * Builder used to initiate domain object that should be created.
+ * Builder used to initiate domain object that should be edited.
  * 
  * @author Lubomir Elko
  */
-public interface DomainCreateBuilder extends PostBuilder {
-
-	/**
-	 * Sets the domain's display name.
-	 * 
-	 * @param name the domain's display name
-	 */
-	void setName(String name);
+public interface DomainEditBuilder extends PostBuilder {
 
 	/**
 	 * Sets the domain's description.
@@ -58,20 +51,5 @@ public interface DomainCreateBuilder extends PostBuilder {
 	 * @param value parameter value
 	 */
 	void addParameter(String key, String value);
-
-	/**
-	 * Sets the template for the domain.
-	 * 
-	 * @param id domain template identifier
-	 * @param usernameSuffix suffix used during copying users
-	 */
-	void setTemplate(String id, String usernameSuffix);
-
-	/**
-	 * Sets the template identifier for the domain.
-	 * 
-	 * @param id domain template identifier
-	 */
-	void setTemplateId(String id);
 
 }

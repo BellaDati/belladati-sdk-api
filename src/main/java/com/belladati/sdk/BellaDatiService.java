@@ -18,6 +18,7 @@ import com.belladati.sdk.dataset.source.DataSourceImport;
 import com.belladati.sdk.dataset.source.DataSourcePendingImport;
 import com.belladati.sdk.domain.Domain;
 import com.belladati.sdk.domain.DomainCreateBuilder;
+import com.belladati.sdk.domain.DomainEditBuilder;
 import com.belladati.sdk.domain.DomainInfo;
 import com.belladati.sdk.exception.dataset.data.UnknownServerColumnException;
 import com.belladati.sdk.exception.server.NotFoundException;
@@ -29,6 +30,7 @@ import com.belladati.sdk.report.Report;
 import com.belladati.sdk.report.ReportInfo;
 import com.belladati.sdk.user.User;
 import com.belladati.sdk.user.UserCreateBuilder;
+import com.belladati.sdk.user.UserEditBuilder;
 import com.belladati.sdk.user.UserGroup;
 import com.belladati.sdk.user.UserGroupCreateBuilder;
 import com.belladati.sdk.util.CachedCollection;
@@ -107,6 +109,16 @@ public interface BellaDatiService extends Serializable {
 	DomainCreateBuilder setupDomainCreateBuilder();
 
 	/**
+	 * Sets up a {@link DomainEditBuilder} instance used to edit an existing domain.
+	 * Call {@link PostBuilder#post()} to submit request to the server.
+	 * 
+	 * @param domainId the target domain ID
+	 * @return the builder
+	 * @see <a href="http://support.belladati.com/techdoc/POST+Edit+Domain">POST Edit Domain</a>
+	 */
+	DomainEditBuilder setupDomainEditBuilder(String domainId);
+
+	/**
 	 * Sets up a {@link UserGroupCreateBuilder} instance used to create a new user group.
 	 * Call {@link PostBuilder#post()} to submit request to the server.
 	 * 
@@ -125,6 +137,16 @@ public interface BellaDatiService extends Serializable {
 	 * @see <a href="http://support.belladati.com/techdoc/POST+Create+User">POST Create User</a>
 	 */
 	UserCreateBuilder setupUserCreateBuilder(String domainId);
+
+	/**
+	 * Sets up a {@link UserEditBuilder} instance used to edit an existing user.
+	 * Call {@link PostBuilder#post()} to submit request to the server.
+	 * 
+	 * @param userId the target user ID
+	 * @return the builder
+	 * @see <a href="http://support.belladati.com/techdoc/POST+Edit+User">POST Edit User</a>
+	 */
+	UserEditBuilder setupUserEditBuilder(String userId);
 
 	/**
 	 * Returns a paginated list to access dashboards visible to the current
