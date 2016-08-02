@@ -1,10 +1,12 @@
 package com.belladati.sdk;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 import java.net.URISyntaxException;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import com.belladati.sdk.dashboard.Dashboard;
@@ -35,9 +37,11 @@ import com.belladati.sdk.user.UserGroup;
 import com.belladati.sdk.user.UserGroupCreateBuilder;
 import com.belladati.sdk.util.CachedCollection;
 import com.belladati.sdk.util.CachedList;
+import com.belladati.sdk.util.MultipartPiece;
 import com.belladati.sdk.util.PostBuilder;
 import com.belladati.sdk.util.PaginatedIdList;
 import com.belladati.sdk.util.PaginatedList;
+import com.belladati.sdk.view.ImageView;
 import com.belladati.sdk.view.ViewLoader;
 import com.belladati.sdk.view.ViewType;
 import com.belladati.sdk.view.export.ViewExporter;
@@ -282,6 +286,28 @@ public interface BellaDatiService extends Serializable {
 	ViewLoader setupViewLoader(String viewId, ViewType viewType);
 
 	/**
+	 * Creates a new {@link ImageView} in report.
+	 * 
+	 * @param reportId ID of the target report
+	 * @param viewName name of the new image view
+	 * @param image image file
+	 * @param width width (percentage value) of the view
+	 * @param height height (absolute value in pixels) of the view
+	 * @return ID of the newly created view
+	 * @see <a href="http://support.belladati.com/techdoc/POST+Images">POST Images</a>
+	 */
+	String createImageView(String reportId, String viewName, File image, Integer width, Integer height);
+
+	/**
+	 * Updates image in an existing {@link ImageView}.
+	 * 
+	 * @param viewId ID of the view to edit
+	 * @param image image file
+	 * @see <a href="http://support.belladati.com/techdoc/POST+Edit+Image+View">POST Edit Image View</a>
+	 */
+	void editImageView(String viewId, File image);
+
+	/**
 	 * Returns the possible values for the attribute with the given code in the
 	 * data set with the specified ID. This is a cached list, call
 	 * {@link CachedCollection#loadFirstTime()} to populate it initially.
@@ -483,6 +509,15 @@ public interface BellaDatiService extends Serializable {
 	 * @throws URISyntaxException if the URI is malformed
 	 */
 	byte[] postForm(String uri, Map<String, String> uriParameters, Map<String, String> formParameters) throws URISyntaxException;
+
+	/**
+	 * Makes a multipart/form-data post request to the given URI, relative to the server's URL.
+	 * 
+	 * @param relativeUri URI to post to
+	 * @param multipart parts to send as a multipart/form-data in the request body
+	 * @return the server's response
+	 */
+	byte[] postMultipart(String relativeUri, List<? extends MultipartPiece<?>> multipart);
 
 	/**
 	 * Makes a get request to the given URI, relative to the server's URL.

@@ -1,5 +1,6 @@
 package com.belladati.sdk.report;
 
+import java.io.File;
 import java.util.Date;
 import java.util.List;
 
@@ -8,6 +9,7 @@ import com.belladati.sdk.dataset.DataSetInfo;
 import com.belladati.sdk.util.Localizable;
 import com.belladati.sdk.util.PaginatedList;
 import com.belladati.sdk.util.Resource;
+import com.belladati.sdk.view.ImageView;
 import com.belladati.sdk.view.View;
 
 /**
@@ -87,4 +89,15 @@ public interface Report extends Resource, Localizable {
 	 * @return the data set this report is built on
 	 */
 	DataSetInfo getDataSet();
+
+	/**
+	 * Creates a new {@link ImageView} in this report.
+	 * 
+	 * @param viewName name of the new image view
+	 * @param image image file
+	 * @param width width (percentage value) of the view
+	 * @param height height (absolute value in pixels) of the view
+	 * @return ID of the newly created view
+	 */
+	String createImageView(String viewName, File image, Integer width, Integer height);
 }

@@ -1,6 +1,7 @@
 package com.belladati.sdk.view;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.Collection;
 
 import com.belladati.sdk.filter.Filter;
@@ -27,6 +28,13 @@ public interface ImageView extends View {
 	 * @return the Image representation of this view
 	 */
 	Image loadContent(Collection<Filter<?>> filters);
+
+	/**
+	 * Updates image in this view.
+	 * 
+	 * @param image image file
+	 */
+	void updateImage(File image);
 
 	/**
 	 * This class is a transport crate for image

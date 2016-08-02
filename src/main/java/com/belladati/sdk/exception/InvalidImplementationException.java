@@ -12,6 +12,10 @@ public class InvalidImplementationException extends BellaDatiRuntimeException {
 	/** The serialVersionUID */
 	private static final long serialVersionUID = -1212994455970447440L;
 
+	public InvalidImplementationException(String message) {
+		super(message);
+	}
+
 	public InvalidImplementationException(String message, Throwable cause) {
 		super(message, cause);
 	}

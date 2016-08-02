@@ -1,11 +1,13 @@
 package com.belladati.sdk.report;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 
 import com.belladati.sdk.util.Localizable;
 import com.belladati.sdk.util.PaginatedList;
 import com.belladati.sdk.util.ResourceInfo;
+import com.belladati.sdk.view.ImageView;
 
 /**
  * Information object about a BellaDati report. Use this to get meta-information
@@ -73,5 +75,16 @@ public interface ReportInfo extends ResourceInfo<Report>, Localizable {
 	 * @param id ID of the comment to delete
 	 */
 	void deleteComment(String id);
+
+	/**
+	 * Creates a new {@link ImageView} in this report.
+	 * 
+	 * @param viewName name of the new image view
+	 * @param image image file
+	 * @param width width (percentage value) of the view
+	 * @param height height (absolute value in pixels) of the view
+	 * @return ID of the newly created view
+	 */
+	String createImageView(String viewName, File image, Integer width, Integer height);
 
 }
