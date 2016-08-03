@@ -320,6 +320,20 @@ public interface BellaDatiService extends Serializable {
 	CachedList<AttributeValue> getAttributeValues(String dataSetId, String attributeCode) throws NotFoundException;
 
 	/**
+	 * Edits image in appearance settings for for the attribute with the given code and value in the
+	 * data set with the specified ID.
+	 * 
+	 * @param dataSetId ID of the data set in which the attribute is defined
+	 * @param attributeCode code of the attribute
+	 * @param attributeValue value of the attribute
+	 * @param image image to post
+	 * @throws URISyntaxException if the URI cannot be created from given parameters
+	 * @see <a href="http://support.belladati.com/techdoc/POST+Attribute+Value+Image">POST Attribute Value Image</a>
+	 */
+	void postAttributeValueImage(String dataSetId, String attributeCode, String attributeValue, File image)
+		throws URISyntaxException;
+
+	/**
 	 * Loads the user with the given ID.
 	 * 
 	 * @param userId ID of the user to load
@@ -414,6 +428,15 @@ public interface BellaDatiService extends Serializable {
 	 * @see <a href="http://support.belladati.com/techdoc/POST+JSON+data">POST JSON data</a>
 	 */
 	void uploadData(String id, DataTable data) throws UnknownServerColumnException;
+
+	/**
+	 * Uploads the given image into BellaDati Media Gallery.
+	 * 
+	 * @param image image to upload to
+	 * @param name optional name visible in the Media Gallery
+	 * @see <a href="http://support.belladati.com/techdoc/POST+Image+to+Media+Gallery">POST Image to Media Gallery</a>
+	 */
+	void uploadImage(File image, String name);
 
 	/**
 	 * Returns the list of data sources for the data set with the given ID. This
