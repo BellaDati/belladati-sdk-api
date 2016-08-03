@@ -386,15 +386,6 @@ public interface BellaDatiService extends Serializable {
 	void postUserStatus(String userId, String status) throws NotFoundException;
 
 	/**
-	 * This method loads a file from given relative URL
-	 * 
-	 * @param relativeUrl - URL where the file is
-	 * @return the file. Typically as ByteArrayInputStream, depends on
-	 *         implementation
-	 */
-	Object loadFile(String relativeUrl) throws IOException;
-
-	/**
 	 * Returns a paginated list to access data sets visible to the current user.
 	 * <p>
 	 * Initially, the returned list is empty. Call {@link PaginatedList#load()}
