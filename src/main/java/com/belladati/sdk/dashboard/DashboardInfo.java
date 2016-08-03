@@ -1,8 +1,8 @@
 package com.belladati.sdk.dashboard;
 
-import java.io.IOException;
 import java.util.Date;
 
+import com.belladati.sdk.exception.server.InvalidStreamException;
 import com.belladati.sdk.util.ResourceInfo;
 
 /**
@@ -27,7 +27,7 @@ public interface DashboardInfo extends ResourceInfo<Dashboard> {
 	 * the image being returned depends on the implementation.
 	 * 
 	 * @return a thumbnail image for the associated dashboard
-	 * @throws IOException if no image exists or it cannot be loaded
+	 * @throws InvalidStreamException if no image exists or it cannot be loaded
 	 */
-	Object loadThumbnail() throws IOException;
+	Object loadThumbnail() throws InvalidStreamException;
 }

@@ -1,9 +1,9 @@
 package com.belladati.sdk.report;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Date;
 
+import com.belladati.sdk.exception.server.InvalidStreamException;
 import com.belladati.sdk.util.Localizable;
 import com.belladati.sdk.util.PaginatedList;
 import com.belladati.sdk.util.ResourceInfo;
@@ -46,9 +46,9 @@ public interface ReportInfo extends ResourceInfo<Report>, Localizable {
 	 * image being returned depends on the implementation.
 	 * 
 	 * @return a thumbnail image for the associated report
-	 * @throws IOException if no image exists or it cannot be loaded
+	 * @throws InvalidStreamException if no image exists or it cannot be loaded
 	 */
-	Object loadThumbnail() throws IOException;
+	Object loadThumbnail() throws InvalidStreamException;
 
 	/**
 	 * Returns a paginated list to access the comments of the associated report.

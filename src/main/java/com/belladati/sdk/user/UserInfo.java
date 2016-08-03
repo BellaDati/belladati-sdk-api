@@ -1,7 +1,6 @@
 package com.belladati.sdk.user;
 
-import java.io.IOException;
-
+import com.belladati.sdk.exception.server.InvalidStreamException;
 import com.belladati.sdk.util.ResourceInfo;
 
 /**
@@ -24,9 +23,9 @@ public interface UserInfo extends ResourceInfo<User> {
 	 * being returned depends on the implementation.
 	 * 
 	 * @return the associated user's profile image
-	 * @throws IOException if no image exists or it cannot be loaded
+	 * @throws InvalidStreamException if no image exists or it cannot be loaded
 	 */
-	Object loadImage() throws IOException;
+	Object loadImage() throws InvalidStreamException;
 
 	/**
 	 * Loads the current active status of the user from BellaDati.

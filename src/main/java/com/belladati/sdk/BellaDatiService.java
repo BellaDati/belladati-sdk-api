@@ -1,7 +1,6 @@
 package com.belladati.sdk;
 
 import java.io.File;
-import java.io.IOException;
 import java.io.Serializable;
 import java.net.URISyntaxException;
 import java.util.Collection;
@@ -23,6 +22,7 @@ import com.belladati.sdk.domain.DomainCreateBuilder;
 import com.belladati.sdk.domain.DomainEditBuilder;
 import com.belladati.sdk.domain.DomainInfo;
 import com.belladati.sdk.exception.dataset.data.UnknownServerColumnException;
+import com.belladati.sdk.exception.server.InvalidStreamException;
 import com.belladati.sdk.exception.server.NotFoundException;
 import com.belladati.sdk.filter.Filter;
 import com.belladati.sdk.form.Form;
@@ -160,6 +160,7 @@ public interface BellaDatiService extends Serializable {
 	 * to load report data.
 	 * 
 	 * @return a paginated list to access dashboards visible to the current user
+	 * @see <a href="http://support.belladati.com/techdoc/GET+Dashboards">GET Dashboards</a>
 	 */
 	PaginatedIdList<DashboardInfo> getDashboardInfo();
 
@@ -172,6 +173,7 @@ public interface BellaDatiService extends Serializable {
 	 * @param id ID of the dashboard to load
 	 * @return the dashboard with the specified ID
 	 * @throws NotFoundException if the ID wasn't found
+	 * @see <a href="http://support.belladati.com/techdoc/GET+Dashboard+Detail">GET Dashboard Detail</a>
 	 */
 	Dashboard loadDashboard(String id) throws NotFoundException;
 
@@ -181,10 +183,11 @@ public interface BellaDatiService extends Serializable {
 	 * 
 	 * @param id ID of the dashboard whose thumbnail to load
 	 * @return a thumbnail image for the dashboard with the given ID
-	 * @throws IOException if no image exists or it cannot be loaded
+	 * @throws InvalidStreamException if no image exists or it cannot be loaded
 	 * @throws NotFoundException if the ID wasn't found
+	 * @see <a href="http://support.belladati.com/techdoc/GET+Dashboard+Thumbnail">GET Dashboard Thumbnail</a>
 	 */
-	Object loadDashboardThumbnail(String id) throws IOException, NotFoundException;
+	Object loadDashboardThumbnail(String id) throws InvalidStreamException, NotFoundException;
 
 	/**
 	 * Returns a paginated list to access reports visible to the current user.
@@ -193,6 +196,7 @@ public interface BellaDatiService extends Serializable {
 	 * to load report data.
 	 * 
 	 * @return a paginated list to access reports visible to the current user
+	 * @see <a href="http://support.belladati.com/techdoc/GET+Reports">GET Reports</a>
 	 */
 	PaginatedIdList<ReportInfo> getReportInfo();
 
@@ -205,6 +209,7 @@ public interface BellaDatiService extends Serializable {
 	 * @param id ID of the report to load
 	 * @return the report with the specified ID
 	 * @throws NotFoundException if the ID wasn't found
+	 * @see <a href="http://support.belladati.com/techdoc/GET+Report+Detail">GET Report Detail</a>
 	 */
 	Report loadReport(String id) throws NotFoundException;
 
@@ -214,10 +219,11 @@ public interface BellaDatiService extends Serializable {
 	 * 
 	 * @param id ID of the report whose thumbnail to load
 	 * @return a thumbnail image for the report with the given ID
-	 * @throws IOException if no image exists or it cannot be loaded
+	 * @throws InvalidStreamException if no image exists or it cannot be loaded
 	 * @throws NotFoundException if the ID wasn't found
+	 * @see <a href="http://support.belladati.com/techdoc/GET+Report+Thumbnail">GET Report Thumbnail</a>
 	 */
-	Object loadReportThumbnail(String id) throws IOException, NotFoundException;
+	Object loadReportThumbnail(String id) throws InvalidStreamException, NotFoundException;
 
 	/**
 	 * Returns a paginated list to access the comments of the report with the
@@ -316,6 +322,7 @@ public interface BellaDatiService extends Serializable {
 	 * @param attributeCode code of the attribute whose values to load
 	 * @return all possible values for the attribute
 	 * @throws NotFoundException if the ID or code wasn't found
+	 * @see <a href="http://support.belladati.com/techdoc/GET+Attribute+Values">GET Attribute Values</a>
 	 */
 	CachedList<AttributeValue> getAttributeValues(String dataSetId, String attributeCode) throws NotFoundException;
 
@@ -359,11 +366,11 @@ public interface BellaDatiService extends Serializable {
 	 * 
 	 * @param userId ID of the user whose image to load
 	 * @return the profile image of the user with the given ID
-	 * @throws IOException if no image exists or it cannot be loaded
+	 * @throws InvalidStreamException if no image exists or it cannot be loaded
 	 * @throws NotFoundException if the ID wasn't found
 	 * @see <a href="http://support.belladati.com/techdoc/GET+User+Photo">GET User Photo</a>
 	 */
-	Object loadUserImage(String userId) throws IOException, NotFoundException;
+	Object loadUserImage(String userId) throws InvalidStreamException, NotFoundException;
 
 	/**
 	 * Loads the active status of the user with the given ID.
@@ -392,6 +399,7 @@ public interface BellaDatiService extends Serializable {
 	 * to load data set data.
 	 * 
 	 * @return a paginated list to access data sets visible to the current user
+	 * @see <a href="http://support.belladati.com/techdoc/GET+Data+Sets">GET Data Sets</a>
 	 */
 	PaginatedIdList<DataSetInfo> getDataSetInfo();
 
@@ -404,6 +412,7 @@ public interface BellaDatiService extends Serializable {
 	 * @param id ID of the data set to load
 	 * @return the data set with the specified ID
 	 * @throws NotFoundException if the ID wasn't found
+	 * @see <a href="http://support.belladati.com/techdoc/GET+Data+Set+Detail">GET Data Set Detail</a>
 	 */
 	DataSet loadDataSet(String id) throws NotFoundException;
 
@@ -437,6 +446,7 @@ public interface BellaDatiService extends Serializable {
 	 * @param id ID of the data set whose sources to load
 	 * @return the list of data sources for the data set with the given ID
 	 * @throws NotFoundException if the ID wasn't found
+	 * @see <a href="http://support.belladati.com/techdoc/GET+Data+Sources">GET Data Sources</a>
 	 */
 	CachedList<DataSource> getDataSources(String id) throws NotFoundException;
 
@@ -449,6 +459,7 @@ public interface BellaDatiService extends Serializable {
 	 * @return the list of import configurations for the data source with the
 	 *         given ID
 	 * @throws NotFoundException if the ID wasn't found
+	 * @see <a href="http://support.belladati.com/techdoc/GET+Data+Source+Executions">GET Data Source Executions</a>
 	 */
 	CachedList<DataSourceImport> getDataSourceImports(String id) throws NotFoundException;
 
