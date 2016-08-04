@@ -599,4 +599,26 @@ public interface BellaDatiService extends Serializable {
 	 */
 	FormDataPostBuilder setupFormDataPostBuilder(String formId);
 
+	/**
+	 * Loads the file with the given absolute path. File is returned as a stream but the exact type
+	 * of the response depends on the implementation.
+	 * 
+	 * @param absolutePath absolute path of the file to load
+	 * @return the file as a stream
+	 * @throws URISyntaxException if the URI cannot be created from given parameters
+	 * @see <a href="http://support.belladati.com/techdoc/GET+File">GET File</a>
+	 */
+	Object loadFile(String absolutePath) throws URISyntaxException;
+
+	/**
+	 * Merges multiple PDF files (located at the given absolute paths) into one PDF file. Constructed
+	 * PDF File is returned as a stream but the exact type of the response depends on the implementation.
+	 * 
+	 * @param paths list of absolute paths where source PDF files are located
+	 * @return the PDF file as a stream
+	 * @throws URISyntaxException if the URI cannot be created from given parameters
+	 * @see <a href="http://support.belladati.com/techdoc/GET+Merge+PDF+files">GET Merge PDF files</a>
+	 */
+	Object mergePdfFiles(List<String> paths) throws URISyntaxException;
+
 }
