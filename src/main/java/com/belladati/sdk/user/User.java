@@ -121,4 +121,21 @@ public interface User extends Resource {
 	 */
 	Set<UserGroup> getUserGroups();
 
+	/**
+	 * Creates an user request of desired type for this user.
+	 * 
+	 * @param requestType specifies the type of the request
+	 * @return Request ID and request code of the created request separated by ";".
+	 */
+	String createUserRequest(UserRequestType requestType);
+
+	/**
+	 * Creates an access token for this user.
+	 * 
+	 * @param validity if set, specifies the validity (in seconds) of issued token
+	 * @param domainId specifies the domain (in multi-domain deployments only) for which the access should be granted
+	 * @return OAuth token and OAuth token secret separated by ";".
+	 */
+	String createAccessToken(Integer validity, String domainId);
+
 }

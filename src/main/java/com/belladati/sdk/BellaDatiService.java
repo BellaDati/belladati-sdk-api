@@ -35,6 +35,7 @@ import com.belladati.sdk.user.UserCreateBuilder;
 import com.belladati.sdk.user.UserEditBuilder;
 import com.belladati.sdk.user.UserGroup;
 import com.belladati.sdk.user.UserGroupCreateBuilder;
+import com.belladati.sdk.user.UserRequestType;
 import com.belladati.sdk.util.CachedCollection;
 import com.belladati.sdk.util.CachedList;
 import com.belladati.sdk.util.MultipartPiece;
@@ -620,5 +621,26 @@ public interface BellaDatiService extends Serializable {
 	 * @see <a href="http://support.belladati.com/techdoc/GET+Merge+PDF+files">GET Merge PDF files</a>
 	 */
 	Object mergePdfFiles(List<String> paths) throws URISyntaxException;
+
+	/**
+	 * Creates an user request of desired type for user specified by username.
+	 * 
+	 * @param username username of the user the request is created for
+	 * @param requestType specifies the type of the request
+	 * @return Request ID and request code of the created request separated by ";".
+	 * @see <a href="http://support.belladati.com/techdoc/POST+Create+User+Request">POST Create User Request</a>
+	 */
+	String createUserRequest(String username, UserRequestType requestType);
+
+	/**
+	 * Creates an access token for user specified by username.
+	 * 
+	 * @param username username of the user the access token is created for
+	 * @param validity if set, specifies the validity (in seconds) of issued token
+	 * @param domainId specifies the domain (in multi-domain deployments only) for which the access should be granted
+	 * @return OAuth token and OAuth token secret separated by ";".
+	 * @see <a href="http://support.belladati.com/techdoc/POST+Create+Access+Token">POST Create Access Token</a>
+	 */
+	String createAccessToken(String username, Integer validity, String domainId);
 
 }
