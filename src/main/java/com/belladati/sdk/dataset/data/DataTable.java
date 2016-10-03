@@ -24,6 +24,7 @@ public class DataTable {
 	private final List<DataColumn> columns;
 	private final List<DataRow> rows = new ArrayList<DataRow>();
 	private OverwritePolicy overwritePolicy = OverwritePolicy.deleteNone();
+	private Integer templateId;
 
 	/**
 	 * Creates a new instance with the given column setup. At least one column
@@ -160,6 +161,17 @@ public class DataTable {
 	}
 
 	/**
+	 * Sets the template ID to be used as import template for processing this table.
+	 * 
+	 * @param templateId the template id to be used
+	 * @return this table, to allow chaining
+	 */
+	public DataTable setTemplateId(Integer templateId) throws UnknownColumnException {
+		this.templateId = templateId;
+		return this;
+	}
+
+	/**
 	 * Asserts that the given attribute exists as a column in this table.
 	 * 
 	 * @param attribute the attribute to find
@@ -204,6 +216,9 @@ public class DataTable {
 		node.put("columns", columnsNode);
 		node.put("data", dataNode);
 		node.put("overwrite", overwritePolicy.toJson());
+		if (templateId != null) {
+			node.put("templateId", templateId);
+		}
 		return node;
 	}
 }
