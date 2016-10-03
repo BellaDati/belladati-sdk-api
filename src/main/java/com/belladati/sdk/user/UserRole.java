@@ -33,7 +33,7 @@ public enum UserRole {
 	 * Returns the attribute type matching the given string type from JSON. This
 	 * method is used by the SDK internally.
 	 * 
-	 * @param jsonType string type from JSON
+	 * @param jsonRole string type from JSON
 	 * @return the attribute type matching the given string type from JSON
 	 */
 	public static UserRole valueOfJson(String jsonRole) {

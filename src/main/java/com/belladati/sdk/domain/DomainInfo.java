@@ -8,7 +8,7 @@ import com.belladati.sdk.util.ResourceInfo;
 
 /**
  * Information object about a BellaDati domain. Use this to get meta-information
- * about the domain. To retrieve the domain users call {@link #loadUsers()} and
+ * about the domain. To retrieve the domain users call {@link #loadUsers(String)} and
  * the domain user groups call {@link #loadUserGroups()}.
  * 
  * @author Lubomir Elko
