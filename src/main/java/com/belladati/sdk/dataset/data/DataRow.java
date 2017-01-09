@@ -7,9 +7,11 @@ import java.util.Map;
 
 import com.belladati.sdk.exception.dataset.data.TooManyColumnsException;
 import com.belladati.sdk.exception.dataset.data.UnknownColumnException;
+import com.belladati.sdk.util.IdElement;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 /**
  * A single row in a data table. Enforces adherence to the parent table's data
@@ -17,13 +19,32 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
  * 
  * @author Chris Hennigfeld
  */
-public class DataRow {
+public class DataRow implements IdElement {
 
+	private final String id;
 	private final List<DataColumn> columns;
 	private final Map<DataColumn, String> content = new HashMap<DataColumn, String>();
 
-	DataRow(List<DataColumn> columns) {
+	public DataRow(String id) {
+		this(id, new ArrayList<>());
+	}
+
+	public DataRow(List<DataColumn> columns) {
+		this(null, columns);
+	}
+
+	public DataRow(String id, List<DataColumn> columns) {
+		this.id = id;
 		this.columns = columns;
+	}
+
+	/**
+	 * Returns identification of the data row.
+	 * 
+	 * @return identification of the data row
+	 */
+	public String getId() {
+		return id;
 	}
 
 	/**
@@ -120,10 +141,41 @@ public class DataRow {
 	 * @return this row in JSON representation
 	 */
 	public JsonNode toJson() {
+		return toJsonArray();
+	}
+
+	/**
+	 * Returns this row in {@link ArrayNode} representation.
+	 * 
+	 * @return this row in {@link ArrayNode} representation
+	 */
+	public JsonNode toJsonArray() {
 		ArrayNode node = new ObjectMapper().createArrayNode();
 		for (String value : getAll()) {
 			node.add(value);
 		}
 		return node;
 	}
+
+	/**
+	 * Returns this row in {@link ObjectNode} representation.
+	 * 
+	 * @return this row in {@link ObjectNode} representation
+	 */
+	public JsonNode toJsonObject() {
+		ObjectNode node = new ObjectMapper().createObjectNode();
+		if (id != null) {
+			node.put("id", id);
+		}
+		for (DataColumn column : columns) {
+			String value = content.get(column);
+			if (value != null) {
+				node.put(column.getCode(), value);
+			} else {
+				node.put(column.getCode(), "");
+			}
+		}
+		return node;
+	}
+
 }

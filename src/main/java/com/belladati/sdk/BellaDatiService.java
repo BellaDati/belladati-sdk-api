@@ -13,6 +13,7 @@ import com.belladati.sdk.dashboard.DashboardInfo;
 import com.belladati.sdk.dataset.AttributeValue;
 import com.belladati.sdk.dataset.DataSet;
 import com.belladati.sdk.dataset.DataSetInfo;
+import com.belladati.sdk.dataset.data.DataRow;
 import com.belladati.sdk.dataset.data.DataTable;
 import com.belladati.sdk.dataset.source.DataSource;
 import com.belladati.sdk.dataset.source.DataSourceImport;
@@ -416,6 +417,17 @@ public interface BellaDatiService extends Serializable {
 	 * @see <a href="http://support.belladati.com/techdoc/GET+Data+Set+Detail">GET Data Set Detail</a>
 	 */
 	DataSet loadDataSet(String id) throws NotFoundException;
+
+	/**
+	 * Returns a paginated list to access data set data visible to the current user.
+	 * <p>
+	 * Initially, the returned list is empty. Call {@link PaginatedList#load()}
+	 * to load data set data.
+	 * 
+	 * @return a paginated list to access data set data visible to the current user
+	 * @see <a href="http://support.belladati.com/techdoc/GET+Data+Set+Data">GET Data Set Data</a>
+	 */
+	PaginatedIdList<DataRow> getDataSetData(String dataSetId);
 
 	/**
 	 * Uploads the given data into this data set. This method doesn't perform

@@ -3,6 +3,7 @@ package com.belladati.sdk.dataset;
 import java.util.Date;
 import java.util.List;
 
+import com.belladati.sdk.dataset.data.DataRow;
 import com.belladati.sdk.dataset.data.DataTable;
 import com.belladati.sdk.dataset.source.DataSource;
 import com.belladati.sdk.exception.dataset.data.NoColumnsException;
@@ -11,6 +12,8 @@ import com.belladati.sdk.report.ReportInfo;
 import com.belladati.sdk.util.CachedCollection;
 import com.belladati.sdk.util.CachedList;
 import com.belladati.sdk.util.Localizable;
+import com.belladati.sdk.util.PaginatedIdList;
+import com.belladati.sdk.util.PaginatedList;
 import com.belladati.sdk.util.Resource;
 
 /**
@@ -95,4 +98,14 @@ public interface DataSet extends Resource, Localizable {
 	 * @return the list of data sources for this data set
 	 */
 	CachedList<DataSource> getDataSources();
+
+	/**
+	 * Returns a paginated list to access data set data visible to the current user.
+	 * <p>
+	 * Initially, the returned list is empty. Call {@link PaginatedList#load()}
+	 * to load data set data.
+	 * 
+	 * @return a paginated list to access data set data visible to the current user
+	 */
+	PaginatedIdList<DataRow> getDataSetData();
 }
