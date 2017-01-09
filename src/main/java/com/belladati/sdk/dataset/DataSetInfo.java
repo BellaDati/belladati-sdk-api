@@ -2,7 +2,10 @@ package com.belladati.sdk.dataset;
 
 import java.util.Date;
 
+import com.belladati.sdk.dataset.data.DataRow;
 import com.belladati.sdk.util.Localizable;
+import com.belladati.sdk.util.PaginatedIdList;
+import com.belladati.sdk.util.PaginatedList;
 import com.belladati.sdk.util.ResourceInfo;
 
 /**
@@ -36,5 +39,15 @@ public interface DataSetInfo extends ResourceInfo<DataSet>, Localizable {
 	 *         if it was never changed
 	 */
 	Date getLastChange();
+
+	/**
+	 * Returns a paginated list to access data set data visible to the current user.
+	 * <p>
+	 * Initially, the returned list is empty. Call {@link PaginatedList#load()}
+	 * to load data set data.
+	 * 
+	 * @return a paginated list to access data set data visible to the current user
+	 */
+	PaginatedIdList<DataRow> getData();
 
 }

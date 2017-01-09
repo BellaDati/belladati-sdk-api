@@ -107,5 +107,5 @@ public interface DataSet extends Resource, Localizable {
 	 * 
 	 * @return a paginated list to access data set data visible to the current user
 	 */
-	PaginatedIdList<DataRow> getDataSetData();
+	PaginatedIdList<DataRow> getData();
 }
