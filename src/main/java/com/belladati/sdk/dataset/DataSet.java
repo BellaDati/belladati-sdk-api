@@ -108,4 +108,13 @@ public interface DataSet extends Resource, Localizable {
 	 * @return a paginated list to access data set data visible to the current user
 	 */
 	PaginatedIdList<DataRow> getData();
+
+	/**
+	 * Posts a row into this data set. If the row has "id" then existing row with this
+	 * identification will be updated. Otherwise, new row will be added.
+	 * 
+	 * @param row data row to post
+	 */
+	void postData(DataRow row);
+
 }

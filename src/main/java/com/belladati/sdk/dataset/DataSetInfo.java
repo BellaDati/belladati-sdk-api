@@ -50,4 +50,12 @@ public interface DataSetInfo extends ResourceInfo<DataSet>, Localizable {
 	 */
 	PaginatedIdList<DataRow> getData();
 
+	/**
+	 * Posts a row into this data set. If the row has "id" then existing row with this
+	 * identification will be updated. Otherwise, new row will be added.
+	 * 
+	 * @param row data row to post
+	 */
+	void postData(DataRow row);
+
 }
