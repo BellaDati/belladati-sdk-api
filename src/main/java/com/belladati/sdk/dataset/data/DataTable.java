@@ -25,6 +25,7 @@ public class DataTable {
 	private final List<DataRow> rows = new ArrayList<DataRow>();
 	private OverwritePolicy overwritePolicy = OverwritePolicy.deleteNone();
 	private Integer templateId;
+	private Integer splitByColumn;
 
 	/**
 	 * Creates a new instance with the given column setup. At least one column
@@ -172,6 +173,17 @@ public class DataTable {
 	}
 
 	/**
+	 * Sets the index of column to be used in split data functionality.
+	 * 
+	 * @param splitByColumn index of column to be used
+	 * @return this table, to allow chaining
+	 */
+	public DataTable setSplitByColumn(Integer splitByColumn) throws UnknownColumnException {
+		this.splitByColumn = splitByColumn;
+		return this;
+	}
+
+	/**
 	 * Asserts that the given attribute exists as a column in this table.
 	 * 
 	 * @param attribute the attribute to find
@@ -218,6 +230,9 @@ public class DataTable {
 		node.put("overwrite", overwritePolicy.toJson());
 		if (templateId != null) {
 			node.put("templateId", templateId);
+		}
+		if (splitByColumn != null) {
+			node.put("splitByColumn", splitByColumn);
 		}
 		return node;
 	}
