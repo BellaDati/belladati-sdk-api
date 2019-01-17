@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.belladati</groupId>
 	<artifactId>sdk-api</artifactId>
-	<version>0.9.11-SNAPSHOT</version>
+	<version>0.9.12-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>BellaDati SDK API</name>
 	<url>http://www.belladati.com</url>
@@ -14,14 +14,9 @@
 	</scm>
 	<developers>
 		<developer>
-			<id>lmicko</id>
-			<name>Lubomir Micko</name>
-			<email>lubomir.micko@belladati.com</email>
-		</developer>
-		<developer>
-			<id>lelko</id>
-			<name>Lubomir Elko</name>
-			<email>lubomir.elko@belladati.com</email>
+			<id>belladati</id>
+			<name>BellaDati Dev</name>
+			<email>dev@belladati.com</email>
 		</developer>
 	</developers>
 	<licenses>
