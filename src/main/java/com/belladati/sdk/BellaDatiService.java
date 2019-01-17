@@ -47,6 +47,7 @@ import com.belladati.sdk.view.ImageView;
 import com.belladati.sdk.view.ViewLoader;
 import com.belladati.sdk.view.ViewType;
 import com.belladati.sdk.view.export.ViewExporter;
+import com.fasterxml.jackson.databind.JsonNode;
 
 /**
  * A service accessing one specific BellaDati server as an authenticated user.
@@ -382,7 +383,7 @@ public interface BellaDatiService extends Serializable {
 	 * @throws NotFoundException if the ID wasn't found
 	 * @see <a href="http://support.belladati.com/techdoc/GET+User+Status">GET User Status</a>
 	 */
-	String loadUserStatus(String userId) throws NotFoundException;
+	String loadUserStatus(String userId) throws NotFoundException;	
 
 	/**
 	 * Posts the active status to the user with the given ID.
@@ -666,5 +667,12 @@ public interface BellaDatiService extends Serializable {
 	 * @see <a href="http://support.belladati.com/techdoc/POST+Create+Access+Token">POST Create Access Token</a>
 	 */
 	String createAccessToken(String username, Integer validity, String domainId);
+	
+	/**
+	 * Generic method to load JSON type response
+	 * 
+	 * @param uri Endpoint URI
+	 */
+	JsonNode loadJson(String uri);
 
 }
