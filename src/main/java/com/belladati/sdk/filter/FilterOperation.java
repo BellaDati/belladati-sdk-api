@@ -6,6 +6,7 @@ import com.belladati.sdk.dataset.AttributeType;
 import com.belladati.sdk.dataset.AttributeValue;
 import com.belladati.sdk.filter.Filter.MultiValueFilter;
 import com.belladati.sdk.filter.Filter.NoValueFilter;
+import com.belladati.sdk.filter.Filter.SingleValueFilter;
 import com.belladati.sdk.util.CachedList;
 
 /**
@@ -32,6 +33,13 @@ public abstract class FilterOperation<F extends Filter<?>> {
 	 * of values.
 	 */
 	public static final MultiValueOperation NOT_IN = new MultiValueOperation("NOT_IN");
+
+	public static final SingleValueOperation EQ = new SingleValueOperation("EQ");
+	public static final SingleValueOperation NEQ = new SingleValueOperation("NEQ");
+	public static final SingleValueOperation GT = new SingleValueOperation("GT");
+	public static final SingleValueOperation GTE = new SingleValueOperation("GTE");
+	public static final SingleValueOperation LT = new SingleValueOperation("LT");
+	public static final SingleValueOperation LTE = new SingleValueOperation("LTE");
 
 	/**
 	 * Returns all available filter operations. This is similar to the
@@ -119,6 +127,22 @@ public abstract class FilterOperation<F extends Filter<?>> {
 		@Override
 		public MultiValueFilter createFilter(Attribute attribute) {
 			return new MultiValueFilter(this, attribute);
+		}
+	}
+
+	/**
+	 * Represents a filter operation that may contain attribute values.
+	 *
+	 * @author Chris Hennigfeld
+	 */
+	public static class SingleValueOperation extends FilterOperation<SingleValueFilter> {
+		private SingleValueOperation(String op) {
+			super(op);
+		}
+
+		@Override
+		public SingleValueFilter createFilter(Attribute attribute) {
+			return new SingleValueFilter(this, attribute);
 		}
 	}
 

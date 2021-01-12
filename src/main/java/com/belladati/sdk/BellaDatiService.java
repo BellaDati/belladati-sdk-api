@@ -432,6 +432,18 @@ public interface BellaDatiService extends Serializable {
 	PaginatedIdList<DataRow> getDataSetData(String dataSetId) throws NotFoundException;
 
 	/**
+	 * Returns a filtered paginated list to access data set data visible to the current user.
+	 * <p>
+	 * Initially, the returned list is empty. Call {@link PaginatedList#load()}
+	 * to load data set data.
+	 *
+	 * @return a paginated list to access data set data visible to the current user
+	 * @throws NotFoundException if the ID wasn't found
+	 * @see <a href="http://support.belladati.com/techdoc/GET+Data+Set+Data">GET Data Set Data</a>
+	 */
+	PaginatedIdList<DataRow> getDataSetDataFiltered(String dataSetId, Filter<?>... filters) throws NotFoundException;
+
+	/**
 	 * Posts a row to the data set with the given ID. If the row has "id" then existing row with this
 	 * identification will be updated. Otherwise, new row will be added.
 	 * 
@@ -441,6 +453,13 @@ public interface BellaDatiService extends Serializable {
 	 * @see <a href="http://support.belladati.com/techdoc/POST+Data+Set+Data">POST Data+Set+Data</a>
 	 */
 	void postDataSetData(String dataSetId, DataRow row) throws NotFoundException;
+
+	/**
+	 * Updates @param rows in the data set @param dataSetId that match on attributes given in @param matchAttributes.
+	 * @throws NotFoundException if the ID wasn't found
+	 * @see <a href="http://support.belladati.com/techdoc/PATCH+Data+Set+Data">PATCH Data Set Data</a>
+	 */
+	void patchDataSetData(String dataSetId, Collection<DataRow> rows, Collection<String> matchAttributes) throws NotFoundException;
 
 	/**
 	 * Uploads the given data into this data set. This method doesn't perform

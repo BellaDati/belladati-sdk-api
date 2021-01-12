@@ -108,7 +108,7 @@ public abstract class Filter<F extends Filter<?>> {
 	 * @author Chris Hennigfeld
 	 */
 	public static class MultiValueFilter extends Filter<MultiValueFilter> {
-		private final Set<AttributeValue> values = new HashSet<AttributeValue>();
+		private final Set<AttributeValue> values = new HashSet<>();
 
 		MultiValueFilter(FilterOperation<MultiValueFilter> operation, Attribute attribute) {
 			super(operation, attribute);
@@ -164,6 +164,42 @@ public abstract class Filter<F extends Filter<?>> {
 				filterValues.add(value.getValue());
 			}
 			((ObjectNode) node.get(getAttribute().getCode())).put("values", filterValues);
+			return node;
+		}
+	}
+
+	/**
+	 * A filter that contains an attribute and an operation, and a set of
+	 * values. An example is to filter for an attribute containing one of a set
+	 * of values.
+	 *
+	 * @author Chris Hennigfeld
+	 */
+	public static class SingleValueFilter extends Filter<SingleValueFilter> {
+		private AttributeValue value;
+
+		SingleValueFilter(FilterOperation<SingleValueFilter> operation, Attribute attribute) {
+			this(operation, attribute, null);
+		}
+
+		SingleValueFilter(FilterOperation<SingleValueFilter> operation, Attribute attribute, AttributeValue value) {
+			super(operation, attribute);
+			this.value = value;
+		}
+
+		public AttributeValue getValue() {
+			return value;
+		}
+
+		public SingleValueFilter setValue(AttributeValue value) {
+			this.value = value;
+			return this;
+		}
+
+		@Override
+		public ObjectNode toJson() {
+			ObjectNode node = super.toJson();
+			((ObjectNode) node.get(getAttribute().getCode())).put("value", value.getValue());
 			return node;
 		}
 	}
