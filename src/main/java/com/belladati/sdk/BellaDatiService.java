@@ -455,11 +455,39 @@ public interface BellaDatiService extends Serializable {
 	void postDataSetData(String dataSetId, DataRow row) throws NotFoundException;
 
 	/**
-	 * Updates @param rows in the data set @param dataSetId that match on attributes given in @param matchAttributes.
+	 * Posts rows to the data set with the given ID. If a row has "id" then existing row with this
+	 * identification will be updated. Otherwise, new row will be added.
+	 *
+	 * @param dataSetId ID of the data set to which to post a row
+	 * @param rows data row to post
+	 * @throws NotFoundException if the ID wasn't found
+	 * @see <a href="http://support.belladati.com/techdoc/POST+Data+Set+Data">POST Data+Set+Data</a>
+	 */
+	void postDataSetData(String dataSetId, Collection<DataRow> rows) throws NotFoundException;
+
+	/**
+	 * Updates {@code rows} in the data set {@code dataSetId} that match on attributes given in {@code matchAttributes}.
 	 * @throws NotFoundException if the ID wasn't found
 	 * @see <a href="http://support.belladati.com/techdoc/PATCH+Data+Set+Data">PATCH Data Set Data</a>
 	 */
 	void patchDataSetData(String dataSetId, Collection<DataRow> rows, Collection<String> matchAttributes) throws NotFoundException;
+
+	/**
+	 * Deletes data from a data set based on given filter and then inserts new rows.
+	 * @param dataSetId
+	 * @param rows
+	 * @param filters
+	 * @throws NotFoundException
+	 */
+	void replaceDataSetData(String dataSetId, Collection<DataRow> rows, Filter<?>... filters) throws NotFoundException;
+
+	/**
+	 * Deletes data from a data set based on given filter.
+	 * @param dataSetId
+	 * @param filters
+	 * @throws NotFoundException
+	 */
+	void deleteDataSetData(String dataSetId, Filter<?>... filters) throws NotFoundException;
 
 	/**
 	 * Uploads the given data into this data set. This method doesn't perform
