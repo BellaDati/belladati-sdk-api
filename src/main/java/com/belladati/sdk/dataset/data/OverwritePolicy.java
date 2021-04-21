@@ -95,6 +95,26 @@ public abstract class OverwritePolicy {
 	}
 
 	/**
+	 * Returns an {@link OverwritePolicy} that updates records that are
+	 * identical in the specified attributes with a record being imported. <br>
+	 * At least one attribute needs to be specified.
+	 * <p>
+	 * Empty attribute values in existing data are treated as matching anything.
+	 * Existing records that match an imported record on all non-empty
+	 * attributes are deleted.
+	 *
+	 * @param firstAttribute first attribute
+	 * @param otherAttributes additional, optional attributes
+	 * @return a policy updating non-unique data by selected attributes
+	 */
+	public static OverwritePolicy updateValues(String firstAttribute, String... otherAttributes) {
+		List<String> attributes = new ArrayList<>();
+		attributes.add(firstAttribute);
+		attributes.addAll(Arrays.asList(otherAttributes));
+		return new UpdateValuesPolicy(attributes);
+	}
+
+	/**
 	 * Returns an {@link OverwritePolicy} that deletes records that are
 	 * identical in the specified attributes with a record being imported. As a
 	 * result, no two records can exist in the data set that have the same
