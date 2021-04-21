@@ -28,6 +28,7 @@ public abstract class OverwritePolicy {
 
 	private static final String DELETE_ALL = "DELETE_ALL";
 	private static final String DELETE_BY_MEMBERS = "DELETE_BY_MEMBERS";
+	private static final String UPDATE_BY_VALUES = "UPDATE_BY_VALUES";
 
 	private OverwritePolicy() {
 		// hide default constructor to avoid outside subclassing
@@ -249,6 +250,36 @@ public abstract class OverwritePolicy {
 		public JsonNode toJson() {
 			ObjectNode json = new ObjectMapper().createObjectNode();
 			json.put("policy", DELETE_BY_MEMBERS);
+			ArrayNode attributes = new ObjectMapper().createArrayNode();
+			for (String attribute : this.attributes) {
+				attributes.add(attribute);
+			}
+			json.put("attributes", attributes);
+			return json;
+		}
+	}
+
+	private static class UpdateValuesPolicy extends OverwritePolicy {
+
+		private final List<String> attributes;
+
+		private UpdateValuesPolicy(List<String> attributes) {
+			if (attributes.isEmpty()) {
+				throw new NoColumnsException();
+			}
+			List<String> temp = new ArrayList<>(attributes);
+			this.attributes = Collections.unmodifiableList(temp);
+		}
+
+		@Override
+		public List<String> getAttributeCodes() {
+			return attributes;
+		}
+
+		@Override
+		public JsonNode toJson() {
+			ObjectNode json = new ObjectMapper().createObjectNode();
+			json.put("policy", UPDATE_BY_VALUES);
 			ArrayNode attributes = new ObjectMapper().createArrayNode();
 			for (String attribute : this.attributes) {
 				attributes.add(attribute);
