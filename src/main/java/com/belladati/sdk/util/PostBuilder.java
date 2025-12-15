@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 /**
  * Builder used to initiate object that should be send to BellaDati via POST request.
  * 
- * @author Lubomir Elko
+ * 
  */
 public interface PostBuilder {
 

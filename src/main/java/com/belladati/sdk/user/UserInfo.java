@@ -7,7 +7,7 @@ import com.belladati.sdk.util.ResourceInfo;
  * Information object about a BellaDati user. To retrieve user details, call
  * {@link #loadDetails()}.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public interface UserInfo extends ResourceInfo<User> {
 

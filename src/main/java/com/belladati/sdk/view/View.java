@@ -15,7 +15,7 @@ import com.belladati.sdk.view.export.ViewExporter;
  * A BellaDati view in a report or dashboard. Call
  * {@link #loadContent(Filter...)} to get the view's displayable content.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public interface View extends Resource, Localizable {
 
@@ -45,14 +45,14 @@ public interface View extends Resource, Localizable {
 	Object loadContent(Collection<Filter<?>> filters);
 
 	/**
-	 * Returns <tt>true</tt> if this view has filters defined in its report.
+	 * Returns true if this view has filters defined in its report.
 	 * 
-	 * @return <tt>true</tt> if this view has filters defined in its report
+	 * @return true if this view has filters defined in its report
 	 */
 	boolean hasPredefinedFilters();
 
 	/**
-	 * Returns the view's filters defined in its report, or <tt>null</tt> if
+	 * Returns the view's filters defined in its report, or null if
 	 * there are no predefined filters.
 	 * 
 	 * @return the view's filters defined in its report
@@ -60,39 +60,39 @@ public interface View extends Resource, Localizable {
 	Set<Filter<?>> getPredefinedFilters();
 
 	/**
-	 * Returns <tt>true</tt> if this view supports setting date intervals.
+	 * Returns true if this view supports setting date intervals.
 	 * 
-	 * @return <tt>true</tt> if this view supports setting date intervals
+	 * @return true if this view supports setting date intervals
 	 */
 	boolean isDateIntervalSupported();
 
 	/**
-	 * Returns <tt>true</tt> if this view supports setting time intervals.
+	 * Returns true if this view supports setting time intervals.
 	 * 
-	 * @return <tt>true</tt> if this view supports setting time intervals
+	 * @return true if this view supports setting time intervals
 	 */
 	boolean isTimeIntervalSupported();
 
 	/**
-	 * Returns <tt>true</tt> if this view has a date interval defined in its
+	 * Returns true if this view has a date interval defined in its
 	 * report.
 	 * 
-	 * @return <tt>true</tt> if this view has a date interval defined in its
+	 * @return true if this view has a date interval defined in its
 	 *         report
 	 */
 	boolean hasPredefinedDateInterval();
 
 	/**
-	 * Returns <tt>true</tt> if this view has a time interval defined in its
+	 * Returns true if this view has a time interval defined in its
 	 * report.
 	 * 
-	 * @return <tt>true</tt> if this view has a time interval defined in its
+	 * @return true if this view has a time interval defined in its
 	 *         report
 	 */
 	boolean hasPredefinedTimeInterval();
 
 	/**
-	 * Returns the view's date interval defined in its report, or <tt>null</tt>
+	 * Returns the view's date interval defined in its report, or null
 	 * if there is no predefined interval.
 	 * 
 	 * @return the view's date interval defined in its report
@@ -100,7 +100,7 @@ public interface View extends Resource, Localizable {
 	Interval<DateUnit> getPredefinedDateInterval();
 
 	/**
-	 * Returns the view's time interval defined in its report, or <tt>null</tt>
+	 * Returns the view's time interval defined in its report, or null
 	 * if there is no predefined interval.
 	 * 
 	 * @return the view's time interval defined in its report

@@ -17,7 +17,7 @@ import com.belladati.sdk.exception.auth.AuthorizationException;
  * Connection instances may be serialized, saved, and restored for later use
  * with the same server. This will instantiate a new HTTP client.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public interface BellaDatiConnection extends Serializable {
 

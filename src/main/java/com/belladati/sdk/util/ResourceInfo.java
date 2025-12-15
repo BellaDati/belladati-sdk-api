@@ -4,7 +4,7 @@ package com.belladati.sdk.util;
  * An information object representing a resource from the BellaDati API. Call
  * {@link #loadDetails()} to load the full resource from the server.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public interface ResourceInfo<T extends Resource> extends IdElement {
 

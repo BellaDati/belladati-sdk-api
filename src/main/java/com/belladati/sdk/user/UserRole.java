@@ -3,7 +3,7 @@ package com.belladati.sdk.user;
 /**
  * Indicates the role of an user.
  * 
- * @author Lubomir Elko
+ * 
  */
 public enum UserRole {
 

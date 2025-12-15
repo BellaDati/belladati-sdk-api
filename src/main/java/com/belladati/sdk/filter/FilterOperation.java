@@ -13,16 +13,16 @@ import com.belladati.sdk.util.CachedList;
  * Provides access to all available filter operations. Filter operations can be
  * used together with an attribute to create filters.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 // this would be an enum, but we need different types so the compiler can
 // distinguish between no-value and multi-value operations
 public abstract class FilterOperation<F extends Filter<?>> {
 
-	/** Operation that requires an attribute to be <tt>null</tt>. */
+	/** Operation that requires an attribute to be null. */
 	public static final NoValueOperation NULL = new NoValueOperation("NULL");
 
-	/** Operation that requires an attribute <b>not</b> to be <tt>null</tt>. */
+	/** Operation that requires an attribute <b>not</b> to be null. */
 	public static final NoValueOperation NOT_NULL = new NoValueOperation("NOT_NULL");
 
 	/** Operation that requires an attribute's value to be in a list of values. */
@@ -43,7 +43,7 @@ public abstract class FilterOperation<F extends Filter<?>> {
 
 	/**
 	 * Returns all available filter operations. This is similar to the
-	 * <tt>values()</tt> method in an enum.
+	 * values() method in an enum.
 	 * 
 	 * @return all available filter operations
 	 */
@@ -90,9 +90,9 @@ public abstract class FilterOperation<F extends Filter<?>> {
 	}
 
 	/**
-	 * Returns <tt>true</tt> if this filter operation uses attribute values.
+	 * Returns true if this filter operation uses attribute values.
 	 * 
-	 * @return <tt>true</tt> if this filter operation uses attribute values
+	 * @return true if this filter operation uses attribute values
 	 */
 	public boolean supportsValues() {
 		return this instanceof MultiValueOperation;
@@ -101,7 +101,7 @@ public abstract class FilterOperation<F extends Filter<?>> {
 	/**
 	 * Represents a filter operation that doesn't contain any attribute values.
 	 * 
-	 * @author Chris Hennigfeld
+	 * 
 	 */
 	public static class NoValueOperation extends FilterOperation<NoValueFilter> {
 		private NoValueOperation(String op) {
@@ -117,7 +117,7 @@ public abstract class FilterOperation<F extends Filter<?>> {
 	/**
 	 * Represents a filter operation that may contain attribute values.
 	 * 
-	 * @author Chris Hennigfeld
+	 * 
 	 */
 	public static class MultiValueOperation extends FilterOperation<MultiValueFilter> {
 		private MultiValueOperation(String op) {
@@ -133,7 +133,7 @@ public abstract class FilterOperation<F extends Filter<?>> {
 	/**
 	 * Represents a filter operation that may contain attribute values.
 	 *
-	 * @author Chris Hennigfeld
+	 * 
 	 */
 	public static class SingleValueOperation extends FilterOperation<SingleValueFilter> {
 		private SingleValueOperation(String op) {
@@ -150,7 +150,7 @@ public abstract class FilterOperation<F extends Filter<?>> {
 	 * Internal Attribute implementation to dynamically create filter attributes
 	 * that haven't been loaded through a report.
 	 * 
-	 * @author Chris Hennigfeld
+	 * 
 	 */
 	private class FilterAttribute implements Attribute {
 		private final BellaDatiService service;

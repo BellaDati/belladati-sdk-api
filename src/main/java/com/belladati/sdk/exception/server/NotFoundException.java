@@ -4,7 +4,7 @@ package com.belladati.sdk.exception.server;
  * Indicates a HTTP 404 error from the server. Most likely this is caused by
  * requesting an item ID that doesn't exist.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public class NotFoundException extends ServerResponseException {
 

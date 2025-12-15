@@ -14,7 +14,7 @@ import com.belladati.sdk.view.ImageView;
  * about the report. To retrieve the report contents, call
  * {@link #loadDetails()}.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public interface ReportInfo extends ResourceInfo<Report>, Localizable {
 
@@ -36,7 +36,7 @@ public interface ReportInfo extends ResourceInfo<Report>, Localizable {
 	/**
 	 * Returns the last change date of the associated report.
 	 * 
-	 * @return the last change date of the associated report, or <tt>null</tt>
+	 * @return the last change date of the associated report, or null
 	 *         if it was never changed
 	 */
 	Date getLastChange();

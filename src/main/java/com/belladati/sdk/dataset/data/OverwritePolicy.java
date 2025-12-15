@@ -22,7 +22,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  * doing nothing, deleting or overwriting selected records, and clearing all
  * data.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public abstract class OverwritePolicy {
 

@@ -7,7 +7,7 @@ import com.belladati.sdk.util.PostBuilder;
 /**
  * Builder used to initiate form data that should be send to BellaDati.
  * 
- * @author Lubomir Elko
+ * 
  */
 public interface FormDataPostBuilder extends PostBuilder {
 

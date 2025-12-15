@@ -9,7 +9,7 @@ import com.belladati.sdk.filter.Filter;
 /**
  * A view displaying Image content.
  * 
- * @author Pavol Kovac
+ * 
  */
 public interface ImageView extends View {
 
@@ -39,7 +39,7 @@ public interface ImageView extends View {
 	/**
 	 * This class is a transport crate for image
 	 * 
-	 * @author pavol.kovac
+	 * 
 	 */
 	interface Image {
 

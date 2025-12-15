@@ -5,7 +5,7 @@ package com.belladati.sdk.exception;
  * SDK API declaration. If you see this exception, check that you have the
  * implementation JAR on your classpath and it matches your SDK API version.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public class InvalidImplementationException extends BellaDatiRuntimeException {
 

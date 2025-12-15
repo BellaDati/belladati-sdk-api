@@ -12,7 +12,7 @@ import com.belladati.sdk.exception.auth.AuthorizationException;
  * and password. After successful authentication, call {@link #requestAccess()}
  * to gain access to the server via SDK.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public interface OAuthRequest extends Serializable {
 

@@ -14,7 +14,7 @@ import com.belladati.sdk.util.IdElement;
  * to set multiple parameters while loading views, such as date or time
  * intervals or filters.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public interface ViewLoader extends IdElement {
 

@@ -9,7 +9,7 @@ import com.belladati.sdk.util.Resource;
 /**
  * A BellaDati domain.
  * 
- * @author Lubomir Elko
+ * 
  */
 public interface Domain extends Resource {
 

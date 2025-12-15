@@ -5,7 +5,7 @@ package com.belladati.sdk.exception.server;
  * operation is not supported for given inputs. E.g. you cannot export certain
  * types of views
  * 
- * @author Pavol Kovac
+ * 
  */
 public class MethodNotAllowedException extends ServerResponseException {
 

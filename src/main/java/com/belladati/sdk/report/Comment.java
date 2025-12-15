@@ -8,7 +8,7 @@ import com.belladati.sdk.util.IdElement;
 /**
  * A comment entry in a BellaDati report.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public interface Comment extends IdElement {
 

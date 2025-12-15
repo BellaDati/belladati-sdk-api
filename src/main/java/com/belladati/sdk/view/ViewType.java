@@ -4,7 +4,7 @@ package com.belladati.sdk.view;
  * Indicates the type of a view. Provides information of what content to expect
  * from the view.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public enum ViewType {
 	/** A chart view. The view is an instance of {@link JsonView}. */

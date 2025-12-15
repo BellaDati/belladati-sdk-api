@@ -9,7 +9,7 @@ import com.belladati.sdk.dataset.AttributeValue;
  * Can be used to create filters for known attribute values without having to
  * make an API request loading the values first.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public class FilterValue implements AttributeValue {
 	private final String label;

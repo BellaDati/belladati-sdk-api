@@ -24,7 +24,7 @@ import com.fasterxml.jackson.databind.JsonNode;
  * the number of available rows and columns and provides methods to load the
  * actual table contents.
  * 
- * @author Chris Hennigfeld.
+ * 
  */
 public interface TableView extends View {
 
@@ -56,7 +56,7 @@ public interface TableView extends View {
 	 * part of the table currently accessed by the user, then dynamically load
 	 * more content later on as needed.
 	 * 
-	 * @author Chris Hennigfeld
+	 * 
 	 */
 	interface Table {
 
@@ -75,16 +75,16 @@ public interface TableView extends View {
 		int getColumnCount();
 
 		/**
-		 * Returns <tt>true</tt> if the left header has at least one column.
+		 * Returns true if the left header has at least one column.
 		 * 
-		 * @return <tt>true</tt> if the left header has at least one column
+		 * @return true if the left header has at least one column
 		 */
 		boolean hasLeftHeader();
 
 		/**
-		 * Returns <tt>true</tt> if the top header has at least one row.
+		 * Returns true if the top header has at least one row.
 		 * 
-		 * @return <tt>true</tt> if the top header has at least one row
+		 * @return true if the top header has at least one row
 		 */
 		boolean hasTopHeader();
 
@@ -130,7 +130,7 @@ public interface TableView extends View {
 		 * {@link ViewLoader#loadContent()} or {@link #setLocale(Locale)} on the
 		 * table to set it.
 		 * 
-		 * @return the locale in which to load table contents, or <tt>null</tt>
+		 * @return the locale in which to load table contents, or null
 		 *         if no specific locale was set
 		 */
 		Locale getLocale();
@@ -138,7 +138,7 @@ public interface TableView extends View {
 		/**
 		 * Sets the locale in which to load table contents. Elements that don't
 		 * have a translation in this language are sent in their default
-		 * language. Set to <tt>null</tt> to return all elements in default
+		 * language. Set to null to return all elements in default
 		 * language.
 		 * 
 		 * @param locale the locale in which to load table contents

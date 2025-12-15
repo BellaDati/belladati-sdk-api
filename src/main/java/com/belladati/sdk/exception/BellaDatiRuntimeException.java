@@ -5,7 +5,7 @@ package com.belladati.sdk.exception;
  * want to ensure you're dealing with any SDK exceptions while still allowing
  * other RuntimeExceptions to go through.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public abstract class BellaDatiRuntimeException extends RuntimeException {
 

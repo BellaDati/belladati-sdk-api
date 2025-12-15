@@ -5,7 +5,7 @@ import com.belladati.sdk.util.Resource;
 /**
  * A BellaDati user group.
  * 
- * @author Lubomir Elko
+ * 
  */
 public interface UserGroup extends Resource {
 

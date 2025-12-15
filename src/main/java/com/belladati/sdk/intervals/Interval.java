@@ -10,7 +10,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  * you to limit the range of data used in a view in the same way as setting date
  * or time intervals in the BellaDati frontend.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public abstract class Interval<U extends IntervalUnit> {
 

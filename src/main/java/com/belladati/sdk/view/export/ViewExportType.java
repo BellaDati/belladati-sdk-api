@@ -4,7 +4,7 @@ package com.belladati.sdk.view.export;
  * This enumeration determines view export types. Not every view supports all types of
  * exports.
  * 
- * @author Pavol Kovac
+ * 
  */
 public enum ViewExportType {
 

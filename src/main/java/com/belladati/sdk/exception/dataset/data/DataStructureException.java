@@ -6,7 +6,7 @@ import com.belladati.sdk.exception.BellaDatiRuntimeException;
  * Indicates a problem with a data table, e.g. a mismatch between values and
  * columns.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 abstract class DataStructureException extends BellaDatiRuntimeException {
 

@@ -3,7 +3,7 @@ package com.belladati.sdk.user;
 /**
  * Specifies the type of the user request.
  * 
- * @author Lubomir Elko
+ * 
  */
 public enum UserRequestType {
 

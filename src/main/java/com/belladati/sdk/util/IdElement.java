@@ -4,7 +4,7 @@ package com.belladati.sdk.util;
  * An element with a unique ID. This can be the element's own ID or the ID of a
  * resource it points to.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public interface IdElement {
 

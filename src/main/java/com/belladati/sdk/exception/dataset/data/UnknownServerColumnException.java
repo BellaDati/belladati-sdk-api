@@ -4,7 +4,7 @@ package com.belladati.sdk.exception.dataset.data;
  * Thrown when attempting write a column on the server that doesn't exist in the
  * data set.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public class UnknownServerColumnException extends DataStructureException {
 

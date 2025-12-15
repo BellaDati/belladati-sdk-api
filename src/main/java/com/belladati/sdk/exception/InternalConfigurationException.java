@@ -5,7 +5,7 @@ package com.belladati.sdk.exception;
  * SDK. This exception may indicate a bug in the SDK implementation. Please
  * contact BellaDati support if the problem persists.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public class InternalConfigurationException extends BellaDatiRuntimeException {
 

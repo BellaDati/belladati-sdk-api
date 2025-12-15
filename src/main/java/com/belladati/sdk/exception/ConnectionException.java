@@ -14,7 +14,7 @@ package com.belladati.sdk.exception;
  * >configure your JVM environment</a>.</li>
  * </ul>
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public class ConnectionException extends BellaDatiRuntimeException {
 

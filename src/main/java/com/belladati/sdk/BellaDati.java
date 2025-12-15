@@ -37,7 +37,7 @@ import com.belladati.sdk.exception.InvalidImplementationException;
  * set the timeouts before calling any of the {@link #connect()} methods.
  * 
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public class BellaDati {
 

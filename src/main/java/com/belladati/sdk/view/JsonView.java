@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 /**
  * A view displaying JSON content.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public interface JsonView extends View {
 

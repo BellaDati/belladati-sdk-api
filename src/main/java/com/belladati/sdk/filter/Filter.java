@@ -20,7 +20,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  * {@link FilterOperation#createFilter(Attribute)} on one of the static
  * operations in {@link FilterOperation} instead.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public abstract class Filter<F extends Filter<?>> {
 
@@ -89,9 +89,9 @@ public abstract class Filter<F extends Filter<?>> {
 
 	/**
 	 * A filter that contains only an attribute and an operation, but no values.
-	 * An example is to filter for an attribute to be <tt>null</tt>.
+	 * An example is to filter for an attribute to be null.
 	 * 
-	 * @author Chris Hennigfeld
+	 * 
 	 */
 	public static class NoValueFilter extends Filter<NoValueFilter> {
 
@@ -105,7 +105,7 @@ public abstract class Filter<F extends Filter<?>> {
 	 * values. An example is to filter for an attribute containing one of a set
 	 * of values.
 	 * 
-	 * @author Chris Hennigfeld
+	 * 
 	 */
 	public static class MultiValueFilter extends Filter<MultiValueFilter> {
 		private final Set<AttributeValue> values = new HashSet<>();
@@ -173,7 +173,7 @@ public abstract class Filter<F extends Filter<?>> {
 	 * values. An example is to filter for an attribute containing one of a set
 	 * of values.
 	 *
-	 * @author Chris Hennigfeld
+	 * 
 	 */
 	public static class SingleValueFilter extends Filter<SingleValueFilter> {
 		private AttributeValue value;

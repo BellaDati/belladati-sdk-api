@@ -10,7 +10,7 @@ import com.belladati.sdk.util.ResourceInfo;
  * meta-information about the dashboard. To retrieve the dashboard contents,
  * call {@link #loadDetails()}.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public interface DashboardInfo extends ResourceInfo<Dashboard> {
 
@@ -18,7 +18,7 @@ public interface DashboardInfo extends ResourceInfo<Dashboard> {
 	 * Returns the last change date of the associated dashboard.
 	 * 
 	 * @return the last change date of the associated dashboard, or
-	 *         <tt>null</tt> if it was never changed
+	 *         null if it was never changed
 	 */
 	Date getLastChange();
 

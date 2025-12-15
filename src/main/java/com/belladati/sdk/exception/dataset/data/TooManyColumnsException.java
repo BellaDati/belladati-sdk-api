@@ -3,7 +3,7 @@ package com.belladati.sdk.exception.dataset.data;
 /**
  * Thrown when attempting to insert more data than columns are available.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public class TooManyColumnsException extends DataStructureException {
 

@@ -16,7 +16,7 @@ import com.belladati.sdk.view.View;
  * A BellaDati report. A report holds a list of {@link View} objects that are
  * loaded as part of the report.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public interface Report extends Resource, Localizable {
 
@@ -37,7 +37,7 @@ public interface Report extends Resource, Localizable {
 	/**
 	 * Returns the last change date of this report.
 	 * 
-	 * @return the last change date of this report, or <tt>null</tt> if it was
+	 * @return the last change date of this report, or null if it was
 	 *         never changed
 	 */
 	Date getLastChange();

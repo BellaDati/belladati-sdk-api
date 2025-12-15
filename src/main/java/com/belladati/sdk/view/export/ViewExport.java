@@ -6,7 +6,7 @@ import java.io.InputStream;
  * This class represents export of the view. There are several possibilities as
  * view can be exported as PDF, XLS, ... depending on the view type.
  * 
- * @author pavol.kovac
+ * 
  */
 public class ViewExport {
 

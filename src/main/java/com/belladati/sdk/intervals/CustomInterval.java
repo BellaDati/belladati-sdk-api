@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  * A custom date or time interval. Custom intervals start and end at a
  * user-defined date/time.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public class CustomInterval<U extends IntervalUnit> extends Interval<U> {
 
@@ -23,7 +23,7 @@ public class CustomInterval<U extends IntervalUnit> extends Interval<U> {
 	 *            date/time
 	 * @param end end of the interval, in interval units from the current
 	 *            date/time
-	 * @throws NullIntervalException if the unit is <tt>null</tt>
+	 * @throws NullIntervalException if the unit is null
 	 */
 	public CustomInterval(U intervalUnit, String start, String end) throws NullIntervalException {
 		super(intervalUnit);

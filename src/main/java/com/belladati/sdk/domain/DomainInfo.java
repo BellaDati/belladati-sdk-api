@@ -11,7 +11,7 @@ import com.belladati.sdk.util.ResourceInfo;
  * about the domain. To retrieve the domain users call {@link #loadUsers(String)} and
  * the domain user groups call {@link #loadUserGroups()}.
  * 
- * @author Lubomir Elko
+ * 
  */
 public interface DomainInfo extends ResourceInfo<Domain> {
 

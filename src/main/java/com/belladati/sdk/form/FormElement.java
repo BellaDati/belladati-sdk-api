@@ -7,7 +7,7 @@ import com.belladati.sdk.util.Resource;
 /**
  * Element of import form. It represents one form field that can be filled in.
  * 
- * @author Lubomir Elko
+ * 
  */
 public interface FormElement extends Resource {
 

@@ -12,7 +12,7 @@ package com.belladati.sdk.exception.auth;
  * calculating the average of {@link #getEarliestTimestamp()} and
  * {@link #getLatestTimestamp()}.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public class InvalidTimestampException extends AuthorizationException {
 	/** The serialVersionUID */

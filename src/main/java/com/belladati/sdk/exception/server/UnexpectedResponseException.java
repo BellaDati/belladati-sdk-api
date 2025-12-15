@@ -5,7 +5,7 @@ package com.belladati.sdk.exception.server;
  * error. This particular exception occurs if no other exception matches the
  * error returned by the server.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public class UnexpectedResponseException extends ServerResponseException {
 

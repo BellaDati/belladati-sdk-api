@@ -7,7 +7,7 @@ import java.util.Collection;
  * initially load its contents from the server or {@link #load()} to clear the
  * cache and reload at a later time.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public interface CachedCollection<T, C extends Collection<T>> {
 
@@ -29,17 +29,17 @@ public interface CachedCollection<T, C extends Collection<T>> {
 	 * Loads the content of this collection from the server if it hasn't been
 	 * loaded before. Calling this method is equivalent to:
 	 * <p>
-	 * <tt>if(!collection.isLoaded() { collection.load(); } </tt>
+	 * if(!collection.isLoaded() { collection.load(); } 
 	 * 
 	 * @return this collection (for chaining)
 	 */
 	CachedCollection<T, C> loadFirstTime();
 
 	/**
-	 * Returns <tt>true</tt> if this cached collection has been loaded from the
+	 * Returns true if this cached collection has been loaded from the
 	 * server.
 	 * 
-	 * @return <tt>true</tt> if this cached collection has been loaded from the
+	 * @return true if this cached collection has been loaded from the
 	 *         server
 	 */
 	boolean isLoaded();

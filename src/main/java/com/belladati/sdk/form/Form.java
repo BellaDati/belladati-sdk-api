@@ -8,7 +8,7 @@ import com.belladati.sdk.util.Resource;
  * Import form used in BellaDati Data Collecting Module to import data into BellaDati.
  * @see <a href="http://support.belladati.com/doc/Data+Collection+Module">Data Collection Module</a>
  * 
- * @author Lubomir Elko
+ * 
  */
 public interface Form extends Resource {
 

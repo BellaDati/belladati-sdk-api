@@ -6,7 +6,7 @@ import com.belladati.sdk.intervals.IntervalUnit;
  * Indicates that an absolute interval had an invalid range, i.e. the start is
  * before the end.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public class InvalidRelativeIntervalException extends InvalidIntervalRangeException {
 

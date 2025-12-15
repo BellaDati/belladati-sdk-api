@@ -10,7 +10,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 /**
  * Units that can be used in BellaDati time intervals.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public enum TimeUnit implements IntervalUnit {
 	SECOND {

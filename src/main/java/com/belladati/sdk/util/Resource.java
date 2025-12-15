@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 /**
  * A unique resource from the BellaDati API.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public interface Resource extends IdElement {
 

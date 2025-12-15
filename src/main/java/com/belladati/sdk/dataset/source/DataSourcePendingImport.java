@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.JsonNode;
  * An import configuration from a data source to a data set being created by the
  * client.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public interface DataSourcePendingImport extends DataSourceImportBase {
 
@@ -34,14 +34,14 @@ public interface DataSourcePendingImport extends DataSourceImportBase {
 	 * Sets the interval at which this import is repeated. By default, the
 	 * import isn't repeated.
 	 * <p>
-	 * Pass a unit of <tt>null</tt> or set the factor to <tt>0</tt> or a
+	 * Pass a unit of null or set the factor to 0 or a
 	 * negative number to clear the interval.
 	 * <p>
 	 * This method has no corresponding getter. Call
 	 * {@link #getRepeatInterval()} instead to retrieve the resulting interval.
 	 * 
 	 * @param unit time unit for the interval
-	 * @param factor interval length will be <tt>factor * unit</tt>
+	 * @param factor interval length will be factor * unit
 	 * @return this import, to allow chaining
 	 * @throws IllegalStateException if the import has already been posted to
 	 *             the server

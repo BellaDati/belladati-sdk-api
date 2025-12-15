@@ -6,7 +6,7 @@ import java.util.Date;
  * A single execution of an import from a data source to a data set as set on
  * the server.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public interface DataSourceImport extends DataSourceImportBase {
 

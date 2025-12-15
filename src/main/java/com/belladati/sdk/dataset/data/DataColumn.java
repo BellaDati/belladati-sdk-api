@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 /**
  * A single row in a data table.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public final class DataColumn {
 	private final String code;
@@ -34,7 +34,7 @@ public final class DataColumn {
 	/**
 	 * Returns this column's date or time format, if any.
 	 * 
-	 * @return this column's date or time format, or <tt>null</tt>
+	 * @return this column's date or time format, or null
 	 */
 	public String getFormat() {
 		return format;
@@ -43,7 +43,7 @@ public final class DataColumn {
 	/**
 	 * Sets this column's date or time format.
 	 * 
-	 * @param format the date or time format for this column, or <tt>null</tt>
+	 * @param format the date or time format for this column, or null
 	 *            to not use any
 	 */
 	public void setFormat(String format) {

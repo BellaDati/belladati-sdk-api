@@ -19,7 +19,7 @@ import com.belladati.sdk.util.Resource;
 /**
  * A BellaDati data set definition.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public interface DataSet extends Resource, Localizable {
 
@@ -40,7 +40,7 @@ public interface DataSet extends Resource, Localizable {
 	/**
 	 * Returns the last change date of this data set.
 	 * 
-	 * @return the last change date of this data set, or <tt>null</tt> if it was
+	 * @return the last change date of this data set, or null if it was
 	 *         never changed
 	 */
 	Date getLastChange();

@@ -10,7 +10,7 @@ import com.belladati.sdk.util.Resource;
 /**
  * A data source used by a {@link DataSet}.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public interface DataSource extends Resource {
 

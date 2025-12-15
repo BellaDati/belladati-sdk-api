@@ -10,7 +10,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 /**
  * Units that can be used in BellaDati date intervals.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public enum DateUnit implements IntervalUnit {
 	DAY {

@@ -17,7 +17,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  * A single row in a data table. Enforces adherence to the parent table's data
  * structure.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public class DataRow implements IdElement {
 
@@ -65,7 +65,7 @@ public class DataRow implements IdElement {
 
 	/**
 	 * Returns this row's entire content. Columns that are not set will be
-	 * returned as <tt>null</tt>.
+	 * returned as null.
 	 * 
 	 * @return this row's entire content
 	 */

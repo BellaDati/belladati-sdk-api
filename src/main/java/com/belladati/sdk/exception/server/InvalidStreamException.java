@@ -5,7 +5,7 @@ package com.belladati.sdk.exception.server;
  * responded with HTTP 200. This most likely indicates a server-side error
  * creating the response content.
  * 
- * @author Lubomir Elko
+ * 
  */
 public class InvalidStreamException extends ServerResponseException {
 

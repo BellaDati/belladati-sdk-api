@@ -3,7 +3,7 @@ package com.belladati.sdk.exception.dataset.data;
 /**
  * Thrown when attempting to access a column that doesn't exist.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public class UnknownColumnException extends DataStructureException {
 

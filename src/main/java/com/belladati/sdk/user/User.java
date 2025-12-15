@@ -8,7 +8,7 @@ import com.belladati.sdk.util.Resource;
 /**
  * A BellaDati user.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public interface User extends Resource {
 
@@ -49,7 +49,7 @@ public interface User extends Resource {
 	String getEmail();
 
 	/**
-	 * Returns the date and time of the user's first login, or <tt>null</tt> if
+	 * Returns the date and time of the user's first login, or null if
 	 * the user has never logged in.
 	 * 
 	 * @return the date and time of the user's first login
@@ -58,7 +58,7 @@ public interface User extends Resource {
 
 	/**
 	 * Returns the date and time of the user's most recent login, or
-	 * <tt>null</tt> if the user has never logged in.
+	 * null if the user has never logged in.
 	 * 
 	 * @return the date and time of the user's most recent login
 	 */

@@ -9,13 +9,13 @@ import com.fasterxml.jackson.databind.JsonNode;
  * by {@link DateUnit} and {@link TimeUnit}, which contain all interval units
  * currently supported by BellaDati.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public interface IntervalUnit {
 	/**
 	 * Returns this unit's internal name. This method name is intended to match
 	 * {@link Enum#name()} since implementing classes are meant to be
-	 * <tt>enum</tt>.
+	 * enum.
 	 * 
 	 * @return this unit's internal name
 	 */
@@ -42,8 +42,8 @@ public interface IntervalUnit {
 	Calendar parseAbsolute(JsonNode node);
 
 	/**
-	 * Returns the node name, i.e. <tt>dateInterval</tt> or
-	 * <tt>timeInterval</tt>.
+	 * Returns the node name, i.e. dateInterval or
+	 * timeInterval.
 	 * 
 	 * @return the node name
 	 */

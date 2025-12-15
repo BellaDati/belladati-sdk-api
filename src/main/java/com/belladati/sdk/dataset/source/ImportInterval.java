@@ -3,13 +3,13 @@ package com.belladati.sdk.dataset.source;
 /**
  * The interval at which a {@link DataSourceImport} is executed.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public interface ImportInterval {
 
 	/**
 	 * Returns the time unit at which this interval repeats. Repeat time is
-	 * calculated as <tt>{@link #getUnit()} * {@link #getFactor()}</tt>.
+	 * calculated as {@link #getUnit()} * {@link #getFactor()}.
 	 * 
 	 * @return the time unit at which this interval repeats
 	 */
@@ -17,7 +17,7 @@ public interface ImportInterval {
 
 	/**
 	 * Returns the multiple of time units at which this interval repeats. Repeat
-	 * time is calculated as <tt>{@link #getUnit()} * {@link #getFactor()}</tt>.
+	 * time is calculated as {@link #getUnit()} * {@link #getFactor()}.
 	 * 
 	 * @return the multiple of time units at which this interval repeats
 	 */

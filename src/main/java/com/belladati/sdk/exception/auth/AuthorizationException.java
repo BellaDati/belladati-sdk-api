@@ -6,7 +6,7 @@ import com.belladati.sdk.exception.server.ServerResponseException;
  * Thrown if something went wrong during authentication or authorization. Check
  * {@link #getReason()} to find out more.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public class AuthorizationException extends ServerResponseException {
 
@@ -21,7 +21,7 @@ public class AuthorizationException extends ServerResponseException {
 	 * <b>Note:</b> As of BellaDati 2.7.6, not all reasons are currently
 	 * supported by the server.
 	 * 
-	 * @author Chris Hennigfeld
+	 * 
 	 */
 	public enum Reason {
 

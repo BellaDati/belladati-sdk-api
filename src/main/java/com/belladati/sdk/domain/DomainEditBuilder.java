@@ -5,7 +5,7 @@ import com.belladati.sdk.util.PostBuilder;
 /**
  * Builder used to initiate domain object that should be edited.
  * 
- * @author Lubomir Elko
+ * 
  */
 public interface DomainEditBuilder extends PostBuilder {
 

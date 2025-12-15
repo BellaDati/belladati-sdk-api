@@ -3,7 +3,7 @@ package com.belladati.sdk.dataset.source;
 /**
  * Units of time at which import intervals can be defined.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public enum ImportIntervalUnit {
 	MINUTE(1), HOUR(60 * MINUTE.minutes), DAY(24 * HOUR.minutes), WEEK(7 * DAY.minutes), MONTH(31 * DAY.minutes), QUARTER(

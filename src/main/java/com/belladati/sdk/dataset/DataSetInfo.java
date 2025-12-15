@@ -13,7 +13,7 @@ import com.belladati.sdk.util.ResourceInfo;
  * meta-information about the data set. To retrieve the report contents, call
  * {@link #loadDetails()}.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public interface DataSetInfo extends ResourceInfo<DataSet>, Localizable {
 
@@ -35,7 +35,7 @@ public interface DataSetInfo extends ResourceInfo<DataSet>, Localizable {
 	/**
 	 * Returns the last change date of the associated data set.
 	 * 
-	 * @return the last change date of the associated data set, or <tt>null</tt>
+	 * @return the last change date of the associated data set, or null
 	 *         if it was never changed
 	 */
 	Date getLastChange();

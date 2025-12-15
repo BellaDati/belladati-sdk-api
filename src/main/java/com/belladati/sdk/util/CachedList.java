@@ -7,7 +7,7 @@ import java.util.List;
  * {@link CachedCollection}. Call {@link #load()} to initially load its contents
  * from the server or to clear the cache and reload at a later time.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public interface CachedList<T> extends CachedCollection<T, List<T>> {
 
@@ -23,7 +23,7 @@ public interface CachedList<T> extends CachedCollection<T, List<T>> {
 	 * Loads the content of this list from the server if it hasn't been loaded
 	 * before. Calling this method is equivalent to:
 	 * <p>
-	 * <tt>if(!list.isLoaded() { list.load(); } </tt>
+	 * if(!list.isLoaded() { list.load(); } 
 	 * 
 	 * @return this list (for chaining)
 	 */

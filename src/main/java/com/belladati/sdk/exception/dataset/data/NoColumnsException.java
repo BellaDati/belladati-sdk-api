@@ -3,7 +3,7 @@ package com.belladati.sdk.exception.dataset.data;
 /**
  * Thrown when attempting to create a data table without any columns.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public class NoColumnsException extends DataStructureException {
 

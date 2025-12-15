@@ -6,7 +6,7 @@ import com.belladati.sdk.intervals.IntervalUnit;
 /**
  * Indicates that something went wrong with an interval.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public abstract class InvalidIntervalException extends BellaDatiRuntimeException {
 

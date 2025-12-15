@@ -16,7 +16,7 @@ import com.belladati.sdk.view.View;
  * classes to create filters, and to {@link View#loadContent(Filter...)} to use
  * them loading report views.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public interface Attribute extends Resource {
 

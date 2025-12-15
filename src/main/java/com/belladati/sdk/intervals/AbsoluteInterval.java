@@ -14,11 +14,11 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  * Note that even though start and end of the interval are specified as whole
  * dates, the relevant portion is determined by the interval unit.<br>
  * For example, creating an instance using {@link DateUnit#MONTH} from
- * <tt>2014-01-04</tt> to <tt>2014-03-08</tt> will result in an interval
+ * 2014-01-04 to 2014-03-08 will result in an interval
  * including the whole months of January through March, i.e. from
- * <tt>2014-01-01</tt> to <tt>2014-03-31</tt>.
+ * 2014-01-01 to 2014-03-31.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public class AbsoluteInterval<U extends IntervalUnit> extends Interval<U> {
 
@@ -34,7 +34,7 @@ public class AbsoluteInterval<U extends IntervalUnit> extends Interval<U> {
 	 *            the interval unit
 	 * @param end end of the interval, ignoring any parts more detailed than the
 	 *            interval unit
-	 * @throws NullIntervalException if start, end, or unit are <tt>null</tt>
+	 * @throws NullIntervalException if start, end, or unit are null
 	 * @throws InvalidAbsoluteIntervalException if the given start is after the
 	 *             given end
 	 */

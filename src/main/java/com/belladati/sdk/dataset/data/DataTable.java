@@ -17,7 +17,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  * A table holding data ready for import. Ensures that each row sticks to the
  * column structure defined in the constructor.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public class DataTable {
 

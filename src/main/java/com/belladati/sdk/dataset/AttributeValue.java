@@ -7,7 +7,7 @@ import com.belladati.sdk.filter.FilterOperation.MultiValueOperation;
  * and an internal value. Attribute values are used for filtering in a
  * {@link MultiValueOperation}.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public interface AttributeValue {
 

@@ -4,7 +4,7 @@ package com.belladati.sdk.dataset;
  * Indicates the type of an indicator. Provides information of what content to
  * expect from the indicator.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public enum IndicatorType {
 	/** A regular indicator containing raw data. */

@@ -5,7 +5,7 @@ import com.belladati.sdk.util.PostBuilder;
 /**
  * Builder used to initiate user object that should be edited.
  * 
- * @author Lubomir Elko
+ * 
  */
 public interface UserEditBuilder extends PostBuilder {
 

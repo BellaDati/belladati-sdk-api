@@ -9,14 +9,14 @@ import com.belladati.sdk.util.Resource;
  * A BellaDati dashboard. A dashboard holds a list of {@link Dashlet} objects
  * that are loaded as part of the dashboard.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public interface Dashboard extends Resource {
 
 	/**
 	 * Returns the last change date of this dashboard.
 	 * 
-	 * @return the last change date of this dashboard, or <tt>null</tt> if it
+	 * @return the last change date of this dashboard, or null if it
 	 *         was never changed
 	 */
 	Date getLastChange();

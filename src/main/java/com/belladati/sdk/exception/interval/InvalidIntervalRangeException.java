@@ -5,7 +5,7 @@ import com.belladati.sdk.intervals.IntervalUnit;
 /**
  * Indicates that the specified interval range was invalid.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public abstract class InvalidIntervalRangeException extends InvalidIntervalException {
 

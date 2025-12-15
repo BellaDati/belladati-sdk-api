@@ -12,10 +12,10 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  * <p>
  * Start and end of a relative interval are numeric and indicate the number of
  * interval units from the current date/time. For example, creating an instance
- * using {@link DateUnit#MONTH} from <tt>-3</tt> to <tt>-1</tt> results in an
+ * using {@link DateUnit#MONTH} from -3 to -1 results in an
  * interval that includes the past 3 whole calendar months.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public class RelativeInterval<U extends IntervalUnit> extends Interval<U> {
 
@@ -30,7 +30,7 @@ public class RelativeInterval<U extends IntervalUnit> extends Interval<U> {
 	 *            date/time
 	 * @param end end of the interval, in interval units from the current
 	 *            date/time
-	 * @throws NullIntervalException if the unit is <tt>null</tt>
+	 * @throws NullIntervalException if the unit is null
 	 * @throws InvalidAbsoluteIntervalException if the given start is after the
 	 *             given end
 	 */

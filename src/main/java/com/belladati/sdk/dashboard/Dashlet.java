@@ -6,7 +6,7 @@ import com.belladati.sdk.view.View;
  * Represents a single dashlet in a BellaDati dashboard. Refer to
  * {@link #getType()} to find out what type of content it contains.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public interface Dashlet {
 
@@ -14,7 +14,7 @@ public interface Dashlet {
 	 * Types of dashlets. The type of a dashlet indicates what content it
 	 * contains.
 	 * 
-	 * @author Chris Hennigfeld
+	 * 
 	 */
 	public enum Type {
 		/**

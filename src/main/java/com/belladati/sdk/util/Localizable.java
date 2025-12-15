@@ -5,7 +5,7 @@ import java.util.Locale;
 /**
  * An item whose name can be localized in multiple languages.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public interface Localizable {
 
@@ -22,7 +22,7 @@ public interface Localizable {
 	 * Checks if this item has a localization for the given locale.
 	 * 
 	 * @param locale locale to check
-	 * @return <tt>true</tt> if a localization exists
+	 * @return true if a localization exists
 	 */
 	boolean hasLocalization(Locale locale);
 }

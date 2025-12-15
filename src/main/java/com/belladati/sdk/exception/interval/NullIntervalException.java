@@ -3,10 +3,10 @@ package com.belladati.sdk.exception.interval;
 import com.belladati.sdk.intervals.IntervalUnit;
 
 /**
- * Indicates that a parameter was <tt>null</tt> during interval creation. This
+ * Indicates that a parameter was null during interval creation. This
  * can be the interval's unit, start, or end.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public class NullIntervalException extends InvalidIntervalException {
 

@@ -7,7 +7,7 @@ import com.belladati.sdk.util.PageSize;
 /**
  * ViewExporter is an auxiliary class for view exporting. It has just single responsibility.
  * 
- * @author Pavol Kovac
+ * 
  */
 public interface ViewExporter extends IdElement {
 

@@ -5,7 +5,7 @@ package com.belladati.sdk.exception.server;
  * request. This indicates a bug or configuration problem on the server side.
  * Check the server logs to find out more details.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public class InternalErrorException extends ServerResponseException {
 

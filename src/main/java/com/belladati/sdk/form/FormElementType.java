@@ -3,7 +3,7 @@ package com.belladati.sdk.form;
 /**
  * Indicates the type of an import form element.
  * 
- * @author Lubomir Elko
+ * 
  */
 public enum FormElementType {
 

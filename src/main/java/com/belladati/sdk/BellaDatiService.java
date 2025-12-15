@@ -61,7 +61,7 @@ import com.fasterxml.jackson.databind.JsonNode;
  * credentials. Use this to save a user's session when closing your application
  * so they don't have to log in again on their next use.
  * 
- * @author Chris Hennigfeld
+ * 
  */
 public interface BellaDatiService extends Serializable {
 
